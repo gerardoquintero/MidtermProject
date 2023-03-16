@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Where you wanna go bwitch?</title>
+<title>Where you wanna go BT?</title>
 </head>
-<h1>Come over here bwitch</h1>
+<h1>Welcome Bewitched Traveler</h1>
+
+<h2>${SMOKETEST}</h2> <!-- debug -->
+
 <body>
 
 </body>
