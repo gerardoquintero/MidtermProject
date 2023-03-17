@@ -1,26 +1,38 @@
 package com.skilldistillery.bewitchedexcursions.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	public User() {
-		
-	}
-	private String username;
-	private String password;
-	private boolean enabled;
-	private String role;
 
+	@ManyToMany
+	@JoinTable(name = "user_has_friend", joinColumns = @JoinColumn(name = "user_id"), 
+	inverseJoinColumns = @JoinColumn(name = "friend_id"))
+	private List<User> friends; // TO DO : Create add and remove method
+
+	public User() {
+
+	}
+
+	private String username;
+
+	private String password;
+
+	private boolean enabled;
+
+	private String role;
 
 	public int getId() {
 		return id;
@@ -62,20 +74,25 @@ public class User {
 		this.role = role;
 	}
 
-	
+	public List<User> getFriends() {
+		return friends;
+	}
 
-	
+	public void setFriends(List<User> friends) {
+		this.friends = friends;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
 				+ ", role=" + role + "]";
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

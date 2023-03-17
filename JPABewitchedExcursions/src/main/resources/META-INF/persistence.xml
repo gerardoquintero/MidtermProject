@@ -7,6 +7,13 @@
 
 		<!--BEGIN ENTITIES -->
 		<class>com.skilldistillery.bewitchedexcursions.entities.User</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.Activity</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.Address</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.Transportation</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.Lodging</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.Trip</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.Review</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.ReviewId</class>
 
 
 		<!--END ENTITIES -->
