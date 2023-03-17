@@ -47,9 +47,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `image` VARCHAR(2500) NULL,
   `biography` TEXT NULL,
   `email_address` VARCHAR(100) NULL,
-  `address_id` INT NOT NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
+  `address_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   INDEX `fk_user_address1_idx` (`address_id` ASC),
@@ -75,8 +75,8 @@ CREATE TABLE IF NOT EXISTS `trip` (
   `capacity` INT NULL,
   `image` VARCHAR(2500) NULL,
   `cost` DECIMAL(5,2) NULL,
-  `organizer_id` INT NOT NULL,
   `enabled` TINYINT NULL,
+  `organizer_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_trip_user1_idx` (`organizer_id` ASC),
   CONSTRAINT `fk_trip_user1`
@@ -415,7 +415,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `excursiondb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `image`, `biography`, `email_address`, `address_id`, `first_name`, `last_name`) VALUES (1, 'admin', 'admin', 1, 'admin', NULL, NULL, NULL, 1, NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `image`, `biography`, `email_address`, `first_name`, `last_name`, `address_id`) VALUES (1, 'admin', 'admin', 1, 'admin', NULL, NULL, NULL, NULL, NULL, 1);
 
 COMMIT;
 
@@ -425,7 +425,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `excursiondb`;
-INSERT INTO `trip` (`id`, `start_date`, `end_date`, `name`, `description`, `capacity`, `image`, `cost`, `organizer_id`, `enabled`) VALUES (1, '2013/05/12', '2013/06/07', 'Jerrys Trip', 'Friends Trip', NULL, NULL, NULL, 1, NULL);
+INSERT INTO `trip` (`id`, `start_date`, `end_date`, `name`, `description`, `capacity`, `image`, `cost`, `enabled`, `organizer_id`) VALUES (1, '2013/05/12', '2013/06/07', 'Jerrys Trip', 'Friends Trip', NULL, NULL, NULL, NULL, 1);
 
 COMMIT;
 
