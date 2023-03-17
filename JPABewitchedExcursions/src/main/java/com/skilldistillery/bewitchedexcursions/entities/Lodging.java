@@ -8,36 +8,34 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import org.hibernate.annotations.CollectionId;
-import org.hibernate.annotations.CollectionType;
+import javax.persistence.Table;
 
 @Entity
-public class Activity {
+@Table(name = "lodging")
+public class Lodging {
 
-	@Id	
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String name;
 
-	@Column(name = "start_date")
-	private LocalDateTime startDate;
-
-	@Column(name = "end_date")
-	private LocalDateTime endDate;
-
 	private String description;
 
+	private Double price;
+
+	@Column(name = "check_in_time")
+	private LocalDateTime checkInTime;
+
+	@Column(name = "check_out_time")
+	private LocalDateTime checkOutTime;
+
+	@Column(name = "image")
 	private String imageURL;
-
-	private double cost;
-
-	private boolean approved;
 
 	private boolean enabled;
 
-	public Activity() {
+	public Lodging() {
 
 	}
 
@@ -57,22 +55,6 @@ public class Activity {
 		this.name = name;
 	}
 
-	public LocalDateTime getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(LocalDateTime startDate) {
-		this.startDate = startDate;
-	}
-
-	public LocalDateTime getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(LocalDateTime endDate) {
-		this.endDate = endDate;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -81,28 +63,36 @@ public class Activity {
 		this.description = description;
 	}
 
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public LocalDateTime getCheckInTime() {
+		return checkInTime;
+	}
+
+	public void setCheckInTime(LocalDateTime checkInTime) {
+		this.checkInTime = checkInTime;
+	}
+
+	public LocalDateTime getCheckOutTime() {
+		return checkOutTime;
+	}
+
+	public void setCheckOutTime(LocalDateTime checkOutTime) {
+		this.checkOutTime = checkOutTime;
+	}
+
 	public String getImageURL() {
 		return imageURL;
 	}
 
 	public void setImageURL(String imageURL) {
 		this.imageURL = imageURL;
-	}
-
-	public double getCost() {
-		return cost;
-	}
-
-	public void setCost(double cost) {
-		this.cost = cost;
-	}
-
-	public boolean isApproved() {
-		return approved;
-	}
-
-	public void setApproved(boolean approved) {
-		this.approved = approved;
 	}
 
 	public boolean isEnabled() {
@@ -115,9 +105,9 @@ public class Activity {
 
 	@Override
 	public String toString() {
-		return "Activity [id=" + id + ", name=" + name + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", description=" + description + ", imageURL=" + imageURL + ", cost=" + cost + ", approved="
-				+ approved + ", enabled=" + enabled + "]";
+		return "Lodging [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
+				+ ", checkInTime=" + checkInTime + ", checkOutTime=" + checkOutTime + ", imageURL=" + imageURL
+				+ ", enabled=" + enabled + "]";
 	}
 
 	@Override
@@ -133,7 +123,7 @@ public class Activity {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Activity other = (Activity) obj;
+		Lodging other = (Lodging) obj;
 		return id == other.id;
 	}
 
