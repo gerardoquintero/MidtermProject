@@ -1,6 +1,7 @@
 package com.skilldistillery.bewitchedexcursions.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +23,22 @@ public class Trip {
 	@Column(name = "start_date")
 	private LocalDateTime startDate;
 
+	@OneToMany(mappedBy="trip")
+	private List<Review> reviews;
+	
+	
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
 	@Column(name = "end_date")
 	private LocalDateTime endDate;
 
@@ -28,12 +46,12 @@ public class Trip {
 
 	private String description;
 
-	private int capacity;
+	private Integer capacity;
 
 	@Column(name = "image")
 	private String imageURL;
 
-	private boolean enabled;
+	private Boolean enabled;
 
 	public Trip() {
 
@@ -79,11 +97,11 @@ public class Trip {
 		this.description = description;
 	}
 
-	public int getCapacity() {
+	public Integer getCapacity() {
 		return capacity;
 	}
 
-	public void setCapacity(int capacity) {
+	public void setCapacity(Integer capacity) {
 		this.capacity = capacity;
 	}
 
@@ -95,11 +113,11 @@ public class Trip {
 		this.imageURL = imageURL;
 	}
 
-	public boolean isEnabled() {
+	public Boolean isEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 
