@@ -46,5 +46,14 @@ class TripMessageTest {
 		assertEquals("hi", tripMessage.getMessage());
 
 	}
+	
+
+	@Test
+	void test_trip_OTM_user_tripMessages_mapping() {
+		assertNotNull(tripMessage);
+		assertNotNull(tripMessage.getUser());
+		assertEquals("admin", tripMessage.getUser().getUsername());
+	}
+	
 
 }

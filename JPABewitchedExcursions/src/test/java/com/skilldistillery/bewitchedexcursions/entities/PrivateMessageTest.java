@@ -46,5 +46,24 @@ class PrivateMessageTest {
 		assertEquals("hi bob", privateMessage.getMessage());
 
 	}
+	
+
+	@Test
+	void test_private_User_Sender_Message_mapping() {
+		assertNotNull(privateMessage);
+		assertTrue(privateMessage.getSender().getSentMessages().size() > 0);
+		assertEquals("hi bob", privateMessage.getSender().getSentMessages().get(0).getMessage());
+		assertEquals("admin", privateMessage.getSender().getUsername());
+
+	}
+	
+	@Test
+	void test_private_User_Reciever_Message_mapping() {
+		assertNotNull(privateMessage);
+		assertTrue(privateMessage.getReciever().getSentMessages().size() > 0);
+		assertEquals("hi bob", privateMessage.getReciever().getRecievedMessages().get(0).getMessage());
+		assertEquals("admin", privateMessage.getReciever().getUsername());
+
+	}
 
 }

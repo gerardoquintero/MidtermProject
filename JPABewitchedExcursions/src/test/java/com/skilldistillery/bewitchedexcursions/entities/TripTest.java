@@ -64,4 +64,11 @@ class TripTest {
 		assertEquals("admin", trip.getUser().getUsername());
 	}
 
+	@Test
+	void test_trip_OTM_review_trip_mapping() {
+		assertNotNull(trip);
+		assertTrue(trip.getTripReviews().size() > 0);
+		assertEquals("Great Trip", trip.getTripReviews().get(0).getComment());
+	}
+	
 }
