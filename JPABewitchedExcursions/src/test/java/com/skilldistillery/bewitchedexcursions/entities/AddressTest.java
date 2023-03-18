@@ -63,4 +63,11 @@ class AddressTest {
 		assertTrue(address.getActivities().size() > 0);
 		assertEquals("Disney World", address.getActivities().get(0).getName());
 	}
+	
+	@Test
+	void test_address_OTM_transportation_mapping() {
+		assertNotNull(address);
+		assertTrue(address.getArrivalTransportaion().size() > 0);
+		assertEquals(2019, address.getArrivalTransportaion().get(0).getArrivalDate().getYear());
+	}
 }

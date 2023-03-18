@@ -26,8 +26,12 @@ public class TripMessage {
 	private LocalDateTime createDate;
 	
 	@ManyToOne
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "user_id") 
 	private User user;
+	
+	@ManyToOne
+	@JoinColumn(name = "trip_id") 
+	private Trip trip;
 	
 	public TripMessage() {
 
@@ -55,6 +59,14 @@ public class TripMessage {
 
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
+	}
+
+	public Trip getTrip() {
+		return trip;
+	}
+
+	public void setTrip(Trip trip) {
+		this.trip = trip;
 	}
 
 	public User getUser() {

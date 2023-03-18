@@ -27,7 +27,7 @@ public class User {
 	private List<Trip> trip;
 
 	@OneToMany(mappedBy = "user")
-	private List<Review> reviews;
+	private List<Review> reviews; 
 
 	@OneToMany(mappedBy = "user")
 	private List<TripMessage> messages;

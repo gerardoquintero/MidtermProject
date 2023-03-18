@@ -41,6 +41,12 @@ public class Address {
 	@OneToMany(mappedBy="address")
 	private List<Activity> activities;
 	
+	@OneToMany(mappedBy="departureAddress")
+	private List<Transportation> departureTransportaion;
+	
+	@OneToMany(mappedBy="arrivalAddress")
+	private List<Transportation> arrivalTransportaion;
+	
 	public Address() {
 
 	}
@@ -63,6 +69,22 @@ public class Address {
 
 	public String getCountry() {
 		return country;
+	}
+
+	public List<Transportation> getDepartureTransportaion() {
+		return departureTransportaion;
+	}
+
+	public void setDepartureTransportaion(List<Transportation> departureTransportaion) {
+		this.departureTransportaion = departureTransportaion;
+	}
+
+	public List<Transportation> getArrivalTransportaion() {
+		return arrivalTransportaion;
+	}
+
+	public void setArrivalTransportaion(List<Transportation> arrivalTransportaion) {
+		this.arrivalTransportaion = arrivalTransportaion;
 	}
 
 	public void setCountry(String country) {

@@ -55,5 +55,11 @@ class TripMessageTest {
 		assertEquals("admin", tripMessage.getUser().getUsername());
 	}
 	
+	@Test
+	void test_trip_MTO_tripMessages_mapping() {
+		assertNotNull(tripMessage);
+		assertNotNull(tripMessage.getMessage());
+		assertEquals("admin", tripMessage.getUser().getUsername());
+	}
 
 }

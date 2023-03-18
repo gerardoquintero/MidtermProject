@@ -48,5 +48,18 @@ class TransportationTest {
 		assertEquals(65,transportation.getCost());
 		
 	}
-
+	
+	@Test
+	void test_Transportation_address_mapping() {
+		assertNotNull(transportation);
+		assertEquals("USA",transportation.getArrivalAddress().getCountry());
+		
+	}
+	
+	@Test
+	void test_Transportation_transportationType_mapping() {
+		assertNotNull(transportation);
+		assertEquals("Airplane",transportation.getTransportationType().getType());
+		
+	}
 }

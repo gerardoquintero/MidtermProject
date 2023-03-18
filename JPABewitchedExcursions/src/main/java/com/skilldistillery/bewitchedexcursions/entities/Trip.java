@@ -63,12 +63,18 @@ public class Trip {
 	@ManyToOne
 	@JoinColumn(name = "organizer_id")
 	private User user;
-	
-	@OneToMany(mappedBy="trip")
+
+	@OneToMany(mappedBy = "trip")
 	private List<Review> tripReviews;
-	
-	@OneToMany(mappedBy="tripActivity")
+
+	@OneToMany(mappedBy = "tripActivity")
 	private List<Activity> activities;
+
+	@OneToMany(mappedBy = "trip")
+	private List<TripMessage> tripMessages;
+	
+	@OneToMany(mappedBy = "trip")
+	private List<Lodging> lodging;
 
 
 	public Trip() {
@@ -89,6 +95,14 @@ public class Trip {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public List<TripMessage> getTripMessages() {
+		return tripMessages;
+	}
+
+	public void setTripMessages(List<TripMessage> tripMessages) {
+		this.tripMessages = tripMessages;
 	}
 
 	public LocalDateTime getStartDate() {
@@ -113,6 +127,14 @@ public class Trip {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<Lodging> getLodging() {
+		return lodging;
+	}
+
+	public void setLodging(List<Lodging> lodging) {
+		this.lodging = lodging;
 	}
 
 	public String getDescription() {
@@ -154,8 +176,6 @@ public class Trip {
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
-
-
 
 	public List<User> getUserTrips() {
 		return userTrips;

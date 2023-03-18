@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -43,6 +44,11 @@ public class Lodging {
 	@JoinTable(name="lodging_has_lodging_amenities",joinColumns=@JoinColumn(name="lodging_id"),
 	inverseJoinColumns=@JoinColumn(name="lodging_amenities_id"))
 	private List <LodgingAmenities> lodgingAmenities;
+	
+
+	@ManyToOne
+	@JoinColumn(name = "trip_id")
+	private Trip trip;
 
 	public Lodging() {
 
@@ -62,6 +68,14 @@ public class Lodging {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Trip getTrip() {
+		return trip;
+	}
+
+	public void setTrip(Trip trip) {
+		this.trip = trip;
 	}
 
 	public String getDescription() {
