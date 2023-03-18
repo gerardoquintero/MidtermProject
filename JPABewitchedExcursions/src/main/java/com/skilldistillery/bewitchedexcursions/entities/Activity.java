@@ -8,10 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.CollectionId;
-import org.hibernate.annotations.CollectionType;
 
 @Entity
 @Table(name = "activity")
@@ -39,7 +38,11 @@ public class Activity {
 	private Boolean approved;
 
 	private boolean enabled;
-
+	
+	@ManyToOne
+	@JoinColumn(name="activity_type_id")
+	private Activity activity;
+	
 	public Activity() {
 
 	}
