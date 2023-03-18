@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -36,6 +37,10 @@ public class User {
 
 	@OneToMany(mappedBy = "reciever")
 	private List<PrivateMessage> recievedMessages;
+
+	@ManyToOne
+	@JoinColumn(name = "address_id")
+	private Address userAddress;
 
 	public User() {
 
@@ -87,6 +92,14 @@ public class User {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public Address getUserAddress() {
+		return userAddress;
+	}
+
+	public void setUserAddress(Address userAddress) {
+		this.userAddress = userAddress;
 	}
 
 	public String getRole() {

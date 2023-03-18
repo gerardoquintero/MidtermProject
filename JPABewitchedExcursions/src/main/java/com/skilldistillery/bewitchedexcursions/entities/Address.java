@@ -1,5 +1,6 @@
 package com.skilldistillery.bewitchedexcursions.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -33,8 +35,12 @@ public class Address {
 
 	private boolean enabled;
 	
+	@OneToMany(mappedBy="userAddress")
+	private List<User> users;
 	
-
+	@OneToMany(mappedBy="address")
+	private List<Activity> activities;
+	
 	public Address() {
 
 	}
@@ -47,12 +53,28 @@ public class Address {
 		this.id = id;
 	}
 
+	public List<Activity> getActivities() {
+		return activities;
+	}
+
+	public void setActivities(List<Activity> activities) {
+		this.activities = activities;
+	}
+
 	public String getCountry() {
 		return country;
 	}
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 	public String getCity() {

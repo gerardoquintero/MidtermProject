@@ -71,4 +71,10 @@ class UserTest {
 		assertTrue(user.getMessages().size() > 0);
 		
 	}
+	@Test
+	void test_User_OTM_address_mapping() {
+		assertNotNull(user);
+		assertEquals("Twin Peaks", user.getUserAddress().getCity());
+		
+	}
 }

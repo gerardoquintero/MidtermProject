@@ -2,6 +2,7 @@ package com.skilldistillery.bewitchedexcursions.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -54,5 +55,18 @@ class ActivityTest {
 		assertEquals("Attraction",activity.getActivityType().getActivityType());
 		
 	}
-
+	
+	@Test
+	void test_activity_MTO_trip_mapping() {
+		assertNotNull(activity);
+		assertEquals("Disney World", activity.getTripActivity().getName());
+		
+	}
+	
+	@Test
+	void test_activity_MTO_address_trip_mapping() {
+		assertNotNull(activity);
+		assertEquals("USA", activity.getAddress().getCountry());
+		
+	}
 }
