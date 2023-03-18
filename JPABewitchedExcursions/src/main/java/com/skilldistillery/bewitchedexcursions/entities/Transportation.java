@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -34,6 +36,18 @@ public class Transportation {
 	private String description;
 
 	private boolean enabled;
+	
+	@ManyToOne
+	@JoinColumn(name = "departure_address_id")
+	private Address departureAddress;
+	
+	@ManyToOne
+	@JoinColumn(name = "arrival_address_id")
+	private Address arrivalAddress;
+	
+	@ManyToOne
+	@JoinColumn(name = "transportation_type_id")
+	private TransportationType transportationType;
 
 	public Transportation() {
 
@@ -47,12 +61,36 @@ public class Transportation {
 		this.id = id;
 	}
 
+	public Address getDepartureAddress() {
+		return departureAddress;
+	}
+
+	public void setDepartureAddress(Address departureAddress) {
+		this.departureAddress = departureAddress;
+	}
+
+	public Address getArrivalAddress() {
+		return arrivalAddress;
+	}
+
+	public void setArrivalAddress(Address arrivalAddress) {
+		this.arrivalAddress = arrivalAddress;
+	}
+
 	public String getCompany() {
 		return company;
 	}
 
 	public void setCompany(String company) {
 		this.company = company;
+	}
+
+	public TransportationType getTransportationType() {
+		return transportationType;
+	}
+
+	public void setTransportationType(TransportationType transportationType) {
+		this.transportationType = transportationType;
 	}
 
 	public LocalDateTime getDepartureDate() {

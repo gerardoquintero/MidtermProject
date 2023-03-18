@@ -46,5 +46,13 @@ class TransportationTypeTest {
 		assertEquals("Airplane", transportationType.getType());
 
 	}
+	
+	@Test
+	void test_transportationType_Transportation_mapping() {
+		assertNotNull(transportationType);
+		assertNotNull(transportationType.getTransportations().get(0).getCost());
+		assertEquals("Airplane", transportationType.getType());
+
+	}
 
 }

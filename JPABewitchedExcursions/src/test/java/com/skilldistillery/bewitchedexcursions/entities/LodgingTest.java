@@ -55,8 +55,13 @@ class LodgingTest {
 		assertNotNull(lodging.getLodgingAmenities());
 		assertTrue(lodging.getLodgingAmenities().size()>0);
 		assertEquals("pool",lodging.getLodgingAmenities().get(0).getName());
-	
 		
+	}
+	
+	@Test
+	void test_lodging_trip_mapping() {
+		assertNotNull(lodging.getTrip());
+		assertEquals("Jerrys Trip",lodging.getTrip().getName());
 		
 	}
 
