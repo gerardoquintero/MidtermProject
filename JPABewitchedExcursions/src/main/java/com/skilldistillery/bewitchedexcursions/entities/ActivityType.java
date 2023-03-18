@@ -22,10 +22,7 @@ public class ActivityType {
 	@Column(name = "activity_type")
 	private String activityType;
 	
-	@ManyToOne
-	@JoinColumn(name="activity_type_id")
-	private Activity activity;
-	
+
 	public ActivityType() {
 		
 	}

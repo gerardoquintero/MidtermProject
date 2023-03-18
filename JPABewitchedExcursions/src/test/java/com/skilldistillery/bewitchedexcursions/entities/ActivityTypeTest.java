@@ -47,10 +47,4 @@ class ActivityTypeTest {
 
 	}
 
-//	@Test
-//	void test_activityType_Activity_mapping() {
-//		assertNotNull(activityType);
-//		assertEquals("Attraction", activityType.get);
-//		
-//	}
 }

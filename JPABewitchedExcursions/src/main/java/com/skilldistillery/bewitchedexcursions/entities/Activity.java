@@ -39,13 +39,22 @@ public class Activity {
 
 	private boolean enabled;
 	
+	public Activity() {
+		
+	}
+	
 	@ManyToOne
 	@JoinColumn(name="activity_type_id")
-	private Activity activity;
+	private ActivityType activityType;
 	
-	public Activity() {
-
+	public ActivityType getActivityType() {
+		return activityType;
 	}
+
+	public void setActivityType(ActivityType activityType) {
+		this.activityType = activityType;
+	}
+
 
 	public int getId() {
 		return id;
