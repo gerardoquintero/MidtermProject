@@ -47,4 +47,11 @@ class LodgingAmenitiesTest {
 
 	}
 
+	@Test
+	void test_lodgingAmenities_Lodging_mapping() {
+		assertNotNull(lodgingAmenities);
+		assertEquals("marriott", lodgingAmenities.getLodging().get(0).getName());
+
+	}
+
 }
