@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+<persistence version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 	<persistence-unit name="JPABewitchedExcursions">
-	
-	
-	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<!--BEGIN ENTITIES -->
-		<class>com.skilldistillery.bewitchedexcursions.entities.User</class>
 		<class>com.skilldistillery.bewitchedexcursions.entities.Activity</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.ActivityType</class>
 		<class>com.skilldistillery.bewitchedexcursions.entities.Address</class>
-		<class>com.skilldistillery.bewitchedexcursions.entities.Transportation</class>
 		<class>com.skilldistillery.bewitchedexcursions.entities.Lodging</class>
-		<class>com.skilldistillery.bewitchedexcursions.entities.Trip</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.LodgingAmenities</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.PrivateMessage</class>
 		<class>com.skilldistillery.bewitchedexcursions.entities.Review</class>
 		<class>com.skilldistillery.bewitchedexcursions.entities.ReviewId</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.Transportation</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.TransportationType</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.Trip</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.TripMessage</class>
+		<class>com.skilldistillery.bewitchedexcursions.entities.User</class>
 
 
 		<!--END ENTITIES -->
@@ -42,8 +50,8 @@
 			<property name="hibernate.c3p0.max_statements" value="0" />
 			<property name="hibernate.c3p0.timeout" value="60" />
 		</properties>
-	
-	
-	
+
+
+
 	</persistence-unit>
 </persistence>
