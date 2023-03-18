@@ -44,8 +44,8 @@ public class Review {
 	private LocalDateTime lastUpdated;
 
 	private Boolean enabled;
-
-	public Review() {
+	
+	public Review(){
 
 	}
 

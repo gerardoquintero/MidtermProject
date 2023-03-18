@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -18,13 +19,24 @@ public class User {
 	private int id;
 
 	@ManyToMany
-	@JoinTable(name = "user_has_friend", joinColumns = @JoinColumn(name = "user_id"), 
-	inverseJoinColumns = @JoinColumn(name = "friend_id"))
+	@JoinTable(name = "user_has_friend", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "friend_id"))
 	private List<User> friends; // TO DO : Create add and remove method
 
-	@ManyToMany(mappedBy="userTrips")
+	@ManyToMany(mappedBy = "userTrips")
 	private List<Trip> trip;
-	
+
+	@OneToMany(mappedBy = "user")
+	private List<Review> reviews;
+
+	@OneToMany(mappedBy = "user")
+	private List<TripMessage> messages;
+
+	@OneToMany(mappedBy = "sender")
+	private List<PrivateMessage> sentMessages;
+
+	@OneToMany(mappedBy = "reciever")
+	private List<PrivateMessage> recievedMessages;
+
 	public User() {
 
 	}
@@ -43,6 +55,14 @@ public class User {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
 	}
 
 	public String getUsername() {
@@ -77,12 +97,36 @@ public class User {
 		this.role = role;
 	}
 
+	public List<PrivateMessage> getSentMessages() {
+		return sentMessages;
+	}
+
+	public void setSentMessages(List<PrivateMessage> sentMessages) {
+		this.sentMessages = sentMessages;
+	}
+
+	public List<PrivateMessage> getRecievedMessages() {
+		return recievedMessages;
+	}
+
+	public void setRecievedMessages(List<PrivateMessage> recievedMessages) {
+		this.recievedMessages = recievedMessages;
+	}
+
 	public List<User> getFriends() {
 		return friends;
 	}
 
 	public void setFriends(List<User> friends) {
 		this.friends = friends;
+	}
+
+	public List<TripMessage> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(List<TripMessage> messages) {
+		this.messages = messages;
 	}
 
 	public List<Trip> getTrip() {

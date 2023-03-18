@@ -63,6 +63,9 @@ public class Trip {
 	@ManyToOne
 	@JoinColumn(name = "organizer_id")
 	private User user;
+	
+	@OneToMany(mappedBy="trip")
+	private List<Review> tripReviews;
 
 	public Trip() {
 
@@ -102,6 +105,14 @@ public class Trip {
 
 	public String getDescription() {
 		return description;
+	}
+
+	public List<Review> getTripReviews() {
+		return tripReviews;
+	}
+
+	public void setTripReviews(List<Review> tripReviews) {
+		this.tripReviews = tripReviews;
 	}
 
 	public void setDescription(String description) {

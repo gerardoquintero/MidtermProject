@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +26,14 @@ public class PrivateMessage {
 	private LocalDateTime createDate;
 
 	private boolean enabled;
+
+	@ManyToOne
+	@JoinColumn(name = "sender_id")
+	private User sender;
+
+	@ManyToOne
+	@JoinColumn(name = "reciever_id")
+	private User reciever;
 
 	public PrivateMessage() {
 
@@ -47,6 +57,22 @@ public class PrivateMessage {
 
 	public LocalDateTime getCreateDate() {
 		return createDate;
+	}
+
+	public User getSender() {
+		return sender;
+	}
+
+	public void setSender(User sender) {
+		this.sender = sender;
+	}
+
+	public User getReciever() {
+		return reciever;
+	}
+
+	public void setReciever(User reciever) {
+		this.reciever = reciever;
 	}
 
 	public void setCreateDate(LocalDateTime createDate) {

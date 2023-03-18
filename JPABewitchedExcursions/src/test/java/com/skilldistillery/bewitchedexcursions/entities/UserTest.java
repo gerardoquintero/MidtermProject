@@ -56,5 +56,19 @@ class UserTest {
 		assertTrue(user.getTrip().size() > 0);
 		
 	}
+	
+	@Test
+	void test_User_OTM_review_mapping() {
+		assertNotNull(user);
+		assertTrue(user.getReviews().size() > 0);
+		assertEquals("Great Trip", user.getReviews().get(0).getComment());
+		
+	}
 
+	@Test
+	void test_User_OTM_tripMessage_mapping() {
+		assertNotNull(user);
+		assertTrue(user.getMessages().size() > 0);
+		
+	}
 }

@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,7 +24,11 @@ public class TripMessage {
 
 	@Column(name = "created_date")
 	private LocalDateTime createDate;
-
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+	
 	public TripMessage() {
 
 	}
@@ -49,6 +55,14 @@ public class TripMessage {
 
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
