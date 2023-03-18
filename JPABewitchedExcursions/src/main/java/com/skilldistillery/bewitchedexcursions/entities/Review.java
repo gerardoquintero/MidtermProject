@@ -37,13 +37,13 @@ public class Review {
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
 
-	private int rating;
+	private Integer rating;
 
 	@UpdateTimestamp
 	@Column(name = "last_updated")
 	private LocalDateTime lastUpdated;
 
-	private boolean enabled;
+	private Boolean enabled;
 
 	public Review() {
 
@@ -89,11 +89,11 @@ public class Review {
 		this.createDate = createDate;
 	}
 
-	public int getRating() {
+	public Integer getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
 
@@ -105,11 +105,11 @@ public class Review {
 		this.lastUpdated = lastUpdated;
 	}
 
-	public boolean isEnabled() {
+	public Boolean isEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 

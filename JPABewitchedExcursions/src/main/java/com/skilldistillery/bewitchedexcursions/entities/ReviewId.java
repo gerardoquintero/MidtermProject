@@ -46,14 +46,11 @@ public class ReviewId implements Serializable {
 		return serialVersionUID;
 	}
 
+	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(tripId, userId);
-	}
-
-	@Override
-	public String toString() {
-		return "ReviewId [userId=" + userId + ", tripId=" + tripId + "]";
 	}
 
 	@Override
@@ -68,5 +65,11 @@ public class ReviewId implements Serializable {
 		return tripId == other.tripId && userId == other.userId;
 	}
 
+	@Override
+	public String toString() {
+		return "ReviewId [userId=" + userId + ", tripId=" + tripId + "]";
+	}
+
+	
 }
 // Getters/setters, ctors, toString, equals/hashCode
