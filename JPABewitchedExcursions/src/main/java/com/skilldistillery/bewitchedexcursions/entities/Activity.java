@@ -39,6 +39,14 @@ public class Activity {
 
 	private boolean enabled;
 	
+	@ManyToOne
+	@JoinColumn(name = "trip_id")
+	private Activity tripActivity;
+	
+	@ManyToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+	
 	public Activity() {
 		
 	}
@@ -62,6 +70,18 @@ public class Activity {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Activity getTripActivity() {
+		return tripActivity;
+	}
+
+	public void setTripActivity(Activity tripActivity) {
+		this.tripActivity = tripActivity;
+	}
+
+	public Boolean getApproved() {
+		return approved;
 	}
 
 	public String getName() {
@@ -102,6 +122,14 @@ public class Activity {
 
 	public void setImageURL(String imageURL) {
 		this.imageURL = imageURL;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public Double getCost() {

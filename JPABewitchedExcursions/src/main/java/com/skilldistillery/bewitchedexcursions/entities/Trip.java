@@ -66,9 +66,21 @@ public class Trip {
 	
 	@OneToMany(mappedBy="trip")
 	private List<Review> tripReviews;
+	
+	@OneToMany(mappedBy="tripActivity")
+	private List<Activity> activities;
+
 
 	public Trip() {
 
+	}
+
+	public List<Activity> getActivities() {
+		return activities;
+	}
+
+	public void setActivities(List<Activity> activities) {
+		this.activities = activities;
 	}
 
 	public int getId() {

@@ -71,4 +71,11 @@ class TripTest {
 		assertEquals("Great Trip", trip.getTripReviews().get(0).getComment());
 	}
 	
+	@Test
+	void test_trip_OTM_activity_trip_mapping() {
+		assertNotNull(trip);
+		assertTrue(trip.getActivities().size() > 0);
+		assertEquals("Disney World", trip.getActivities().get(0).getName());
+	}
+	
 }
