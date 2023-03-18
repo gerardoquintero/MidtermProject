@@ -9,6 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,10 +27,9 @@ public class Trip {
 	@Column(name = "start_date")
 	private LocalDateTime startDate;
 
-	@OneToMany(mappedBy="trip")
+	@OneToMany(mappedBy = "trip")
 	private List<Review> reviews;
-	
-	
+
 	public List<Review> getReviews() {
 		return reviews;
 	}
@@ -52,6 +55,14 @@ public class Trip {
 	private String imageURL;
 
 	private Boolean enabled;
+
+	@ManyToMany
+	@JoinTable(name = "user_has_trip", joinColumns = @JoinColumn(name = "trip_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	private List<User> userTrips;
+
+	@ManyToOne
+	@JoinColumn(name = "organizer_id")
+	private User user;
 
 	public Trip() {
 
@@ -119,6 +130,24 @@ public class Trip {
 
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
+	}
+
+
+
+	public List<User> getUserTrips() {
+		return userTrips;
+	}
+
+	public void setUserTrips(List<User> userTrips) {
+		this.userTrips = userTrips;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override

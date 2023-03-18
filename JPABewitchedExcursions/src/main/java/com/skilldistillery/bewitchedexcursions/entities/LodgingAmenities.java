@@ -1,11 +1,13 @@
 package com.skilldistillery.bewitchedexcursions.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +19,9 @@ public class LodgingAmenities {
 	private int id;
 
 	private String name;
+
+	@ManyToMany(mappedBy = "lodgingAmenities")
+	private List<Lodging> lodging;
 
 	public LodgingAmenities() {
 
@@ -32,6 +37,14 @@ public class LodgingAmenities {
 
 	public String getName() {
 		return name;
+	}
+
+	public List<Lodging> getLodging() {
+		return lodging;
+	}
+
+	public void setLodging(List<Lodging> lodging) {
+		this.lodging = lodging;
 	}
 
 	public void setName(String name) {

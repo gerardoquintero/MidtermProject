@@ -22,6 +22,9 @@ public class User {
 	inverseJoinColumns = @JoinColumn(name = "friend_id"))
 	private List<User> friends; // TO DO : Create add and remove method
 
+	@ManyToMany(mappedBy="userTrips")
+	private List<Trip> trip;
+	
 	public User() {
 
 	}
@@ -80,6 +83,14 @@ public class User {
 
 	public void setFriends(List<User> friends) {
 		this.friends = friends;
+	}
+
+	public List<Trip> getTrip() {
+		return trip;
+	}
+
+	public void setTrip(List<Trip> trip) {
+		this.trip = trip;
 	}
 
 	@Override
