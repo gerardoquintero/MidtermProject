@@ -2,6 +2,7 @@ package com.skilldistillery.bewitchedexcursions.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -46,6 +47,15 @@ class LodgingTest {
 	void test_lodging_mapping() {
 		assertNotNull(lodging);
 		assertEquals("marriott",lodging.getName());
+		
+		
+	}
+	@Test
+	void test_lodging_lodgingAmenities_mapping() {
+		assertNotNull(lodging.getLodgingAmenities());
+		assertTrue(lodging.getLodgingAmenities().size()>0);
+		assertEquals("pool",lodging.getLodgingAmenities().get(0).getName());
+	
 		
 		
 	}

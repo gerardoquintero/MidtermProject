@@ -46,11 +46,11 @@ class ActivityTypeTest {
 		assertEquals("Attraction", activityType.getActivityType());
 
 	}
+	@Test
+	void test_activityType_activity_mapping() {
+		assertNotNull(activityType.getActivity());
+		assertEquals("Disney World",activityType.getActivity().get(0).getName());
+		
+	}
 
-//	@Test
-//	void test_activityType_Activity_mapping() {
-//		assertNotNull(activityType);
-//		assertEquals("Attraction", activityType.get);
-//		
-//	}
 }

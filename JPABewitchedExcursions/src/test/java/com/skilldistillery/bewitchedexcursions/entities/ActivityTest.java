@@ -46,6 +46,12 @@ class ActivityTest {
 	void test_activity_mapping() {
 		assertNotNull(activity);
 		assertEquals("Disney World",activity.getName());
+	}
+	@Test
+	void test_activity_activityType_mapping() {
+		assertNotNull(activity);
+		//Change name maybe????
+		assertEquals("Attraction",activity.getActivityType().getActivityType());
 		
 	}
 

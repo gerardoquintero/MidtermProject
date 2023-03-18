@@ -1,6 +1,7 @@
 package com.skilldistillery.bewitchedexcursions.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -34,6 +38,11 @@ public class Lodging {
 	private String imageURL;
 
 	private boolean enabled;
+	
+	@ManyToMany
+	@JoinTable(name="lodging_has_lodging_amenities",joinColumns=@JoinColumn(name="lodging_id"),
+	inverseJoinColumns=@JoinColumn(name="lodging_amenities_id"))
+	private List <LodgingAmenities> lodgingAmenities;
 
 	public Lodging() {
 
@@ -102,6 +111,13 @@ public class Lodging {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+	public List<LodgingAmenities> getLodgingAmenities() {
+		return lodgingAmenities;
+	}
+	
+	public void setLodgingAmenities(List<LodgingAmenities> lodgingAmenities) {
+		this.lodgingAmenities = lodgingAmenities;
+	}
 
 	@Override
 	public String toString() {
@@ -126,5 +142,6 @@ public class Lodging {
 		Lodging other = (Lodging) obj;
 		return id == other.id;
 	}
+
 
 }
