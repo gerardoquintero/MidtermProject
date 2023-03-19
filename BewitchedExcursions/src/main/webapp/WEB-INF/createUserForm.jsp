@@ -17,7 +17,10 @@
 		<input type="email" id="email" name="email" required><br><br>
 		<label for="password">Password:</label>
 		<input type="password" id="password" name="password" required><br><br>
+	<!-- 	<label for="address">Address ID:</label>
+		<textarea id="address" name="userAddress"></textarea><br><br> -->
 		<input type="submit" value="Register">
+		
 	</form>
 </body>
 </html>

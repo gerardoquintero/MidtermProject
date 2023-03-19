@@ -10,6 +10,8 @@
 
 <h2>${SMOKETEST}</h2> <!-- debug -->
 
+<h3><a href="createUserForm.do">Create User</a></h3>
+
 <body>
 
 </body>

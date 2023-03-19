@@ -45,7 +45,7 @@ public class User {
 	public User() {
 
 	}
-
+ 
 	private String username;
 
 	private String password;
