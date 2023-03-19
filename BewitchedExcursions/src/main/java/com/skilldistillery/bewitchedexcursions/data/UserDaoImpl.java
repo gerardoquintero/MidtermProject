@@ -1,5 +1,8 @@
 package com.skilldistillery.bewitchedexcursions.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -18,17 +21,74 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public User login(User user) {
 		String jpql = "SELECT u FROM User u WHERE u.username = :name AND u.password = :pass AND u.enabled = 1";
-		
+
 		try {
-			user = em.createQuery(jpql, User.class)
-					.setParameter("name", user.getUsername())
-					.setParameter("pass", user.getPassword())
-					.getSingleResult();
+			user = em.createQuery(jpql, User.class).setParameter("name", user.getUsername())
+					.setParameter("pass", user.getPassword()).getSingleResult();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			user = null;
 		}
 		return user;
+	}
+
+	@Override
+	public User logout(User user) {
+		String jpql = "SELECT u FROM User u WHERE u.username = :name AND u.password = :pass AND u.enabled = 1";
+
+		try {
+			user = em.createQuery(jpql, User.class).setParameter("name", user.getUsername())
+					.setParameter("pass", user.getPassword()).getSingleResult();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			user = null;
+		}
+		return user;
+	}
+
+	@Override
+	public User createUser(User user) {
+		em.persist(user);
+		return user;
+	}
+
+	@Override
+	public User getUserById(int id) {
+		return em.find(User.class, id);
+
+	}
+
+	@Override
+	public List<User> getAllUsers(User user) {
+
+		String jpql = ("SELECT u FROM User u WHERE u.enabled=1");
+
+		return em.createQuery(jpql, User.class).getResultList();
+
+	}
+
+	@Override
+	public User updateUser(int id, User user) {
+		return em.merge(user);
+
+	}
+
+	@Override
+	public User archiveUser(int id) {
+		User user = em.find(User.class, id);
+		if (em.contains(user)) {
+			user.setEnabled(false);
+
+		}
+		return user;
+
+	}
+
+	@Override
+	public User deleteUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
