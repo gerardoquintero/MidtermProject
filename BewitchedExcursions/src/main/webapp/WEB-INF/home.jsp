@@ -16,7 +16,54 @@
 <title>Where do you want to go</title>
 </head>
 <body>
+	  
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome Bewitched Travelers!</h1>
+            <p>Plan your next adventure</p>
+   
+        </div>
+    </section>
 
-	<h1>Home Page</h1>
+   
+    <section >
+        <div class="container">
+            <h2>Featured Trips</h2>
+            <div class="row">
+                <!-- Featured Trip  cards go here -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="path/to/destination-1.jpg" alt="Destination 1">
+                        <div class="card-body">
+                            <h3>${trip.name }</h3>
+                            <p>trip trip trip</p>
+                            <a href="#" class="btn btn-primary">View Trip</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="path/to/destination-2.jpg" alt="Destination 2">
+                        <div class="card-body">
+                            <h3>${trip.name }</h3>
+                            <p>trip trip trip</p>
+                            <a href="#" class="btn btn-primary">view trip</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="path/to/destination-3.jpg" alt="Destination 3">
+                        <div class="card-body">
+                            <h3>${trip.name }</h3>
+                            <p>trip trip trip.</p>
+                            <a href="#" class="btn btn-primary">view trip</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
 </body>
 </html>
