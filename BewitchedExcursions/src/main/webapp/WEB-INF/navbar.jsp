@@ -1,55 +1,12 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous">
-<style>
-.card img {
-  width: 250px;
-  height: 250px;
-  object-fit: contain;
-}
 
-.card {
-  width: 300px;
-  height: 400px;
-  border: 1px solid #ccc;
-  margin: 10px;
-  padding: 10px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  display: inline-block;
-  overflow: hidden;
-   max-width: 500px;
-  max-height: 1000px;
-  
-}
-
-body {
-	font-size: 14px;
-	line-height: 1.5;
-	color: #333;
-	background-color: #f5f5f5;
-}
-
-h1, h2, h3, h4, h5, h6 {
-	font-weight: bold;
-	margin-top: 0;
-	margin-bottom: 20px;
-}
-
-a {
-	color: #337ab7;
-	text-decoration: none;
-}
-
-a:hover {
-	color: #23527c;
-	text-decoration: underline;
-}
-
-
-</style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container-fluid">

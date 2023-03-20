@@ -27,43 +27,43 @@ public class TripController {
 	private AddressDAO addressDao;
 	
 //	
-	@RequestMapping(path = { "/", "home.do" })
-	public String goHome(Model model) {
-		
-		return "home";
-	}
-	
-	@RequestMapping(path = "createUserForm.do", method = RequestMethod.GET)
-	public String createUserForm(Model model, User user) {
-		return "createUserForm";
-	}
-	
-	@RequestMapping(path = "register.do", method = RequestMethod.POST)
-	public ModelAndView createTrip(User user, Model model, String aString, HttpSession session) {
-		
-//		model.addAttribute("address", userDao.(address));
-		
-		return mv;
-	}
-	
-	@RequestMapping(path = "userLogin.do", method = RequestMethod.GET)
-	public String loginForm(Model model, User user) {
-		return "userLogin";
-	}
-	
-	@RequestMapping(path = "logout.do")
-	public String logoutForm(Model model, User user, HttpSession session) {
-		
-		return "logout";
-	}
-	
-	
-	@RequestMapping(path = "login.do", method = RequestMethod.POST)
-	public String loginUser(HttpSession session, User user) {
-	
-		 return "profile";
-		
-	}
+//	@RequestMapping(path = { "/", "home.do" })
+//	public String goHome(Model model) {
+//		
+//		return "home";
+//	}
+//	
+//	@RequestMapping(path = "createUserForm.do", method = RequestMethod.GET)
+//	public String createUserForm(Model model, User user) {
+//		return "createUserForm";
+//	}
+//	
+//	@RequestMapping(path = "register.do", method = RequestMethod.POST)
+//	public ModelAndView createTrip(User user, Model model, String aString, HttpSession session) {
+//		
+////		model.addAttribute("address", userDao.(address));
+//		
+//		return mv;
+//	}
+//	
+//	@RequestMapping(path = "userLogin.do", method = RequestMethod.GET)
+//	public String loginForm(Model model, User user) {
+//		return "userLogin";
+//	}
+//	
+//	@RequestMapping(path = "logout.do")
+//	public String logoutForm(Model model, User user, HttpSession session) {
+//		
+//		return "logout";
+//	}
+//	
+//	
+//	@RequestMapping(path = "login.do", method = RequestMethod.POST)
+//	public String loginUser(HttpSession session, User user) {
+//	
+//		 return "profile";
+//		
+//	}
 	
 
 	
