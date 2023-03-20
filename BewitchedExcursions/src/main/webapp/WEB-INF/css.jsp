@@ -53,7 +53,7 @@ a:hover {
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="home.do">Recipe Book</a>
+		<a class="navbar-brand" href="home.do">Bewitched Traveler</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarNav" aria-controls="navbarNav"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -62,12 +62,9 @@ a:hover {
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				
-				<li class="nav-item"><a class="nav-link" href="recipesform.do">Add
-						a recipe</a></li>
-				<li class="nav-item"><a class="nav-link" href="updateform.do">Update
-						a recipe</a></li>
-				<li class="nav-item"><a class="nav-link" href="deleteform.do">Delete
-						a recipe</a></li>
+				<li class="nav-item"><a class="nav-link" href="createUserForm.do">Create Account</a></li>
+				<li class="nav-item"><a class="nav-link" href="userLogin.do">Login</a></li>
+				<li class="nav-item"><a class="nav-link" href="logout.do">Logout</a></li>
 				<form class="d-flex" method="GET" action="keyword.do">
 					<input class="form-control me-2" type="text" name="keyword"
 						placeholder="Search by keyword">
