@@ -28,14 +28,26 @@ public class TripController {
 		}
 		return "home";
 	}
+
 	@RequestMapping(path = "createTripForm.do", method = RequestMethod.GET)
 	public String createATripForm(Trip trip, Model model, HttpSession session) {
-		
+
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser != null) {
 			return "createTripForm";
 		}
-			return "home";
+		return "home";
 	}
 
+	@RequestMapping(path = "show.do", method = RequestMethod.GET)
+	public String displayUserTrips(Model model, Trip trip, HttpSession session) {
+		Trip showTrip = tripDao.findTripById(trip.getId());
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser != null) {
+		model.addAttribute("trip", showTrip);
+		return "createATrip";
+		}
+		return "home";
+	}
+//
 }
