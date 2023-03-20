@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="../css/main.css">
 <%@include file="navbar.jsp"%>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -33,31 +34,31 @@
                 <!-- Featured Trip  cards go here -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="path/to/destination-1.jpg" alt="Destination 1">
+                        <img src="" alt="Trip 1">
                         <div class="card-body">
                             <h3>${trip.name }</h3>
                             <p>trip trip trip</p>
-                            <a href="#" class="btn btn-primary">View Trip</a>
+                            <a href="" class="btn btn-primary">View Trip</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="path/to/destination-2.jpg" alt="Destination 2">
+                        <img src="" alt="Trip 2">
                         <div class="card-body">
                             <h3>${trip.name }</h3>
                             <p>trip trip trip</p>
-                            <a href="#" class="btn btn-primary">view trip</a>
+                            <a href="" class="btn btn-primary">view trip</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="path/to/destination-3.jpg" alt="Destination 3">
+                        <img src="" alt="Trip 3">
                         <div class="card-body">
                             <h3>${trip.name }</h3>
                             <p>trip trip trip.</p>
-                            <a href="#" class="btn btn-primary">view trip</a>
+                            <a href="" class="btn btn-primary">view trip</a>
                         </div>
                     </div>
                 </div>
