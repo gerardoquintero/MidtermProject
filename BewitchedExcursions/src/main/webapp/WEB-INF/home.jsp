@@ -17,6 +17,6 @@
 </head>
 <body>
 
-	<li><a href="createTripForm.do">create a trip</a></li>
+	<h1>Home Page</h1>
 </body>
 </html>

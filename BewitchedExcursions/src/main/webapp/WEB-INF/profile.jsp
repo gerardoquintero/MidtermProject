@@ -19,6 +19,7 @@
 
 	<h2>${userLogin}</h2>
 
+<li><a href="createTripForm.do">create a trip</a></li>
 
 
 
