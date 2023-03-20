@@ -17,7 +17,7 @@ import com.skilldistillery.bewitchedexcursions.entities.Address;
 import com.skilldistillery.bewitchedexcursions.entities.User;
 
 @Controller
-public class UserController {
+public class TripController {
 
 	
 	
@@ -39,19 +39,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
-	public ModelAndView createUser(User user, Model model, String aString, HttpSession session) {
-		user.setEnabled(true);
-		user = userDao.createUser(user);
-		session.setAttribute("userLogin", user);
-		Address address = new Address();
-		address.setStreetAddress(aString);
-		addressDao.createAddress(address);
-		ModelAndView mv = new ModelAndView();
-		user.setUserAddress(address);
-		model.addAttribute("user", userDao.getAllUsers(user));
+	public ModelAndView createTrip(User user, Model model, String aString, HttpSession session) {
+		
 //		model.addAttribute("address", userDao.(address));
 		
-		mv.setViewName("profile");
 		return mv;
 	}
 	
@@ -62,18 +53,14 @@ public class UserController {
 	
 	@RequestMapping(path = "logout.do")
 	public String logoutForm(Model model, User user, HttpSession session) {
-		model.addAttribute("userLogin", user);
-		session.removeAttribute("userLogin");
+		
 		return "logout";
 	}
 	
 	
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String loginUser(HttpSession session, User user) {
-		user = userDao.login(user);
-		session.setAttribute("userLogin", user);
-		 LocalDateTime lt = LocalDateTime.now();
-		 session.setAttribute("loginTime", lt);
+	
 		 return "profile";
 		
 	}

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<%@include file="css.jsp"%>
 <title>Where you wanna go BT?</title>
 </head>
 <body>
