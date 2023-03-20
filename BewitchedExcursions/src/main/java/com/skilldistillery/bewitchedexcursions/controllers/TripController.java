@@ -18,7 +18,7 @@ public class TripController {
 	@Autowired
 	private TripDAO tripDao;
 
-	@RequestMapping(path = "createATrip.do", method = RequestMethod.POST)
+	@RequestMapping(path = "createTripForm.do", method = RequestMethod.POST)
 	public String createTrip(Trip trip, Model model, HttpSession session) {
 
 		User loggedInUser = (User) session.getAttribute("userLogin");
@@ -28,15 +28,14 @@ public class TripController {
 		}
 		return "home";
 	}
-	@RequestMapping(path = "createTripForm.do", method = RequestMethod.POST)
+	@RequestMapping(path = "createTripForm.do", method = RequestMethod.GET)
 	public String createATripForm(Trip trip, Model model, HttpSession session) {
 		
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser != null) {
 			return "createTripForm";
 		}
-		return "home";
-//		
+			return "home";
 	}
 
 }
