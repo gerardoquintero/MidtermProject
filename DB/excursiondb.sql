@@ -39,7 +39,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `user` ;
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `enabled` TINYINT NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email_address` VARCHAR(100) NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
-  `address_id` INT NOT NULL,
+  `address_id` INT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   INDEX `fk_user_address1_idx` (`address_id` ASC),
@@ -142,9 +142,9 @@ CREATE TABLE IF NOT EXISTS `transportation` (
   `image` VARCHAR(2500) NULL,
   `description` TEXT NULL,
   `enabled` TINYINT NULL,
-  `transportation_type_id` INT NOT NULL,
-  `departure_address_id` INT NOT NULL,
-  `arrival_address_id` INT NOT NULL,
+  `transportation_type_id` INT NULL,
+  `departure_address_id` INT NULL,
+  `arrival_address_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_transportation_transportation_type1_idx` (`transportation_type_id` ASC),
   INDEX `fk_transportation_address1_idx` (`departure_address_id` ASC),
@@ -406,6 +406,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `excursiondb`;
 INSERT INTO `address` (`id`, `country`, `city`, `postal_code`, `address`, `phone`, `state`, `enabled`) VALUES (1, 'USA', 'Twin Peaks', '567543', 'Main Street', '506789536', 'California', 1);
+INSERT INTO `address` (`id`, `country`, `city`, `postal_code`, `address`, `phone`, `state`, `enabled`) VALUES (2, 'USA', 'Los Angeles', '478245', 'Washington Street', '589909333', 'California', 1);
 
 COMMIT;
 
@@ -416,6 +417,7 @@ COMMIT;
 START TRANSACTION;
 USE `excursiondb`;
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `image`, `biography`, `email_address`, `first_name`, `last_name`, `address_id`) VALUES (1, 'admin', 'admin', 1, 'admin', NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `image`, `biography`, `email_address`, `first_name`, `last_name`, `address_id`) VALUES (2, 'Dom', 'Dom', 1, 'user', NULL, NULL, NULL, NULL, NULL, 2);
 
 COMMIT;
 
@@ -426,6 +428,7 @@ COMMIT;
 START TRANSACTION;
 USE `excursiondb`;
 INSERT INTO `trip` (`id`, `start_date`, `end_date`, `name`, `description`, `capacity`, `image`, `cost`, `enabled`, `organizer_id`) VALUES (1, '2013/05/12', '2013/06/07', 'Jerrys Trip', 'Friends Trip', NULL, NULL, NULL, NULL, 1);
+INSERT INTO `trip` (`id`, `start_date`, `end_date`, `name`, `description`, `capacity`, `image`, `cost`, `enabled`, `organizer_id`) VALUES (2, '2016/07/11', '2016/09/04', 'Doms Trip', 'Awesome Trip', NULL, NULL, NULL, NULL, 2);
 
 COMMIT;
 
@@ -435,7 +438,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `excursiondb`;
-INSERT INTO `review` (`user_id`, `trip_id`, `comment`, `create_date`, `rating`, `last_updated`, `enabled`) VALUES (1, 1, 'Great Trip', NULL, NULL, NULL, NULL);
+INSERT INTO `review` (`user_id`, `trip_id`, `comment`, `create_date`, `rating`, `last_updated`, `enabled`) VALUES (1, 1, 'Great Trip', NULL, NULL, NULL, 1);
 
 COMMIT;
 
@@ -456,6 +459,7 @@ COMMIT;
 START TRANSACTION;
 USE `excursiondb`;
 INSERT INTO `transportation` (`id`, `company`, `departure_date`, `arrival_date`, `cost`, `image`, `description`, `enabled`, `transportation_type_id`, `departure_address_id`, `arrival_address_id`) VALUES (1, 'American Airlines', '2019/11/09', '2019/10/10', 65, '', NULL, 1, 1, 1, 1);
+INSERT INTO `transportation` (`id`, `company`, `departure_date`, `arrival_date`, `cost`, `image`, `description`, `enabled`, `transportation_type_id`, `departure_address_id`, `arrival_address_id`) VALUES (2, 'AmTrak', '2020/04/05', '2020/06/07', 78, NULL, NULL, 1, 1, 1, 1);
 
 COMMIT;
 
@@ -465,7 +469,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `excursiondb`;
-INSERT INTO `lodging` (`id`, `name`, `description`, `price`, `check_in_time`, `check_out_time`, `image`, `enabled`, `address_id`, `trip_id`) VALUES (1, 'marriott', NULL, NULL, NULL, NULL, NULL, 1, 1, 1);
+INSERT INTO `lodging` (`id`, `name`, `description`, `price`, `check_in_time`, `check_out_time`, `image`, `enabled`, `address_id`, `trip_id`) VALUES (1, 'Marriott', NULL, NULL, NULL, NULL, NULL, 1, 1, 1);
+INSERT INTO `lodging` (`id`, `name`, `description`, `price`, `check_in_time`, `check_out_time`, `image`, `enabled`, `address_id`, `trip_id`) VALUES (2, 'Hilton', NULL, NULL, NULL, NULL, NULL, 1, 2, 2);
 
 COMMIT;
 
@@ -486,6 +491,7 @@ COMMIT;
 START TRANSACTION;
 USE `excursiondb`;
 INSERT INTO `activity_type` (`id`, `activity_type`) VALUES (1, 'Attraction');
+INSERT INTO `activity_type` (`id`, `activity_type`) VALUES (2, 'Dinner');
 
 COMMIT;
 
@@ -505,7 +511,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `excursiondb`;
-INSERT INTO `lodging_amenities` (`id`, `name`) VALUES (1, 'pool');
+INSERT INTO `lodging_amenities` (`id`, `name`) VALUES (1, 'Pool');
+INSERT INTO `lodging_amenities` (`id`, `name`) VALUES (2, 'Gym');
 
 COMMIT;
 
@@ -535,7 +542,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `excursiondb`;
-INSERT INTO `user_has_friend` (`user_id`, `friend_id`) VALUES (1, 1);
+INSERT INTO `user_has_friend` (`user_id`, `friend_id`) VALUES (1, 2);
 
 COMMIT;
 
