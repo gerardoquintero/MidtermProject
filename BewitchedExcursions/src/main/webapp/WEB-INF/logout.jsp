@@ -7,7 +7,7 @@
 <%@include file="css.jsp"%>
 <title>Do you want to logout?</title>
 </head>
-<h1>Log out</h1>
+<h1></h1>
 
 <h2>${userLogin}</h2> <!-- debug -->
 

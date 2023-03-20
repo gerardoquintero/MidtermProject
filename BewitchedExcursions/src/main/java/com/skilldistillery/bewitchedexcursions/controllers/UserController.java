@@ -61,10 +61,9 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "logout.do")
-	public String logoutForm(Model model, User user, HttpSession session) {
-		model.addAttribute("userLogin", user);
+	public String logoutForm(HttpSession session) {
 		session.removeAttribute("userLogin");
-		return "logout";
+		return "home";
 	}
 	
 	
