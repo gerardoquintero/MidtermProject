@@ -18,16 +18,18 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
-				
-				<li class="nav-item"><a class="nav-link" href="createUserForm.do">Create Account</a></li>
-				<li class="nav-item"><a class="nav-link" href="userLogin.do">Login</a></li>
-				<li class="nav-item"><a class="nav-link" href="logout.do">Logout</a></li>
-				<form class="d-flex" method="GET" action="keyword.do">
-					<input class="form-control me-2" type="text" name="keyword"
-						placeholder="Search by keyword">
-					<button class="btn btn-outline-success" type="submit">Search</button>
-				</form>
 
+				<c:if test="${ userLogin == null }">
+					<li class="nav-item"><a class="nav-link"
+						href="createUserForm.do">Create Account</a></li>
+					<li class="nav-item"><a class="nav-link" href="userLogin.do">Login</a></li>
+				</c:if>
+				<c:if test="${userLogin !=null  }">
+
+				<li class="nav-item"><a class="nav-link" href="logout.do">Logout</a></li>
+				</c:if>
+
+				<li>${userLogin.username }</li>
 
 			</ul>
 		</div>
