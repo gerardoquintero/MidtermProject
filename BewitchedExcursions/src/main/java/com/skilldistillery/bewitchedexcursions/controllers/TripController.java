@@ -36,6 +36,7 @@ public class TripController {
 			return "createTripForm";
 		}
 		return "home";
+//		
 	}
 
 }
