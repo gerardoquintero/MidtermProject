@@ -17,54 +17,82 @@
 <title>Where do you want to go</title>
 </head>
 <body>
-	  
-    <section class="hero">
-        <div class="container">
-            <h1>Welcome Bewitched Travelers!</h1>
-            <p>Plan your next adventure</p>
-   
-        </div>
-    </section>
 
-   
-    <section >
-        <div class="container">
-            <h2>Featured Trips</h2>
-            <div class="row">
-                <!-- Featured Trip  cards go here -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="" alt="Trip 1">
-                        <div class="card-body">
-                            <h3>${trip.name }</h3>
-                            <p>trip trip trip</p>
-                            <a href="" class="btn btn-primary">View Trip</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="" alt="Trip 2">
-                        <div class="card-body">
-                            <h3>${trip.name }</h3>
-                            <p>trip trip trip</p>
-                            <a href="" class="btn btn-primary">view trip</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="" alt="Trip 3">
-                        <div class="card-body">
-                            <h3>${trip.name }</h3>
-                            <p>trip trip trip.</p>
-                            <a href="" class="btn btn-primary">view trip</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-   
+	<section class="hero">
+		<div class="container">
+			<h1>Welcome Bewitched Travelers!</h1>
+			<p>Plan your next adventure</p>
+
+		</div>
+	</section>
+	<c:forEach var="trip" items="${trip}">
+		<div>
+
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>${trip.name}</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<img src="${trip.imageURL}" alt="${trip.name}" class="img-fluid">
+					</div>
+					<div class="col-md-8">
+						<h2>Description</h2>
+						<p>${trip.description}</p>
+						<h2>Number of Travelers</h2>
+						<p>${trip.capacity}</p>
+						<h2>Start Date</h2>
+						<p>${trip.startDate}</p>
+						<h2>End Date</h2>
+						<p>${trip.endDate}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</c:forEach>
+
+	<%-- <section>
+		<div class="container">
+			<h2>Featured Trips</h2>
+			<div class="row">
+				<!-- Featured Trip  cards go here -->
+				<div class="col-md-4">
+					<div class="card">
+						<img src="" alt="Trip 1">
+						<div class="card-body">
+							<h3>${trip.name }</h3>
+							<p>trip trip trip</p>
+							<a href="" class="btn btn-primary">View Trip</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card">
+						<img src="" alt="Trip 2">
+						<div class="card-body">
+							<h3>${trip.name }</h3>
+							<p>trip trip trip</p>
+							<a href="" class="btn btn-primary">view trip</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card">
+						<img src="" alt="Trip 3">
+						<div class="card-body">
+							<h3>${trip.name }</h3>
+							<p>trip trip trip.</p>
+							<a href="" class="btn btn-primary">view trip</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> --%>
+
 </body>
 </html>

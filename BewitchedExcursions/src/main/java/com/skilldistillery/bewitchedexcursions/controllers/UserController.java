@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.bewitchedexcursions.data.AddressDAO;
+import com.skilldistillery.bewitchedexcursions.data.TripDAO;
 import com.skilldistillery.bewitchedexcursions.data.UserDAO;
 import com.skilldistillery.bewitchedexcursions.entities.Address;
 import com.skilldistillery.bewitchedexcursions.entities.User;
@@ -25,11 +26,13 @@ public class UserController {
 	private UserDAO userDao;
 	@Autowired
 	private AddressDAO addressDao;
+	@Autowired
+	private TripDAO tripDao;
 	
 //	
 	@RequestMapping(path = { "/", "home.do" })
 	public String goHome(Model model) {
-		
+		model.addAttribute("trip", tripDao.findAllTrips());
 		return "home";
 	}
 	
