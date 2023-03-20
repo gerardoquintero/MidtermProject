@@ -189,14 +189,7 @@ public class Trip {
 		this.enabled = enabled;
 	}
 
-	@Override
-	public String toString() {
-		return "Trip [id=" + id + ", startDate=" + startDate + ", reviews=" + reviews + ", endDate=" + endDate
-				+ ", name=" + name + ", description=" + description + ", capacity=" + capacity + ", imageURL="
-				+ imageURL + ", enabled=" + enabled + ", usersAttendingTrip=" + usersAttendingTrip + ", organizer="
-				+ organizer + ", tripReviews=" + tripReviews + ", activities=" + activities + ", tripMessages="
-				+ tripMessages + ", lodging=" + lodging + "]";
-	}
+	
 
 	@Override
 	public int hashCode() {
@@ -213,6 +206,11 @@ public class Trip {
 			return false;
 		Trip other = (Trip) obj;
 		return id == other.id;
+	}
+
+	@Override
+	public String toString() {
+		return "Trip [id=" + id + ", name=" + name + ", enabled=" + enabled + "]";
 	}
 
 

@@ -427,8 +427,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `excursiondb`;
-INSERT INTO `trip` (`id`, `start_date`, `end_date`, `name`, `description`, `capacity`, `image`, `cost`, `enabled`, `organizer_id`) VALUES (1, '2013/05/12', '2013/06/07', 'Jerrys Trip', 'Friends Trip', NULL, NULL, NULL, 1, 1);
-INSERT INTO `trip` (`id`, `start_date`, `end_date`, `name`, `description`, `capacity`, `image`, `cost`, `enabled`, `organizer_id`) VALUES (2, '2016/07/11', '2016/09/04', 'Doms Trip', 'Awesome Trip', NULL, NULL, NULL, 1, 2);
+INSERT INTO `trip` (`id`, `start_date`, `end_date`, `name`, `description`, `capacity`, `image`, `cost`, `enabled`, `organizer_id`) VALUES (1, '2013/05/12', '2013/06/07', 'Jerrys Trip', 'Friends Trip', NULL, NULL, 50, 1, 1);
+INSERT INTO `trip` (`id`, `start_date`, `end_date`, `name`, `description`, `capacity`, `image`, `cost`, `enabled`, `organizer_id`) VALUES (2, '2016/07/11', '2016/09/04', 'Doms Trip', 'Awesome Trip', NULL, NULL, 60, 1, 2);
 
 COMMIT;
 
