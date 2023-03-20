@@ -4,15 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Where you wanna go BT?</title>
+<title>Do you want to logout?</title>
 </head>
-<h1>Welcome Bewitched Traveler</h1>
+<h1>Log out</h1>
 
 <h2>${SMOKETEST}</h2> <!-- debug -->
 
 <h3><a href="createUserForm.do">Create User</a></h3>
 <h3><a href="userLogin.do">User Login</a></h3>
-<h4><a href="logout.do">User Logout</a></h4>
 <body>
 
 </body>

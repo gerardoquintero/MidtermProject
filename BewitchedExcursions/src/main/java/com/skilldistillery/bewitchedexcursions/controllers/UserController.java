@@ -23,6 +23,7 @@ public class UserController {
 	
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
 	private AddressDAO addressDao;
 	
 //	
@@ -38,8 +39,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
-	public ModelAndView createUser(User user, Model model, String aString) {
-		userDao.createUser(user);
+	public ModelAndView createUser(User user, Model model, String aString, HttpSession session) {
+		user.setEnabled(true);
+		user = userDao.createUser(user);
+		session.setAttribute("userLogin", user);
 		Address address = new Address();
 		address.setStreetAddress(aString);
 		addressDao.createAddress(address);
@@ -57,7 +60,12 @@ public class UserController {
 		return "userLogin";
 	}
 	
-
+	@RequestMapping(path = "logout.do")
+	public String logoutForm(Model model, User user, HttpSession session) {
+		session.removeAttribute("userLogin");
+		return "home";
+	}
+	
 	
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String loginUser(HttpSession session, User user) {
