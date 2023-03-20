@@ -23,7 +23,7 @@ public class User {
 	@JoinTable(name = "user_has_friend", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "friend_id"))
 	private List<User> friends; // TO DO : Create add and remove method
 
-	@ManyToMany(mappedBy = "userTrips")
+	@ManyToMany(mappedBy = "usersAttendingTrip")
 	private List<Trip> trip;
 
 	@OneToMany(mappedBy = "user")

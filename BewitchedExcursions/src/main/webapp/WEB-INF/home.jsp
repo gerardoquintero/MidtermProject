@@ -13,9 +13,10 @@
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous">
 <meta charset="UTF-8">
-<title>Where you wanna go Baby Guuurl?</title>
+<title>Where do you want to go</title>
 </head>
 <body>
 
+	<li><a href="createTripForm.do">create a trip</a></li>
 </body>
 </html>
