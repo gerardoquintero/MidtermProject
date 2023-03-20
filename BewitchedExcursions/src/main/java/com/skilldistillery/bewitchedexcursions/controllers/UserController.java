@@ -1,5 +1,9 @@
 package com.skilldistillery.bewitchedexcursions.controllers;
 
+import java.time.LocalDateTime;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,8 +37,8 @@ public class UserController {
 		return "createUserForm";
 	}
 	
-	@RequestMapping(path = "register", method = RequestMethod.POST)
-	public ModelAndView persistTrail(User user, Model model, String aString) {
+	@RequestMapping(path = "register.do", method = RequestMethod.POST)
+	public ModelAndView createUser(User user, Model model, String aString) {
 		userDao.createUser(user);
 		Address address = new Address();
 		address.setStreetAddress(aString);
@@ -44,10 +48,26 @@ public class UserController {
 		model.addAttribute("user", userDao.getAllUsers(user));
 //		model.addAttribute("address", userDao.(address));
 		
-		mv.setViewName("home");
+		mv.setViewName("profile");
 		return mv;
 	}
 	
+	@RequestMapping(path = "userLogin.do", method = RequestMethod.GET)
+	public String loginForm(Model model, User user) {
+		return "userLogin";
+	}
+	
+
+	
+	@RequestMapping(path = "login.do", method = RequestMethod.POST)
+	public String loginUser(HttpSession session, User user) {
+		user = userDao.login(user);
+		session.setAttribute("userLogin", user);
+		 LocalDateTime lt = LocalDateTime.now();
+		 session.setAttribute("loginTime", lt);
+		 return "profile";
+		
+	}
 	
 
 	
