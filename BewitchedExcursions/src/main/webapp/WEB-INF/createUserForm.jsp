@@ -8,11 +8,13 @@
 </head>
 <body>
 	<h2>Registration Form</h2>
-	<form action="register" method="POST">
+	<form action="register.do" method="POST">
 		<label for="firstName">First Name:</label>
 		<input type="text" id="firstName" name="firstName" required><br><br>
 		<label for="lastName">Last Name:</label>
 		<input type="text" id="lastName" name="lastName" required><br><br>
+		<label for="username">User Name:</label>
+		<input type="text" id="username" name="username" required><br><br>
 		<label for="email">Email:</label>
 		<input type="email" id="email" name="email" required><br><br>
 		<label for="password">Password:</label>

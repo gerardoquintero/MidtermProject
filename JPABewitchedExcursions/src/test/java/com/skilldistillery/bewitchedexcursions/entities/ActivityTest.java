@@ -20,6 +20,7 @@ class ActivityTest {
 	private EntityManager em;
 	private Activity activity;
 
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("JPABewitchedExcursions");
@@ -53,20 +54,29 @@ class ActivityTest {
 		assertNotNull(activity);
 		//Change name maybe????
 		assertEquals("Attraction",activity.getActivityType().getActivityType());
-		
 	}
 	
 	@Test
 	void test_activity_MTO_trip_mapping() {
 		assertNotNull(activity);
 		assertEquals("Disney World", activity.getTripActivity().getName());
-		
 	}
 	
 	@Test
 	void test_activity_MTO_address_trip_mapping() {
 		assertNotNull(activity);
 		assertEquals("USA", activity.getAddress().getCountry());
-		
 	}
+
+
 }
+
+
+
+
+
+
+
+
+
+

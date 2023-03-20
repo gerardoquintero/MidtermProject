@@ -12,7 +12,7 @@ import com.skilldistillery.bewitchedexcursions.entities.Activity;
 
 @Transactional
 @Service
-public class ActivityDAOImple implements ActivityDAO {
+public class ActivityDAOImpl implements ActivityDAO {
 
 	@PersistenceContext
 	private EntityManager em;
