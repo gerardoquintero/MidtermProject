@@ -23,6 +23,7 @@ public class UserController {
 	
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
 	private AddressDAO addressDao;
 	
 //	

@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Where you wanna go BT?</title>
+<title>Profile</title>
 </head>
 <body>
-<h1>Welcome Bewitched Traveler Profile</h1>
+<h1>User Profile</h1>
 
-<h2>${userLogin}</h2> <!-- debug -->
+<h2>${userLogin}</h2> 
 
 
 
