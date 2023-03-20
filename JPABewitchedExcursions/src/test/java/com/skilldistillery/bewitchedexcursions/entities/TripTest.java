@@ -55,13 +55,13 @@ class TripTest {
 	@Test
 	void test_trip_MTM_User_mapping() {
 		assertNotNull(trip);
-		assertTrue(trip.getUserTrips().size() > 0);
+		assertTrue(trip.getUsersAttendingTrip().size() > 0);
 	}
 
 	@Test
 	void test_trip_MTO_User_mapping() {
 		assertNotNull(trip);
-		assertEquals("admin", trip.getUser().getUsername());
+		assertEquals("admin", trip.getOrganizer().getUsername());
 	}
 
 	@Test

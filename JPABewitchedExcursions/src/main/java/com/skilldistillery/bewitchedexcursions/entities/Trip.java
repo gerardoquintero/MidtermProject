@@ -58,11 +58,11 @@ public class Trip {
 
 	@ManyToMany
 	@JoinTable(name = "user_has_trip", joinColumns = @JoinColumn(name = "trip_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
-	private List<User> userTrips;
+	private List<User> usersAttendingTrip;
 
 	@ManyToOne
 	@JoinColumn(name = "organizer_id")
-	private User user;
+	private User organizer;
 
 	@OneToMany(mappedBy = "trip")
 	private List<Review> tripReviews;
@@ -81,28 +81,12 @@ public class Trip {
 
 	}
 
-	public List<Activity> getActivities() {
-		return activities;
-	}
-
-	public void setActivities(List<Activity> activities) {
-		this.activities = activities;
-	}
-
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public List<TripMessage> getTripMessages() {
-		return tripMessages;
-	}
-
-	public void setTripMessages(List<TripMessage> tripMessages) {
-		this.tripMessages = tripMessages;
 	}
 
 	public LocalDateTime getStartDate() {
@@ -129,24 +113,8 @@ public class Trip {
 		this.name = name;
 	}
 
-	public List<Lodging> getLodging() {
-		return lodging;
-	}
-
-	public void setLodging(List<Lodging> lodging) {
-		this.lodging = lodging;
-	}
-
 	public String getDescription() {
 		return description;
-	}
-
-	public List<Review> getTripReviews() {
-		return tripReviews;
-	}
-
-	public void setTripReviews(List<Review> tripReviews) {
-		this.tripReviews = tripReviews;
 	}
 
 	public void setDescription(String description) {
@@ -169,35 +137,65 @@ public class Trip {
 		this.imageURL = imageURL;
 	}
 
-	public Boolean isEnabled() {
-		return enabled;
+	public List<User> getUsersAttendingTrip() {
+		return usersAttendingTrip;
+	}
+
+	public void setUsersAttendingTrip(List<User> usersAttendingTrip) {
+		this.usersAttendingTrip = usersAttendingTrip;
+	}
+
+	public User getOrganizer() {
+		return organizer;
+	}
+
+	public void setOrganizer(User organizer) {
+		this.organizer = organizer;
+	}
+
+	public List<Review> getTripReviews() {
+		return tripReviews;
+	}
+
+	public void setTripReviews(List<Review> tripReviews) {
+		this.tripReviews = tripReviews;
+	}
+
+	public List<Activity> getActivities() {
+		return activities;
+	}
+
+	public void setActivities(List<Activity> activities) {
+		this.activities = activities;
+	}
+
+	public List<TripMessage> getTripMessages() {
+		return tripMessages;
+	}
+
+	public void setTripMessages(List<TripMessage> tripMessages) {
+		this.tripMessages = tripMessages;
+	}
+
+	public List<Lodging> getLodging() {
+		return lodging;
+	}
+
+	public void setLodging(List<Lodging> lodging) {
+		this.lodging = lodging;
 	}
 
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 
-	public List<User> getUserTrips() {
-		return userTrips;
-	}
-
-	public void setUserTrips(List<User> userTrips) {
-		this.userTrips = userTrips;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	@Override
 	public String toString() {
-		return "Trip [id=" + id + ", startDate=" + startDate + ", endDate=" + endDate + ", name=" + name
-				+ ", description=" + description + ", capacity=" + capacity + ", imageURL=" + imageURL + ", enabled="
-				+ enabled + "]";
+		return "Trip [id=" + id + ", startDate=" + startDate + ", reviews=" + reviews + ", endDate=" + endDate
+				+ ", name=" + name + ", description=" + description + ", capacity=" + capacity + ", imageURL="
+				+ imageURL + ", enabled=" + enabled + ", usersAttendingTrip=" + usersAttendingTrip + ", organizer="
+				+ organizer + ", tripReviews=" + tripReviews + ", activities=" + activities + ", tripMessages="
+				+ tripMessages + ", lodging=" + lodging + "]";
 	}
 
 	@Override
@@ -216,5 +214,7 @@ public class Trip {
 		Trip other = (Trip) obj;
 		return id == other.id;
 	}
+
+
 
 }

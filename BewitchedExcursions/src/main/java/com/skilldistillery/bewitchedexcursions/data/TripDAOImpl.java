@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.bewitchedexcursions.entities.Trip;
+import com.skilldistillery.bewitchedexcursions.entities.User;
 
 @Transactional
 @Service
@@ -18,7 +19,10 @@ public class TripDAOImpl implements TripDAO {
 	private EntityManager em;
 
 	@Override
-	public Trip createTrip(Trip trip) {
+	public Trip createTrip(Trip trip, int userId) {
+		User managedUser=em.find(User.class, userId);
+		trip.setOrganizer(managedUser);
+		trip.setEnabled(true);
 		em.persist(trip);
 
 		return trip;

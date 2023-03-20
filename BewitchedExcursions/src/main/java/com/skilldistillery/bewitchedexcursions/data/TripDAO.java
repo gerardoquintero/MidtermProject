@@ -6,7 +6,7 @@ import com.skilldistillery.bewitchedexcursions.entities.Trip;
 
 public interface TripDAO {
 
-	public Trip createTrip(Trip trip);
+	public Trip createTrip(Trip trip,int userId);
 
 	public Trip findTripById(int id);
 
