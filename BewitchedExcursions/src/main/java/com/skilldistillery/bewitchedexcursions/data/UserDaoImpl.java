@@ -60,7 +60,7 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public List<User> getAllUsers(User user) {
+	public List<User> getAllUsers() {
 
 		String jpql = ("SELECT u FROM User u WHERE u.enabled=1");
 
@@ -84,6 +84,14 @@ public class UserDaoImpl implements UserDAO {
 		return user;
 
 	}
+	@Override
+	public List<User> searchUsers(String keyword) {
+	    String jpql = "SELECT u FROM User u WHERE u.enabled = 1 AND (u.username LIKE :keyword)";
+	    return em.createQuery(jpql, User.class)
+	            .setParameter("keyword", "%" + keyword + "%")
+	            .getResultList();
+	}
+
 
 	@Override
 	public User deleteUser(User user) {

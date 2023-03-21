@@ -73,7 +73,7 @@
 	</section>
 
 	<footer>
-		<p>&copy; 2023 Bewitched Travelers. All Rights Reserved.</p>
+	
 	</footer>
 
 	<script

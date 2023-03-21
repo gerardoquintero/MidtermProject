@@ -18,6 +18,14 @@
 <body>
     <div class="container">
         <h1>User Profile</h1>
+        
+        <form action="search.do" method="GET">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search for users" name="">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
+        </form>
+        
         <h3>My Trips</h3>
         <table class="table">
             <thead>
@@ -47,4 +55,5 @@
     </div>
 </body>
 </html>
+
 
