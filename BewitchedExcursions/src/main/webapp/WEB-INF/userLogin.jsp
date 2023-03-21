@@ -67,11 +67,23 @@
 							<div class="col-lg-6 d-flex align-items-center gradient-custom-2">
 								<div class="text-white px-3 py-4 p-md-5 mx-md-4">
 									<h4 class="mb-4">The intersection of trip planning and social</h4>
-									<p class="small mb-0">Lorem ipsum dolor sit amet,
-										consectetur adipisicing elit, sed do eiusmod tempor incididunt
-										ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-										quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-										ea commodo consequat.</p>
+									<p class="small mb-0">Welcome to our vacation trip planner website! 
+														  We are a team of travel enthusiasts who are 
+														  passionate about helping you plan your dream 
+														  vacation. Our company offers a wide range of 
+														  services, from finding the perfect accommodation 
+														  to booking activities and transportation, 
+														  ensuring that your trip is as enjoyable and 
+														  stress-free as possible. Our website is designed
+														   to make the vacation planning process easy and 
+														   convenient for you. We provide you with a 
+														   comprehensive list of destinations, complete with 
+														   detailed information on each location, including 
+														   top attractions, local culture, and dining options. 
+														   Our user-friendly search feature allows you to 
+														   filter your search. ensuring that you find the 
+														   perfect vacation package that suits your needs 
+														   and preferences.</p>
 								</div>
 							</div>
 						</div>
