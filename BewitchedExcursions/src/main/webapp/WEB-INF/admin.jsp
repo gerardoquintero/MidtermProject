@@ -17,7 +17,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Admin Controls</h1>
+		<h1>Admin</h1>
 
 		<h3>All Trips</h3>
 
@@ -42,7 +42,7 @@
 							<td>${trip.organizer}</td>
 						</tr>
 						<tr>
-							<td>Admin options:</a></td>
+							<td>Admin controls:</a></td>
 							<td><a href="show.do?id=${trip.id }">Display</a></td>
 							<td><a href="updateThisTrip.do?id=${trip.id }">Update</a></td>
 							<c:choose>
