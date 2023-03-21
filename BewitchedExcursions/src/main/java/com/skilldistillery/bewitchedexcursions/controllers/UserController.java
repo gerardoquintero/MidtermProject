@@ -31,8 +31,9 @@ public class UserController {
 	
 //	
 	@RequestMapping(path = { "/", "home.do" })
-	public String goHome(Model model) {
+	public String goHome(Model model,HttpSession session,User user) {
 		model.addAttribute("trips", tripDao.findAllTrips());
+//		session.setAttribute("userLogin", user);
 		return "home";
 	}
 	
@@ -43,6 +44,7 @@ public class UserController {
 	
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
 	public ModelAndView createUser(User user, Model model, String aString, HttpSession session) {
+		model.addAttribute("trips", tripDao.findAllTrips());
 		user.setEnabled(true);
 		user = userDao.createUser(user);
 		session.setAttribute("userLogin", user);
