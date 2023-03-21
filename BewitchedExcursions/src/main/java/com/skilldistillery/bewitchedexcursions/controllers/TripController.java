@@ -24,7 +24,7 @@ public class TripController {
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser != null) {
 			trip = tripDao.createTrip(trip, loggedInUser.getId());
-			return "createATrip";
+			return "displayTrip";
 		}
 		return "home";
 	}
@@ -46,7 +46,7 @@ public class TripController {
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser != null) {
 		model.addAttribute("trip", showTrip);
-		return "createATrip";
+		return "displayTrip";
 		}
 		return "home";
 	}
