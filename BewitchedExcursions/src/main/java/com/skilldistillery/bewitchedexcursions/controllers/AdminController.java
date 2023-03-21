@@ -48,8 +48,7 @@ public class AdminController {
 
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser.getId() == 1) {
-			Trip updatedTrip = tripDao.updateTrip(trip);
-//			model.addAttribute("trip", updatedTrip);
+			tripDao.updateTrip(trip);
 			return "redirect:admin.do";
 		}
 		return "home";

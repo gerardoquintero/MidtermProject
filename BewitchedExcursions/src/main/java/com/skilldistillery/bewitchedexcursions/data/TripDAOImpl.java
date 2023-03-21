@@ -40,7 +40,7 @@ public class TripDAOImpl implements TripDAO {
 	}
 	@Override
 	public List<Trip> findAllPlusArchive() {
-		String query = "SELECT trip FROM Trip trip";
+		String query = "SELECT trip FROM Trip trip ORDER BY start_date ASC";
 		return em.createQuery(query, Trip.class).getResultList();		
 	}
 
