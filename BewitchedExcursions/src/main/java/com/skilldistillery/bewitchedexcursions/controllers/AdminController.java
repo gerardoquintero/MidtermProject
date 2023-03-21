@@ -24,7 +24,7 @@ public class AdminController {
 	private TripDAO tripDao;
 
 	@RequestMapping(path = { "admin.do" })
-	public String seeAdmin(Model model, HttpSession session, Trip trip) {
+	public String seeAdmin(Model model, HttpSession session) {
 		model.addAttribute("trips", tripDao.findAllPlusArchive());
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser.getId() == 1) {
@@ -50,7 +50,7 @@ public class AdminController {
 		if (loggedInUser.getId() == 1) {
 			Trip updatedTrip = tripDao.updateTrip(trip);
 //			model.addAttribute("trip", updatedTrip);
-			return "admin";
+			return "redirect:admin.do";
 		}
 		return "home";
 	}
@@ -60,7 +60,7 @@ public class AdminController {
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser.getId() == 1) {
 			tripDao.archiveTrip(trip.getId());
-			return "admin";
+			return "redirect:admin.do";
 		}
 		return "home";
 	}
@@ -70,7 +70,7 @@ public class AdminController {
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser.getId() == 1) {
 			tripDao.unArchiveTrip(trip.getId());
-			return "admin";
+			return "redirect:admin.do";
 		}
 		return "home";
 	}

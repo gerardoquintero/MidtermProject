@@ -46,7 +46,14 @@ public class TripDAOImpl implements TripDAO {
 
 	@Override
 	public Trip updateTrip(Trip trip) {
-		return em.merge(trip);
+		Trip originalTrip = em.find(Trip.class, trip.getId());
+		originalTrip.setName(trip.getName());
+		originalTrip.setDescription(trip.getDescription());
+		originalTrip.setCapacity(trip.getCapacity());
+		originalTrip.setStartDate(trip.getStartDate());
+		originalTrip.setEndDate(trip.getEndDate());
+		originalTrip.setImageURL(trip.getImageURL());
+		return originalTrip;
 	}
 
 	@Override
