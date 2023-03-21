@@ -11,15 +11,39 @@
 	rel="stylesheet"
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous">
-<title>Log In</title>
+<title></title>
 </head>
-<body>
+<body class="text-center">
 
-	<h2>Log In</h2>
+	<div class="container">
+		<div class="card centerered-card">
+			<!-- style="width: 40vw;" -->
 
-	<form action="login.do" method="post">
-		<input type="text" name="username"> <input type="password"
-			name="password" /> <input type="submit" value="Log In">
-	</form>
+			<div class="card-body">
+				<form class="form-signin" action="login.do" method="POST">
+					<!-- <img class="mb-4"
+						src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
+						alt="" width="72" height="72"> -->
+					<h2>Please Log In</h2>
+					<label for="username">Username</label>
+					<input
+						type="text" id="username" class="form-control"
+						placeholder="Username" name="username" required=""
+						autofocus=""> 
+						
+					<label for="password">Password</label>
+					<input type="password" id="password" class="form-control"
+						placeholder="Password" name="password" required="">
+						
+					<div class="checkbox mb-3">
+						<label> <input type="checkbox" value="remember-me">
+							Remember me
+						</label>
+					</div>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
