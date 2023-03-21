@@ -41,6 +41,7 @@ public class TripController {
 
 	@RequestMapping(path = "show.do", method = RequestMethod.GET)
 	public String displayUserTrips(Model model, Trip trip, HttpSession session) {
+		model.addAttribute("trips", tripDao.findAllTrips());
 		Trip showTrip = tripDao.findTripById(trip.getId());
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser != null) {

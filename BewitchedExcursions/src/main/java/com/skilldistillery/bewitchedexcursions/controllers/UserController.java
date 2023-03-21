@@ -33,12 +33,14 @@ public class UserController {
 	@RequestMapping(path = { "/", "home.do" })
 	public String goHome(Model model,HttpSession session,User user) {
 		model.addAttribute("trips", tripDao.findAllTrips());
-//		session.setAttribute("userLogin", user);
+
 		return "home";
 	}
 	
 	@RequestMapping(path = "createUserForm.do", method = RequestMethod.GET)
-	public String createUserForm(Model model, User user) {
+	public String createUserForm(Model model, User user,HttpSession session) {
+		model.addAttribute("trips", tripDao.findAllTrips());
+		session.setAttribute("userLogin", user);
 		return "createUserForm";
 	}
 	
@@ -54,8 +56,8 @@ public class UserController {
 		ModelAndView mv = new ModelAndView();
 		user.setUserAddress(address);
 		model.addAttribute("user", userDao.getAllUsers(user));
-//		model.addAttribute("address", userDao.(address));
-		
+
+	
 		mv.setViewName("profile");
 		return mv;
 	}
@@ -73,11 +75,19 @@ public class UserController {
 	
 	
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
-	public String loginUser(HttpSession session, User user) {
+	public String loginUser(HttpSession session, User user,Model model) {
+		model.addAttribute("trips", tripDao.findAllTrips());
 		user = userDao.login(user);
 		session.setAttribute("userLogin", user);
 		 LocalDateTime lt = LocalDateTime.now();
 		 session.setAttribute("loginTime", lt);
+		 return "profile";
+		
+	}
+	
+	@RequestMapping(path = "profile.do", method = RequestMethod.GET)
+	public String profile(HttpSession session, User user,Model model) {
+		model.addAttribute("trips", tripDao.findAllTrips());
 		 return "profile";
 		
 	}
