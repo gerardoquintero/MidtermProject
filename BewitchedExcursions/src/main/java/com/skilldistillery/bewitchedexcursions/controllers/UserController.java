@@ -32,7 +32,7 @@ public class UserController {
 //	
 	@RequestMapping(path = { "/", "home.do" })
 	public String goHome(Model model) {
-		model.addAttribute("trip", tripDao.findAllTrips());
+		model.addAttribute("trips", tripDao.findAllTrips());
 		return "home";
 	}
 	

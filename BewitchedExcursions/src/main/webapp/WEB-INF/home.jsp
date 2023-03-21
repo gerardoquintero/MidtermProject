@@ -33,7 +33,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<c:forEach var="trip" items="${trip}" varStatus="status">
+				<c:forEach var="trip" items="${trips}" varStatus="status">
 					<c:if test="${status.count <= 3}">
 						<div class="col-md-4">
 							<div class="card">
@@ -48,7 +48,7 @@
 									<li class="list-group-item"><strong>End Date:</strong> ${trip.endDate}</li>
 								</ul>
 								<div class="card-body">
-									<a href="" class="card-link">Join Trip</a>
+									<a href="show.do?id=${trip.id}">View Trip</a>
 								</div>
 							</div>
 						</div>

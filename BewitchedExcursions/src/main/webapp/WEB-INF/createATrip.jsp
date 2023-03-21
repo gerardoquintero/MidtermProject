@@ -14,7 +14,7 @@
 	crossorigin="anonymous">
 <title>Trips</title>
 </head>
-<body>${trip }
+<body>${trip}
 
 <body>
 	<div class="container">
