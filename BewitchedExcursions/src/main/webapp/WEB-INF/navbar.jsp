@@ -25,6 +25,7 @@
 					<li class="nav-item"><a class="nav-link" href="userLogin.do">Login</a></li>
 				</c:if>
 				<c:if test="${userLogin !=null  }">
+				<li><a href="createTripForm.do">create a trip</a></li>
 
 				<li class="nav-item"><a class="nav-link" href="logout.do">Logout</a></li>
 				</c:if>
