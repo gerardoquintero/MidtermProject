@@ -14,36 +14,47 @@
 <title></title>
 </head>
 <body class="text-center">
-
 	<div class="container">
-		<div class="card centerered-card">
-			<!-- style="width: 40vw;" -->
+		<!-- ROW1 -->
+		<div class="row"></div>
 
-			<div class="card-body">
-				<form class="form-signin" action="login.do" method="POST">
-					<!-- <img class="mb-4"
+		<!-- ROW2 -->
+		<div class="row">
+			<!-- COLUMN1 -->
+			<div class="col"></div>
+			<!-- COLUMN2 -->
+			<div class="col">
+				<div class="card centerered-card">
+					<div class="card-body">
+						<form class="form-signin" action="login.do" method="POST">
+							<!-- <img class="mb-4"
 						src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
 						alt="" width="72" height="72"> -->
-					<h2>Please Log In</h2>
-					<label for="username">Username</label>
-					<input
-						type="text" id="username" class="form-control"
-						placeholder="Username" name="username" required=""
-						autofocus=""> 
-						
-					<label for="password">Password</label>
-					<input type="password" id="password" class="form-control"
-						placeholder="Password" name="password" required="">
-						
-					<div class="checkbox mb-3">
-						<label> <input type="checkbox" value="remember-me">
-							Remember me
-						</label>
+							<h2>Please Log In</h2>
+							<label for="username" class="sr-only">Email address</label>
+							 <input
+								type="text" id="username" class="form-control"
+								placeholder="Email address" name="username" required=""
+								autofocus=""> <label for="password" class="sr-only">Password</label>
+							<input type="password" id="password" class="form-control"
+								placeholder="Password" name="password" required="">
+							<div class="checkbox mb-3">
+								<label> <input type="checkbox" value="remember-me">
+									Remember me
+								</label>
+							</div>
+							<button class="btn btn-lg btn-primary btn-block" type="submit">Log
+								In</button>
+						</form>
 					</div>
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
-				</form>
+				</div>
 			</div>
+			<!-- COLUMN3 -->
+			<div class="col"></div>
 		</div>
+
+		<!-- ROW3 -->
+		<div class="row"></div>
 	</div>
 </body>
 </html>
