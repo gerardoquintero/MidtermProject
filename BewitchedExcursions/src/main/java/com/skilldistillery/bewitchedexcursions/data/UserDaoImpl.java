@@ -1,6 +1,7 @@
 package com.skilldistillery.bewitchedexcursions.data;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -50,6 +51,7 @@ public class UserDaoImpl implements UserDAO {
 
 	@Override
 	public User createUser(User user) {
+		user.setEnabled(true);
 		em.persist(user);
 		return user;
 	}
@@ -100,5 +102,16 @@ public class UserDaoImpl implements UserDAO {
 	public User deleteUser(User user) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public User addFriend(User loggedInUser, int id) {
+		// TODO Auto-generated method stub
+		User user = em.find(User.class,id);
+		loggedInUser = em.find(User.class,loggedInUser.getId());
+		loggedInUser.getFriends().add(user);
+		em.persist(loggedInUser);
+		
+		return loggedInUser;
 	}
 }

@@ -2,6 +2,7 @@ package com.skilldistillery.bewitchedexcursions.entities;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class User {
 
 	@ManyToMany
 	@JoinTable(name = "user_has_friend", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "friend_id"))
-	private List<User> friends; // TO DO : Create add and remove method
+	private Set<User> friends; // TO DO : Create add and remove method
 
 	@ManyToMany(mappedBy = "usersAttendingTrip")
 	private List<Trip> trip;
@@ -126,11 +127,11 @@ public class User {
 		this.recievedMessages = recievedMessages;
 	}
 
-	public List<User> getFriends() {
+	public Set<User> getFriends() {
 		return friends;
 	}
 
-	public void setFriends(List<User> friends) {
+	public void setFriends(Set<User> friends) {
 		this.friends = friends;
 	}
 

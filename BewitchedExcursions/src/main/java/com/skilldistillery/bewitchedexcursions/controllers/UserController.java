@@ -48,8 +48,7 @@ public class UserController {
 	
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
 	public ModelAndView createUser(User user, Model model, String aString, HttpSession session) {
-		model.addAttribute("trips", tripDao.findAllTrips());
-		user.setEnabled(true);
+		model.addAttribute("trips", tripDao.findAllTrips()); 
 		user = userDao.createUser(user);
 		session.setAttribute("userLogin", user);
 		Address address = new Address();
@@ -97,7 +96,17 @@ public class UserController {
 	public String searchUsers(HttpSession session, User user,Model model,String keyword) {
 		List<User> users = userDao.searchUsers(keyword);
 	
-		model.addAttribute("user",users);
+		model.addAttribute("users",users);
+	
+		return "otherProfile";	
+	}
+	@RequestMapping(path = "addFriend.do", method = RequestMethod.GET)
+	public String addFriend(HttpSession session,int otherUserId,Model model) {
+		User currentUser = (User) session.getAttribute("userLogin");
+		
+		
+		userDao.addFriend(currentUser, otherUserId);
+	
 	
 		return "otherProfile";	
 	}

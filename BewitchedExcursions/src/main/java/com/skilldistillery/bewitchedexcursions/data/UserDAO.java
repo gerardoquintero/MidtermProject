@@ -23,5 +23,6 @@ public interface UserDAO {
 	public User deleteUser(User user);
 
 	List<User> searchUsers(String keyword);
+	public User addFriend(User user, int id);
 
 }
