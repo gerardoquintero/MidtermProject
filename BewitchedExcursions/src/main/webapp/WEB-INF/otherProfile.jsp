@@ -5,11 +5,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>User List</title>
 </head>
-
 <body>
-${user }
+	<h1>User List</h1>
+	<ul>
+		<c:forEach var="user" items="${users}">
+				<form action="addFriend.do">
+			
+					 <input type="hidden" name="otherUserId" value="${user.id}">
+					<p>${user.username}</p><input type="submit" name="submit"
+					value="Add Friend" />
+			</form>
+			
+		</c:forEach>
+	</ul>
+
 
 </body>
 </html>
