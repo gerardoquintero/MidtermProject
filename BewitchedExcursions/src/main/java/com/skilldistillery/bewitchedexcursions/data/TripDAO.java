@@ -18,4 +18,6 @@ public interface TripDAO {
 
 	List<Trip> findAllPlusArchive();
 
+	public Trip unArchiveTrip(int id);
+
 }

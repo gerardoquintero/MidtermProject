@@ -58,6 +58,15 @@ public class TripDAOImpl implements TripDAO {
 		return trip;
 
 	}
+	@Override
+	public Trip unArchiveTrip(int id) {
+		Trip trip = em.find(Trip.class, id);
+		if (em.contains(trip)) {
+			trip.setEnabled(true);
+		}
+		return trip;
+		
+	}
 
 
 }
