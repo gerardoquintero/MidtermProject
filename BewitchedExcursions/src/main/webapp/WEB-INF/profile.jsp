@@ -92,7 +92,7 @@
 		<div>
 			<c:if test="${userLogin.id == 1}">
 				<!--todo  -->
-				<h1>Admin Control</h1>
+				<h1><a href="admin.do">Admin Controls</a></h1>
 			</c:if>
 		</div>
 	</div>

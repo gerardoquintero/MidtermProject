@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.bewitchedexcursions.data.TripDAO;
 import com.skilldistillery.bewitchedexcursions.data.UserDAO;
+import com.skilldistillery.bewitchedexcursions.entities.Trip;
 import com.skilldistillery.bewitchedexcursions.entities.User;
 
 @Controller
@@ -18,19 +19,40 @@ public class AdminController {
 
 	@Autowired
 	private UserDAO userDao;
-	
+
 	@Autowired
 	private TripDAO tripDao;
-	
-	
-	@RequestMapping(path = {  "admin.do" })
-	public String seeAdmin(Model model,HttpSession session,User user) {
+
+	@RequestMapping(path = { "admin.do" })
+	public String seeAdmin(Model model, HttpSession session, Trip trip) {
 		model.addAttribute("trips", tripDao.findAllTrips());
-		
-		return "admin";
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser.getId() == 1) {
+			return "admin";
+		}
+
+		return "home";
+	}
+
+	@RequestMapping(path = "updateThisTrip.do", method = RequestMethod.GET)
+	public String updateTripForm(Trip trip, Model model, HttpSession session) {
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser.getId() == 1) {
+			return "updateTrip";
+		}
+		return "home";
 	}
 	
+	@RequestMapping(path = "updateTripForm.do", method = RequestMethod.POST)
+	public String adminUpdateTrip(Trip trip, Model model, HttpSession session) {
 
-	
-	
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser.getId() == 1) {
+			trip = tripDao.updateTrip(trip);
+			
+			return "displayTrip";
+		}
+		return "home";
+	}
+
 }
