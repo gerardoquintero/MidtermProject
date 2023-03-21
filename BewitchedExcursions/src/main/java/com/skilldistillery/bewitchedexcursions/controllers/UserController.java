@@ -96,7 +96,17 @@ public class UserController {
 	public String searchUsers(HttpSession session, User user,Model model,String keyword) {
 		List<User> users = userDao.searchUsers(keyword);
 	
-		model.addAttribute("user",users);
+		model.addAttribute("users",users);
+	
+		return "otherProfile";	
+	}
+	@RequestMapping(path = "addFriend.do", method = RequestMethod.GET)
+	public String addFriend(HttpSession session,int otherUserId,Model model) {
+		User currentUser = (User) session.getAttribute("userLogin");
+		
+		
+		userDao.addFriend(currentUser, otherUserId);
+	
 	
 		return "otherProfile";	
 	}
