@@ -48,8 +48,7 @@ public class UserController {
 	
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
 	public ModelAndView createUser(User user, Model model, String aString, HttpSession session) {
-		model.addAttribute("trips", tripDao.findAllTrips());
-		user.setEnabled(true);
+		model.addAttribute("trips", tripDao.findAllTrips()); 
 		user = userDao.createUser(user);
 		session.setAttribute("userLogin", user);
 		Address address = new Address();
