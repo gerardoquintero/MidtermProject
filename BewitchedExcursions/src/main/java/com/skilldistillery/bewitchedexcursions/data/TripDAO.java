@@ -16,4 +16,6 @@ public interface TripDAO {
 
 	public Trip archiveTrip(int id);
 
+	List<Trip> findAllPlusArchive();
+
 }
