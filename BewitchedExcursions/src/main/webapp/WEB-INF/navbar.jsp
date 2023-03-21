@@ -32,13 +32,13 @@
           <li class="nav-item">
             <a class="nav-link" href="logout.do">Logout</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.do?id=${userLogin.id}">${userLogin.username}</a>
+          </li>
         </c:if>
-        <li class="nav-item">
-          <span class="nav-link">${userLogin.username}</span>
-        </li>
       </ul>
     </div>
   </div>
 </nav>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-		
+	

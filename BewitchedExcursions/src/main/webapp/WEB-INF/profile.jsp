@@ -13,6 +13,7 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
     crossorigin="anonymous">
 <title>User Profile</title>
+
 </head>
 <body>
     <div class="container">
@@ -22,12 +23,12 @@
         <h3>My Trips</h3>
         <ul>
             <c:forEach var="trip" items="${trips}">
-                <c:if test="${trip.organizerId == userLogin.id}">
-                    <li><a href="show.do?id=${trip.id}">${trip.name}</a></li>
-                </c:if>
+                <c:if test="${trip.organizer.id == userLogin.id}">
+                    <li>${trip.name}</li>
+                </c:if> 
             </c:forEach>
         </ul>
     </div>
 </body>
-
 </html>
+
