@@ -27,10 +27,6 @@
 									<p class="small mb-0">Welcome to our vacation trip planner website! 
 														  <strong>Let's get to know you!
 														  		  
-														  		  What's your Name traveler?
-														  		  
-														  		  What's your Lastname Traveler?
-														  		  
 														  		  What's your Username Traveler? 
 														  		  
 														  		  What's your Email Traveler?
@@ -59,8 +55,8 @@
 											<input type="text" id="lastName"
 												class="form-control" name="lastName"/> 
 											<label class="form-label" for="lastName">Last Name</label>
-										</div>
-
+										</div> -->
+ -->
 										<div class="form-outline mb-4">
 											<input type="text" id="username"
 												class="form-control" name="username"/> 
