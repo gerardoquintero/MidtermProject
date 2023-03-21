@@ -31,7 +31,7 @@
 		<input type="date" name="endDate" value="${trip.endDate}"><br> 
 		<label for="image">Image URL </label> 
 		<input type="text" name="imageURL" value="${trip.imageURL}"><br> 
-		 <input type="submit" value="Update Trail" />
+		 <input type="submit" value="Update Trip" />
 	</form>
 
 
