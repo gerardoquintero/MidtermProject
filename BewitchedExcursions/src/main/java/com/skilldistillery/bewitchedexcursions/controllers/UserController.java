@@ -98,7 +98,7 @@ public class UserController {
 	
 		model.addAttribute("users",users);
 	
-		return "otherProfile";	
+		return "displayUsers";	
 	}
 	@RequestMapping(path = "addFriend.do", method = RequestMethod.GET)
 	public String addFriend(HttpSession session,int otherUserId,Model model) {
@@ -108,7 +108,7 @@ public class UserController {
 		userDao.addFriend(currentUser, otherUserId);
 	
 	
-		return "otherProfile";	
+		return "displayUsers";	
 	}
 	
 	
