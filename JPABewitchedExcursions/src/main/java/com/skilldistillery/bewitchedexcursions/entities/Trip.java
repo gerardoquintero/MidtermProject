@@ -50,7 +50,7 @@ public class Trip {
 	private String description;
 
 	private Integer capacity;
-
+//
 	@Column(name = "image")
 	private String imageURL;
 
