@@ -32,9 +32,18 @@
           <li class="nav-item">
             <a class="nav-link" href="logout.do">Logout</a>
           </li>
+          <c:choose>
+          <c:when test="${userLogin.id == 1}">
           <li class="nav-item">
+            <a class="nav-link" href="admin.do">Admin</a>
+          </li>
+          </c:when>
+          <c:otherwise>
+           <li class="nav-item">
             <a class="nav-link" href="profile.do?id=${userLogin.id}">${userLogin.username}</a>
           </li>
+          </c:otherwise>
+          </c:choose>
         </c:if>
       </ul>
     </div>
