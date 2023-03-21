@@ -31,7 +31,7 @@ public class ReviewController {
 		reviewDao.createReview(review);
 		ModelAndView mv = new ModelAndView();
 		model.addAttribute("trip", tripDao.findTripById(review.getTrip().getId()));
-		mv.setViewName("createATrip");
+		mv.setViewName("displayTrip");
 		return mv;
 	}
 

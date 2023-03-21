@@ -42,25 +42,27 @@ ${trip}
 		</div>
 	</div>
 
- <div>
-<h3>Review Trip</h3>
-<form action="review.do" method="POST">
-<div class="form-group">
-				<label for="comment">Review:</label>
-				<input type="text" id="comment" name="comment" class="form-control"></input>
-			</div>
-<input type="hidden" name="id.userId" value="${ userLogin.id}"/>
-<input type="hidden" name="id.tripId" value="${ trip.id}"/>
-<input type="hidden" name="user.id" value="${ userLogin.id}"/>
-<input type="hidden" name="trip.id" value="${ trip.id}"/>
-<h3>Rate Trip</h3>
-<div class="form-group">
-				<label for="rating">Rate 1 - 5:</label>
-				<input type="number" id="rating" name="rating" class="form-control"></input>
-			</div>
+<%--  <c:if test="${userLogin.reviews.id == review.user.id}"> --%>
+		<div>
+			<h3>Review Trip</h3>
+			<form action="review.do" method="POST">
+				<div class="form-group">
+					<label for="comment">Review:</label> <input type="text"
+						id="comment" name="comment" class="form-control"></input>
+				</div>
+				<input type="hidden" name="id.userId" value="${ userLogin.id}" /> <input
+					type="hidden" name="id.tripId" value="${ trip.id}" /> <input
+					type="hidden" name="user.id" value="${ userLogin.id}" /> <input
+					type="hidden" name="trip.id" value="${ trip.id}" />
+				<h3>Rate Trip</h3>
+				<div class="form-group">
+					<label for="rating">Rate 1 - 5:</label> <input type="number"
+						id="rating" name="rating" class="form-control"></input>
+				</div>
 
-<button type="submit" class="btn btn-primary">Submit</button>
-		</form>
-</div> 
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+	<%-- </c:if> --%>
 </body>
 </html>
