@@ -21,7 +21,7 @@
         
         <form action="search.do" method="GET">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search for users" name="">
+                <input type="text" class="form-control" placeholder="Search for users" name="keyword">
                 <button class="btn btn-outline-secondary" type="submit">Search</button>
             </div>
         </form>

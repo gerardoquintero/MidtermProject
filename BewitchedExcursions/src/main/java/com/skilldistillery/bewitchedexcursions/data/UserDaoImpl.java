@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -84,12 +85,14 @@ public class UserDaoImpl implements UserDAO {
 		return user;
 
 	}
+	
 	@Override
 	public List<User> searchUsers(String keyword) {
-	    String jpql = "SELECT u FROM User u WHERE u.enabled = 1 AND (u.username LIKE :keyword)";
-	    return em.createQuery(jpql, User.class)
-	            .setParameter("keyword", "%" + keyword + "%")
-	            .getResultList();
+	    String jpql = "SELECT u FROM User u WHERE u.username LIKE :keyword AND u.enabled = 1";
+
+		TypedQuery<User> query = em.createQuery(jpql, User.class);
+		query.setParameter("keyword", "%" + keyword + "%");
+		return query.getResultList();
 	}
 
 
