@@ -14,12 +14,14 @@ public interface UserDAO {
 
 	public User getUserById(int Id);
 
-	public List<User> getAllUsers(User user);
+	public List<User> getAllUsers();
 
 	public User updateUser(int id,User user);
 
 	public User archiveUser(int id);
 
 	public User deleteUser(User user);
+
+	List<User> searchUsers(String keyword);
 
 }

@@ -1,6 +1,8 @@
 package com.skilldistillery.bewitchedexcursions.controllers;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -55,7 +57,7 @@ public class UserController {
 		addressDao.createAddress(address);
 		ModelAndView mv = new ModelAndView();
 		user.setUserAddress(address);
-		model.addAttribute("user", userDao.getAllUsers(user));
+		model.addAttribute("user", userDao.getAllUsers());
 
 	
 		mv.setViewName("profile");
@@ -91,6 +93,14 @@ public class UserController {
 		 return "profile";
 		
 	}
+	@RequestMapping(path = "search.do", method = RequestMethod.GET)
+	public String searchUsers(HttpSession session, User user,Model model,String keyword) {
+		List<User> users = userDao.searchUsers(keyword);
+		model.addAttribute("users",users);
+	
+		return "otherProfile";	
+	}
+	
 	
 	
 }
