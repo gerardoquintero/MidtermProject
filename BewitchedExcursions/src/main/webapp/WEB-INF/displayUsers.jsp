@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<%@include file="navbar.jsp"%>
+	<link rel="stylesheet" href="../css/main.css">
 	<link
 		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 		rel="stylesheet"
@@ -13,6 +13,10 @@
 	<title>User List</title>
 </head>
 <body style="text-align: center;">
+
+	<header>
+		<%@include file="navbar.jsp"%>
+	</header>
 	<!-- Row 1 -->
 	<div class="row">
 		<!-- Column 1 -->

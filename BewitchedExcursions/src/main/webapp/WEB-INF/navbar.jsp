@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-	crossorigin="anonymous">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg gradient-custom-2" style="background-color: #eee;">
   <div class="container-fluid">
     <a class="navbar-brand" href="home.do">Bewitched Traveler</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -49,5 +44,4 @@
     </div>
   </div>
 </nav>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 	
