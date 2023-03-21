@@ -29,7 +29,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Featured Trip</h2>
+					<h2>Featured Trips</h2>
 				</div>
 			</div>
 			<div class="row">
