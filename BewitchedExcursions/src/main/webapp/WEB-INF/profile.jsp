@@ -96,7 +96,11 @@
 			</c:if>
 		</div>
 	</div>
-
+	
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+		integrity="sha384-IBTw8fR6U+h2QYzZ9qM4J8EM0Wb7+O5g0f61G2h8aJHup+OVZ+yIlX9z/N5CV5Jo"
+		crossorigin="anonymous"></script>
 </body>
 </html>
 
