@@ -41,7 +41,7 @@
 						</tr>
 						<tr>
 						<td><a href="show.do?id=${trip.id }">Display</a></td>
-							<td><a href="updateTrip.do?id=${trip.id }">Update</a></td>
+							<td><a href="updateThisTrip.do?id=${trip.id }">Update</a></td>
 							<td><a href="archiveTrip.do?id=${trip.id }">Archive</a></td>
 							<td><a href="deleteTrip.do?id=${trip.id }">Delete</a></td>
 						</tr>
