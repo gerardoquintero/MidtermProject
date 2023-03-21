@@ -34,15 +34,15 @@
 
 									<form class="form-signin" action="login.do" method="POST">
 										<div class="form-outline mb-4">
+											<label class="form-label" for="username">Username:</label>
 											<input type="text" id="username" class="form-control"
 												placeholder="Username" name="username"/> 
-											<label class="form-label" for="username">Username</label>
 										</div>
 
 										<div class="form-outline mb-4">
+											<label class="form-label" for="password">Password:</label>
 											<input type="password" id="password"
 												class="form-control" name="password"/> 
-											<label class="form-label" for="password">Password</label>
 										</div>
 
 										<div class="text-center pt-1 mb-5 pb-1">
