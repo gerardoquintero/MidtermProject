@@ -45,8 +45,8 @@
 										<h4 class="mt-1 mb-5 pb-1">Become a Bewitched Traveler...</h4>
 									</div>
 									<form class="form-signin" action="register.do" method="POST">
-										<div class="form-outline mb-4">
-											<input type="text" id="firstName" 
+										 <div class="form-outline mb-4">
+											<!-- <input type="text" id="firstName" 
 												class="form-control" name="firstName"/> 
 											<label class="form-label" for="firstName">First Name</label>
 										</div>
@@ -54,9 +54,9 @@
 										<div class="form-outline mb-4">
 											<input type="text" id="lastName"
 												class="form-control" name="lastName"/> 
-											<label class="form-label" for="lastName">Last Name</label>
-										</div> -->
- -->
+											<label class="form-label" for="lastName">Last Name</label> -->
+										</div>
+ 
 										<div class="form-outline mb-4">
 											<input type="text" id="username"
 												class="form-control" name="username"/> 
