@@ -18,16 +18,32 @@
 <body>
     <div class="container">
         <h1>User Profile</h1>
-        <h2>${userLogin}</h2>
-
         <h3>My Trips</h3>
-        <ul>
-            <c:forEach var="trip" items="${trips}">
-                <c:if test="${trip.organizer.id == userLogin.id}">
-                    <li>${trip.name}</li>
-                </c:if> 
-            </c:forEach>
-        </ul>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Organizer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="trip" items="${trips}">
+                    <c:if test="${trip.organizer.id == userLogin.id}">
+                        <tr>
+                            <c:url var="viewTripUrl" value="show.do">
+                                <c:param name="id" value="${trip.id}" />
+                            </c:url>
+                            <td><a href="${viewTripUrl}">${trip.name}</a></td>
+                            <td>${trip.startDate}</td>
+                            <td>${trip.endDate}</td>
+                            <td>${trip.organizer}</td>
+                        </tr>
+                    </c:if>
+                </c:forEach>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
