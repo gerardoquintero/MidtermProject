@@ -1,5 +1,6 @@
 package com.skilldistillery.bewitchedexcursions.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -25,25 +26,13 @@ public class Trip {
 	private int id;
 
 	@Column(name = "start_date")
-	private LocalDateTime startDate;
+	private LocalDate startDate;
 
 	@OneToMany(mappedBy = "trip")
 	private List<Review> reviews;
 
-	public List<Review> getReviews() {
-		return reviews;
-	}
-
-	public void setReviews(List<Review> reviews) {
-		this.reviews = reviews;
-	}
- 
-	public Boolean getEnabled() {
-		return enabled;
-	}
-
 	@Column(name = "end_date")
-	private LocalDateTime endDate;
+	private LocalDate endDate;
 
 	private String name;
 
@@ -72,13 +61,24 @@ public class Trip {
 
 	@OneToMany(mappedBy = "trip")
 	private List<TripMessage> tripMessages;
-	
+
 	@OneToMany(mappedBy = "trip")
 	private List<Lodging> lodging;
 
-
 	public Trip() {
 
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+	public Boolean getEnabled() {
+		return enabled;
 	}
 
 	public int getId() {
@@ -89,19 +89,19 @@ public class Trip {
 		this.id = id;
 	}
 
-	public LocalDateTime getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(LocalDateTime startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
 
-	public LocalDateTime getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(LocalDateTime endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 
@@ -189,8 +189,6 @@ public class Trip {
 		this.enabled = enabled;
 	}
 
-	
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -212,7 +210,5 @@ public class Trip {
 	public String toString() {
 		return "Trip [id=" + id + ", name=" + name + ", enabled=" + enabled + "]";
 	}
-
-
 
 }
