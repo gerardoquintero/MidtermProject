@@ -64,5 +64,15 @@ public class AdminController {
 		}
 		return "home";
 	}
+	
+	@RequestMapping(path = "unArchiveTrip.do", method = RequestMethod.GET)
+	public String adminUnArchive(Trip trip, Model model, HttpSession session) {
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser.getId() == 1) {
+			tripDao.unArchiveTrip(trip.getId());
+			return "admin";
+		}
+		return "home";
+	}
 
 }
