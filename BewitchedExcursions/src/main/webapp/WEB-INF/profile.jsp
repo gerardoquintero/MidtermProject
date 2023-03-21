@@ -53,6 +53,12 @@
             </tbody>
         </table>
     </div>
+    <div>
+      <c:if test="${userLogin.id == 1}">
+        <!--todo  -->
+        <h1>Admin Control</h1>
+          </c:if> 
+          </div>
 </body>
 </html>
 

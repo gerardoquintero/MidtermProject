@@ -37,7 +37,7 @@ public class Trip {
 	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
 	}
-
+ 
 	public Boolean getEnabled() {
 		return enabled;
 	}

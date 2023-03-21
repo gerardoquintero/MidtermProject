@@ -9,6 +9,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.bewitchedexcursions.entities.Review;
+import com.skilldistillery.bewitchedexcursions.entities.User;
+import com.skilldistillery.bewitchedexcursions.entities.Trip;
 
 @Transactional
 @Service
@@ -19,6 +21,9 @@ public class ReviewDAOImpl implements ReviewDAO {
 	
 	@Override
 	public Review createReview(Review review) {
+		review.setUser(em.find(User.class, review.getUser().getId()));
+		review.setTrip(em.find(Trip.class, review.getTrip().getId()));
+		review.setEnabled(true);
 		em.persist(review);
 
 		return review;
