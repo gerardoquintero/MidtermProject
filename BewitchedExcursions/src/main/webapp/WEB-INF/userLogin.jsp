@@ -12,7 +12,7 @@
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous">
 	<link rel="stylesheet" href="../css/loginAndRegister.css">
-<title></title>
+<title>Create Account</title>
 </head>
 <body class="text-center">
 	<section class="h-100 gradient-form" style="background-color: #eee;">
@@ -33,8 +33,6 @@
 									</div>
 
 									<form class="form-signin" action="login.do" method="POST">
-										<p>Please login to your account</p>
-
 										<div class="form-outline mb-4">
 											<input type="text" id="username" class="form-control"
 												placeholder="Username" name="username"/> 
