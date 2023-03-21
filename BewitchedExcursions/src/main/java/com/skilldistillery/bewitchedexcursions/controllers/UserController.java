@@ -96,7 +96,8 @@ public class UserController {
 	@RequestMapping(path = "search.do", method = RequestMethod.GET)
 	public String searchUsers(HttpSession session, User user,Model model,String keyword) {
 		List<User> users = userDao.searchUsers(keyword);
-		model.addAttribute("users",users);
+	
+		model.addAttribute("user",users);
 	
 		return "otherProfile";	
 	}
