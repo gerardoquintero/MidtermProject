@@ -16,6 +16,7 @@
 
 </head>
 <body>
+<h1>Update Trip</h1>
 	<form action="updateTripForm.do" method="POST">
 		<input type="number" name="id" value="${trip.id }"> <br>
 		<label for="name">Name</label> 

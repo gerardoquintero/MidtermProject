@@ -38,6 +38,11 @@ public class TripDAOImpl implements TripDAO {
 		String query = "SELECT trip FROM Trip trip WHERE trip.enabled = 1";
 		return em.createQuery(query, Trip.class).getResultList();		
 	}
+	@Override
+	public List<Trip> findAllPlusArchive() {
+		String query = "SELECT trip FROM Trip trip";
+		return em.createQuery(query, Trip.class).getResultList();		
+	}
 
 	@Override
 	public Trip updateTrip(Trip trip) {
