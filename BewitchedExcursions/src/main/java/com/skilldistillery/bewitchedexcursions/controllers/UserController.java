@@ -39,9 +39,9 @@ public class UserController {
 	}
 	@RequestMapping(path = "userUpdateProfile.do", method = RequestMethod.GET)
 	public String updateUserProfile(User user, Model model, HttpSession session) {
-		 user = userDao.getUserById(user.getId());
+		 	user = userDao.getUserById(user.getId());
 		//User loggedInUser = (User) session.getAttribute("userLogin");
-	
+		 	
 			model.addAttribute("user", user);
 			return "updateProfile";
 	
@@ -81,17 +81,15 @@ public class UserController {
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String loginUser(HttpSession session, User user, Model model) {
-		User loggedInUser = (User) session.getAttribute("userLogin");
-
-		model.addAttribute("trips", tripDao.findAllTrips());
-		user = userDao.login(user);
-		if(loggedInUser== null) { 
-			return"error";
+		if(user!= null) { 
+			model.addAttribute("trips", tripDao.findAllTrips());
+			user = userDao.login(user);
+			session.setAttribute("userLogin", user);
+			LocalDateTime lt = LocalDateTime.now();
+			session.setAttribute("loginTime", lt);
+			return "profile";
 		}
-		session.setAttribute("userLogin", user);
-		LocalDateTime lt = LocalDateTime.now();
-		session.setAttribute("loginTime", lt);
-		return "profile";
+		return"error";
 
 	}
 
