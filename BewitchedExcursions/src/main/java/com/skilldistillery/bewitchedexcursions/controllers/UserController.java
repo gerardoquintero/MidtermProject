@@ -17,6 +17,7 @@ import com.skilldistillery.bewitchedexcursions.data.AddressDAO;
 import com.skilldistillery.bewitchedexcursions.data.TripDAO;
 import com.skilldistillery.bewitchedexcursions.data.UserDAO;
 import com.skilldistillery.bewitchedexcursions.entities.Address;
+import com.skilldistillery.bewitchedexcursions.entities.Trip;
 import com.skilldistillery.bewitchedexcursions.entities.User;
 
 @Controller
@@ -109,6 +110,29 @@ public class UserController {
 	
 	
 		return "displayUsers";	
+	}
+	@RequestMapping(path = "userUpdatesTrip.do", method = RequestMethod.GET)
+	public String updateTripForm(Trip trip, Model model, HttpSession session) {
+		 trip = tripDao.findTripById(trip.getId());
+		 System.out.println("************" + trip);
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser != null) {
+			model.addAttribute("trip", trip);
+			return "userUpdatesTheirTrip";
+		}
+		return "home";
+	}
+
+	@RequestMapping(path = "userUpdateForm.do", method = RequestMethod.POST)
+	public String adminUpdateTrip(Trip trip, Model model, HttpSession session) {
+		Trip tripUpdate = tripDao.findTripById(trip.getId());
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser != null) {
+			tripDao.updateTrip(trip);
+			model.addAttribute("trip", tripUpdate);
+			return "displayTrip";
+		}
+		return "home";
 	}
 	
 	

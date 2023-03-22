@@ -37,7 +37,6 @@ public class AdminController {
 	@RequestMapping(path = "updateThisTrip.do", method = RequestMethod.GET)
 	public String updateTripForm(Trip trip, Model model, HttpSession session) {
 		 trip = tripDao.findTripById(trip.getId());
-		 System.out.println("************" + trip);
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser.getId() == 1) {
 			model.addAttribute("trip", trip);
