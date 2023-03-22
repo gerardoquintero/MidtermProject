@@ -18,7 +18,7 @@ import com.skilldistillery.bewitchedexcursions.entities.Review;
 import com.skilldistillery.bewitchedexcursions.entities.User;
 
 @Controller
-public class ReviewController {
+public class ReviewAndMessagingController {
 
 	@Autowired
 	private UserDAO userDao;
@@ -48,7 +48,7 @@ public class ReviewController {
 		message.setReciever(recipient);
 		message.setEnabled(true);
 		pm.createPrivateMessage(message);
-		model.addAttribute("messages", pm.findAllPrivateMessages());
+		model.addAttribute("messages", pm.findPrivateMessagesBetweenUsers(user.getId(), recipient.getId()));
 		return "messages";
 	}
 

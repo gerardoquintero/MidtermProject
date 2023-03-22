@@ -34,6 +34,15 @@ public class PrivateMessageDAOImpl implements PrivateMessageDAO {
 		String query = "SELECT privateMessage FROM PrivateMessage privateMessage WHERE privateMessage.enabled = 1";
 		return em.createQuery(query, PrivateMessage.class).getResultList();
 	}
+	@Override
+	public List<PrivateMessage> findPrivateMessagesBetweenUsers(int senderId, int recieverId) {
+	    String query = "SELECT pm FROM PrivateMessage pm WHERE (pm.sender.id = :senderId AND pm.reciever.id = :recieverId) OR (pm.sender.id = :recieverId AND pm.reciever.id = :senderId)";
+	    return em.createQuery(query, PrivateMessage.class)
+	             .setParameter("senderId", senderId)
+	             .setParameter("recieverId", recieverId)
+	             .getResultList();
+	}
+
 
 	@Override
 	public PrivateMessage updatePrivateMessage(PrivateMessage privateMessage) {

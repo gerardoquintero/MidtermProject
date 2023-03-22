@@ -15,4 +15,6 @@ public interface PrivateMessageDAO {
 	public PrivateMessage updatePrivateMessage(PrivateMessage privateMessage);
 
 	public PrivateMessage archivePrivateMessage(int id);
+
+	List<PrivateMessage> findPrivateMessagesBetweenUsers(int senderId, int recieverId);
 }
