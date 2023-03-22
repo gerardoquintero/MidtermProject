@@ -40,8 +40,7 @@
 									<form class="form-signin" action="login.do" method="POST">
 										<div class="form-outline mb-4">
 											<label class="form-label" for="username">Username:</label>
-											<input type="text" id="username" class="form-control"
-												placeholder="Username" name="username"/> 
+											<input type="text" id="username" class="form-control" name="username"/> 
 										</div>
 
 										<div class="form-outline mb-4">

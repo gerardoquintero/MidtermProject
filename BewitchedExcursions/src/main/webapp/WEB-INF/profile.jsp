@@ -30,7 +30,7 @@
 				<div class="input-group mb-3 mt-3">
 					<input type="text" class="form-control"
 						placeholder="Search for users" name="keyword">
-					<button class="btn btn-outline-secondary" type="submit">Search</button>
+					<button class="btn btn-primary btn-block fa-lg gradient-custom-2" type="submit">Search</button>
 				</div>
 			</form>
 		</div>
@@ -45,8 +45,8 @@
 		<!-- Column 2 -->
 		<div class="col-md-4">
 			<h3>User Profile</h3>
-			<div class="card mt-3">
-				<div class="card-body gradient-custom-2 space-white">
+			<div class="card mt-3 text-white">
+				<div class="card-body gradient-custom-2">
 					<h5 class="card-title">Card title</h5>
 					<p class="card-text">Some quick example text to build on the
 						card title and make up the bulk of the card's content.</p>
@@ -59,7 +59,7 @@
 			<h3>My Trips</h3>
 			<c:forEach var="trip" items="${trips}">
 				<c:if test="${trip.organizer.id == userLogin.id}">
-					<div class="card mt-3 gradient-custom-2 space-white">
+					<div class="card mt-3 gradient-custom-2 text-white">
 						<div class="card-body">
 							<table class="table">
 								<thead>

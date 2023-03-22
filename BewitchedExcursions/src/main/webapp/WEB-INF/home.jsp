@@ -27,7 +27,7 @@
 		</div>
 	</section>
 
-	<section class="featured-trips">
+	<section class="gradient-custom-2">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
