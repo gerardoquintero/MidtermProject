@@ -45,22 +45,19 @@
 
 				<ul>
 					<c:forEach items="${trip.tripReviews}" var="review">
-						<li>${review.user.username}:${review.comment}(Rating:
-							${review.rating})</li>
+						<li>${review.user.username}:${review.comment}(Rating: ${review.rating})</li>
 					</c:forEach>
 				</ul>
-				<!--  -->
-				<!--  -->
-				<div></div>
-				<c:if test="${userLogin.username == trip.organizer.username}">
-					<h2>
-						<a href="userUpdatesTrip.do?id=${trip.id }">Update this Trip</a>
-					</h2>
-				</c:if>
-			</div>
+			<!--  -->
+			<!--  -->
+			<div></div>
+			<c:if test="${userLogin.id == trip.organizer.id}"> 
+				<h2><a href="userUpdatesTrip.do?id=${trip.id }">Update this Trip</a></h2>
+		</c:if> 
+</div>
 
+			</div>
 		</div>
-	</div>
 	</div>
 
 
