@@ -176,8 +176,10 @@ public class User {
 	}
 	
 	public boolean isTheSameUserAs(Object obj) {
-		if (obj == this) return true;
-		if (!(obj instanceof User)) return false;
+		if (obj == this) 
+			return true;
+		if (!(obj instanceof User)) 
+			return false;
 		User user = (User) obj;
 		return id == user.id;
 	}
