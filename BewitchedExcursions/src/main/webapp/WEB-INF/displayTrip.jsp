@@ -49,6 +49,7 @@
 					</c:forEach>
 				</ul>
 			<!--  -->
+			<!--  -->
 				<h2><a href="userUpdatesTrip.do?id=${trip.id }">Update this Trip</a></h2>
 			
 
