@@ -5,14 +5,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../css/main.css">
-	<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-		crossorigin="anonymous">
-	<title>Trips</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../css/main.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+	crossorigin="anonymous">
+<title>Trips</title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
 		<%@include file="navbar.jsp"%>
 	</header>
 
-${trip}
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -42,34 +42,40 @@ ${trip}
 				<h2>End Date</h2>
 				<p>${trip.endDate}</p>
 				<h2>Reviews</h2>
-				<p>${trip.tripReviews}</p> 
+				<ul>
+					<c:forEach items="${trip.tripReviews}" var="review">
+						<li>${review.user.username}:${review.comment}(Rating: ${review.rating})</li>
+					</c:forEach>
+				</ul>
+			
+				<h2><a href="userUpdatesTrip.do?id=${trip.id }">Update this Trip</a></h2>
+			
 			</div>
-		<p><a href="userUpdatesTrip.do?id=${trip.id }">Update this Trip</a></p>
 		</div>
 	</div>
-	
 
-<%--  <c:if test="${userLogin.reviews.id == review.user.id}"> --%>
-		<div>
-			<h3>Review Trip</h3>
-			<form action="review.do" method="POST">
-				<div class="form-group">
-					<label for="comment">Review:</label> <input type="text"
-						id="comment" name="comment" class="form-control"></input>
-				</div>
-				<input type="hidden" name="id.userId" value="${ userLogin.id}" /> <input
-					type="hidden" name="id.tripId" value="${ trip.id}" /> <input
-					type="hidden" name="user.id" value="${ userLogin.id}" /> <input
-					type="hidden" name="trip.id" value="${ trip.id}" />
-				<h3>Rate Trip</h3>
-				<div class="form-group">
-					<label for="rating">Rate 1 - 5:</label> <input type="number"
-						id="rating" name="rating" class="form-control"></input>
-				</div>
 
-				<button type="submit" class="btn btn-primary">Submit</button>
-			</form>
-		</div>
+	<%--  <c:if test="${userLogin.reviews.id == review.user.id}"> --%>
+	<div>
+		<h3>Review Trip</h3>
+		<form action="review.do" method="POST">
+			<div class="form-group">
+				<label for="comment">Review:</label> <input type="text" id="comment"
+					name="comment" class="form-control"></input>
+			</div>
+			<input type="hidden" name="id.userId" value="${ userLogin.id}" /> <input
+				type="hidden" name="id.tripId" value="${ trip.id}" /> <input
+				type="hidden" name="user.id" value="${ userLogin.id}" /> <input
+				type="hidden" name="trip.id" value="${ trip.id}" />
+			<h3>Rate Trip</h3>
+			<div class="form-group">
+				<label for="rating">Rate 1 - 5:</label> <input type="number"
+					id="rating" name="rating" class="form-control"></input>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
 	<%-- </c:if> --%>
 </body>
 </html>

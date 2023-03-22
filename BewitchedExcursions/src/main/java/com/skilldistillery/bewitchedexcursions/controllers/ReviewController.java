@@ -32,6 +32,7 @@ public class ReviewController {
 	@RequestMapping(path = "review.do", method = RequestMethod.POST)
 	public ModelAndView createReview(Model model, HttpSession session, Review review) {
 		model.addAttribute("review", reviewDao.findAllReviews());
+
 		reviewDao.createReview(review);
 		ModelAndView mv = new ModelAndView();
 		model.addAttribute("trip", tripDao.findTripById(review.getTrip().getId()));
