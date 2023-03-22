@@ -50,8 +50,9 @@
 				</ul>
 			<!--  -->
 			<!--  -->
+			<div></div>
+			<c:if test="${userLogin.id == trip.organizer.id}"> 
 				<h2><a href="userUpdatesTrip.do?id=${trip.id }">Update this Trip</a></h2>
-			
 
 
 			</div>
