@@ -89,6 +89,14 @@ public class UserController {
 		return "profile";
 
 	}
+	@RequestMapping(path = "viewFriend.do", method = RequestMethod.GET)
+	public String otherProfile( int otherUserId, Model model) {
+		
+		model.addAttribute("trips", tripDao.findAllTripsByOrganizer(otherUserId));
+		
+		return "otherProfile";
+		
+	}
 
 	@RequestMapping(path = "search.do", method = RequestMethod.GET)
 	public String searchUsers(HttpSession session, User user, Model model, String keyword) {
