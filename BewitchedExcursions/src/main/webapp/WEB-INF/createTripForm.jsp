@@ -79,6 +79,7 @@
 							<div class="col-lg-6 d-flex align-items-center gradient-custom-2">
 								<div class="text-white px-3 py-4 p-md-5 mx-md-4">
 									<h4 class="mb-4">Where would you like to go?</h4>
+									<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47139330.24912588!2d-12.8611109417314!3d43.85258716626324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46ed8886cfadda85%3A0x72ef99e6b3fcf079!2sEurope!5e0!3m2!1sen!2sus!4v1679507576255!5m2!1sen!2sus" width="400" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 									<p class="small mb-0">Welcome to our vacation trip planner
 										website! We are a team of travel enthusiasts who are
 										passionate about helping you plan your dream vacation. Our
