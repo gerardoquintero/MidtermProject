@@ -43,8 +43,8 @@ ${trip}
 				<p>${trip.endDate}</p>
 				<h2>Reviews</h2>
 				<p>${trip.tripReviews}</p> 
+		<p><a href="userUpdatesTrip.do?id=${trip.id }">Update your Trip</a></p>
 			</div>
-		<p><a href="userUpdatesTrip.do?id=${trip.id }">Update this Trip</a></p>
 		</div>
 	</div>
 	
