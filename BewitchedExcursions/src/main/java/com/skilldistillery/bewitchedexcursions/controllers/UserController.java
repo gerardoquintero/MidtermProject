@@ -50,8 +50,6 @@ public class UserController {
 
 	@RequestMapping(path = "createUserForm.do", method = RequestMethod.GET)
 	public String createUserForm(Model model, User user, HttpSession session) {
-		model.addAttribute("trips", tripDao.findAllTrips());
-		session.setAttribute("userLogin", user);
 		return "createUserForm";
 	}
 
