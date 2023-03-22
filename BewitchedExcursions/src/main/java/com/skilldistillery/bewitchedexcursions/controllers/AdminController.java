@@ -36,25 +36,27 @@ public class AdminController {
 
 	@RequestMapping(path = "updateThisTrip.do", method = RequestMethod.GET)
 	public String updateTripForm(Trip trip, Model model, HttpSession session) {
+		 trip = tripDao.findTripById(trip.getId());
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser.getId() == 1) {
+			model.addAttribute("trip", trip);
 			return "updateTrip";
 		}
 		return "home";
 	}
-	
+
 	@RequestMapping(path = "updateTripForm.do", method = RequestMethod.POST)
 	public String adminUpdateTrip(Trip trip, Model model, HttpSession session) {
-
+		Trip tripUpdate = tripDao.findTripById(trip.getId());
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser.getId() == 1) {
-			Trip updatedTrip = tripDao.updateTrip(trip);
-//			model.addAttribute("trip", updatedTrip);
+			tripDao.updateTrip(trip);
+			model.addAttribute("trip", tripUpdate);
 			return "redirect:admin.do";
 		}
 		return "home";
 	}
-	
+
 	@RequestMapping(path = "archiveTrip.do", method = RequestMethod.GET)
 	public String adminArchive(Trip trip, Model model, HttpSession session) {
 		User loggedInUser = (User) session.getAttribute("userLogin");
@@ -64,7 +66,7 @@ public class AdminController {
 		}
 		return "home";
 	}
-	
+
 	@RequestMapping(path = "unArchiveTrip.do", method = RequestMethod.GET)
 	public String adminUnArchive(Trip trip, Model model, HttpSession session) {
 		User loggedInUser = (User) session.getAttribute("userLogin");

@@ -64,19 +64,19 @@
 										<div class="form-outline mb-4">
 											<label class="form-label" for="username">Username:</label>
 											<input type="text" id="username"
-												class="form-control" name="username"/> 
+												class="form-control" name="username" required/> 
 										</div>
 
 										<div class="form-outline mb-4">
 											<label class="form-label" for="email">Email:</label>
 											<input type="text" id="email"
-												class="form-control" name="email"/> 
+												class="form-control" name="email" required/> 
 										</div>
 			
 										<div class="form-outline mb-4">
 											<label class="form-label" for="password">Password:</label>
 											<input type="password" id="password"
-												class="form-control" name="password"/> 
+												class="form-control" name="password" required/> 
 										</div>
 										
 										<div class="text-center pt-1 mb-5 pb-1">

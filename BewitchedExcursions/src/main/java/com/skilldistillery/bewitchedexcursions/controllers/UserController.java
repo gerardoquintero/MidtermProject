@@ -17,38 +17,37 @@ import com.skilldistillery.bewitchedexcursions.data.AddressDAO;
 import com.skilldistillery.bewitchedexcursions.data.TripDAO;
 import com.skilldistillery.bewitchedexcursions.data.UserDAO;
 import com.skilldistillery.bewitchedexcursions.entities.Address;
+import com.skilldistillery.bewitchedexcursions.entities.Trip;
 import com.skilldistillery.bewitchedexcursions.entities.User;
 
 @Controller
 public class UserController {
 
-	
-	
 	@Autowired
 	private UserDAO userDao;
 	@Autowired
 	private AddressDAO addressDao;
 	@Autowired
 	private TripDAO tripDao;
-	
+
 //	
 	@RequestMapping(path = { "/", "home.do" })
-	public String goHome(Model model,HttpSession session,User user) {
+	public String goHome(Model model, HttpSession session, User user) {
 		model.addAttribute("trips", tripDao.findAllTrips());
 
 		return "home";
 	}
-	
+
 	@RequestMapping(path = "createUserForm.do", method = RequestMethod.GET)
-	public String createUserForm(Model model, User user,HttpSession session) {
+	public String createUserForm(Model model, User user, HttpSession session) {
 		model.addAttribute("trips", tripDao.findAllTrips());
 		session.setAttribute("userLogin", user);
 		return "createUserForm";
 	}
-	
+
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
 	public ModelAndView createUser(User user, Model model, String aString, HttpSession session) {
-		model.addAttribute("trips", tripDao.findAllTrips()); 
+		model.addAttribute("trips", tripDao.findAllTrips());
 		user = userDao.createUser(user);
 		session.setAttribute("userLogin", user);
 		Address address = new Address();
@@ -58,75 +57,87 @@ public class UserController {
 		user.setUserAddress(address);
 		model.addAttribute("user", userDao.getAllUsers());
 
-	
 		mv.setViewName("profile");
 		return mv;
 	}
-	
+
 	@RequestMapping(path = "userLogin.do", method = RequestMethod.GET)
 	public String loginForm(Model model, User user) {
 		return "userLogin";
 	}
-	
+
 	@RequestMapping(path = "logout.do")
 	public String logoutForm(HttpSession session) {
 		session.removeAttribute("userLogin");
 		return "home";
 	}
-	
-	
+
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
-	public String loginUser(HttpSession session, User user,Model model) {
+	public String loginUser(HttpSession session, User user, Model model) {
 		model.addAttribute("trips", tripDao.findAllTrips());
 		user = userDao.login(user);
 		session.setAttribute("userLogin", user);
-		 LocalDateTime lt = LocalDateTime.now();
-		 session.setAttribute("loginTime", lt);
-		 return "profile";
-		
+		LocalDateTime lt = LocalDateTime.now();
+		session.setAttribute("loginTime", lt);
+		return "profile";
+
 	}
-	
+
 	@RequestMapping(path = "profile.do", method = RequestMethod.GET)
-	public String profile(HttpSession session, User user,Model model) {
+	public String profile(HttpSession session, User user, Model model) {
 		model.addAttribute("trips", tripDao.findAllTrips());
-		 return "profile";
+		return "profile";
+
+	}
+	@RequestMapping(path = "viewFriend.do", method = RequestMethod.GET)
+	public String otherProfile( int otherUserId, Model model) {
+		
+		model.addAttribute("trips", tripDao.findAllTripsByOrganizer(otherUserId));
+		
+		return "otherProfile";
 		
 	}
+
 	@RequestMapping(path = "search.do", method = RequestMethod.GET)
-	public String searchUsers(HttpSession session, User user,Model model,String keyword) {
+	public String searchUsers(HttpSession session, User user, Model model, String keyword) {
 		List<User> users = userDao.searchUsers(keyword);
-	
-		model.addAttribute("users",users);
-	
-		return "displayUsers";	
+
+		model.addAttribute("users", users);
+
+		return "displayUsers";
 	}
+
 	@RequestMapping(path = "addFriend.do", method = RequestMethod.GET)
-	public String addFriend(HttpSession session,int otherUserId,Model model) {
+	public String addFriend(HttpSession session, int otherUserId, Model model) {
 		User currentUser = (User) session.getAttribute("userLogin");
-		
-		
+
 		userDao.addFriend(currentUser, otherUserId);
-	
-	
-		return "displayUsers";	
+
+		return "displayUsers";
 	}
-	
-	
-	
-	
-	
+
+	@RequestMapping(path = "userUpdatesTrip.do", method = RequestMethod.GET)
+	public String updateTripForm(Trip trip, Model model, HttpSession session) {
+		trip = tripDao.findTripById(trip.getId());
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser != null) {
+			model.addAttribute("trip", trip);
+			return "userUpdatesTheirTrip";
+		}
+		return "home";
+	}
+
+	@RequestMapping(path = "userUpdateForm.do", method = RequestMethod.POST)
+	public String adminUpdateTrip(Trip trip, Model model, HttpSession session) {
+		Trip tripUpdate = tripDao.findTripById(trip.getId());
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser != null) {
+			tripDao.updateTrip(trip);
+			model.addAttribute("trip", tripUpdate);
+			return "displayTrip";
+		}
+		return "home";
+	}
+
 }
 
-
-
-//	@RequestMapping(path = {"/", "home.do"} ,method= RequestMethod.POST )
-//	public String home(Model model) {
-//		////////DEBUG
-//		User u = new User();
-//		u.setUsername("admin");
-//		u.setPassword("admin");
-//		u = userDao.createUser(u);
-//		model.addAttribute("SMOKETEST", u);
-//		/////=
-//		
-//		return "home";

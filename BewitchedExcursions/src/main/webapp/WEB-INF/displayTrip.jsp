@@ -21,7 +21,7 @@
 		<%@include file="navbar.jsp"%>
 	</header>
 
-${trip}
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -42,12 +42,29 @@ ${trip}
 				<h2>End Date</h2>
 				<p>${trip.endDate}</p>
 				<h2>Reviews</h2>
-				<p>${trip.tripReviews}</p> 
+				
+				
+
+				<ul>
+					<c:forEach items="${trip.tripReviews}" var="review">
+						<li>${review.user.username}:${review.comment}(Rating:
+							${review.rating})</li>
+					</c:forEach>
+				</ul>
+				<!--  -->
+				<!--  -->
+
+				<c:if test="${userLogin.id == trip.organizer.id}">
+					<h2>
+						<a href="userUpdatesTrip.do?id=${trip.id }">Update this Trip</a>
+					</h2>
+				</c:if>
+
 			</div>
 		</div>
-	</div>
 
-<%--  <c:if test="${userLogin.reviews.id == review.user.id}"> --%>
+
+		<%--  <c:if test="${userLogin.reviews.id == review.user.id}"> --%>
 		<div>
 			<h3>Review Trip</h3>
 			<form action="review.do" method="POST">
@@ -55,9 +72,9 @@ ${trip}
 					<label for="comment">Review:</label> <input type="text"
 						id="comment" name="comment" class="form-control"></input>
 				</div>
-				<input type="hidden" name="id.userId" value="${ userLogin.id}" /> <input
+				<input type="hidden" name="id.userId" value="${ userLogin.id}"/> <input
 					type="hidden" name="id.tripId" value="${ trip.id}" /> <input
-					type="hidden" name="user.id" value="${ userLogin.id}" /> <input
+					type="hidden" name="user.id" value="${ userLogin.id}"/> <input
 					type="hidden" name="trip.id" value="${ trip.id}" />
 				<h3>Rate Trip</h3>
 				<div class="form-group">
@@ -68,6 +85,6 @@ ${trip}
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>
 		</div>
-	<%-- </c:if> --%>
+		<%-- </c:if> --%>
 </body>
 </html>

@@ -27,6 +27,9 @@
           <li class="nav-item">
             <a class="nav-link" href="logout.do">Logout</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="message.do">send message</a>
+          </li>
           <c:choose>
           <c:when test="${userLogin.id == 1}">
           <li class="nav-item">
@@ -45,3 +48,4 @@
   </div>
 </nav>
 	
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

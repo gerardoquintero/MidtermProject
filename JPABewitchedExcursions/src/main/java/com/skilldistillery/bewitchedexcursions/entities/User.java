@@ -43,9 +43,6 @@ public class User {
 	@JoinColumn(name = "address_id")
 	private Address userAddress;
 
-	public User() {
-
-	}
  
 	private String username;
 
@@ -55,6 +52,10 @@ public class User {
 
 	private String role;
 
+	public User() {
+		
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -172,5 +173,14 @@ public class User {
 			return false;
 		User other = (User) obj;
 		return id == other.id;
+	}
+	
+	public boolean isTheSameUserAs(Object obj) {
+		if (obj == this) 
+			return true;
+		if (!(obj instanceof User)) 
+			return false;
+		User user = (User) obj;
+		return id == user.id;
 	}
 }

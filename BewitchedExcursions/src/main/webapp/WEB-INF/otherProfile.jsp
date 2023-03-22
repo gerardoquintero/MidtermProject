@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/loginAndRegister.css">
+	<link rel="stylesheet" href="../css/loginAndRegister.css">
 	<link
 		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 		rel="stylesheet"
@@ -47,23 +47,19 @@
 			<h3>User Profile</h3>
 			<div class="card mt-3 text-white">
 				<div class="card-body gradient-custom-2">
-					<h5 class="card-title">${userLogin.username}</h5>
-					<table border="4px">
-					 <tr>
-					  </tr>
-					  <tr>
-					  <td><img src="https://myspace.com/common/images/user.png" height=130 width=130></td>
-					   </tr>
-					   </table>
-					<p class="card-text">Welcome to my page!</p>
+					<h5 class="card-title">Card title</h5>
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+					<button type="button" class="btn btn-primary">Button</button>
 				</div>
 			</div>
 		</div>
-		<!-- Column 3 --> <!--  -->
+		<!-- Column 3 -->
 		<div class="col-md-6">
-			<h3>My Trips</h3>
+			<h3> Trips</h3>
+			${trips }
 			<c:forEach var="trip" items="${trips}">
-				<c:if test="${trip.organizer.id == userLogin.id}">
+				
 					<div class="card mt-3 gradient-custom-2 text-white">
 						<div class="card-body">
 							<table class="table">
@@ -89,7 +85,7 @@
 							</table>
 						</div>
 					</div>
-				</c:if>
+				
 			</c:forEach>
 		</div>
 		<!-- Column 4 -->
@@ -105,10 +101,5 @@
 		crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-
-
-
 
 

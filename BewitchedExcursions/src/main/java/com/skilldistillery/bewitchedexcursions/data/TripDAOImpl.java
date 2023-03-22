@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -39,8 +40,18 @@ public class TripDAOImpl implements TripDAO {
 		return em.createQuery(query, Trip.class).getResultList();		
 	}
 	@Override
+	public List<Trip> findAllTripsByOrganizer(int otherUserId) {
+	    TypedQuery<Trip> query = em.createQuery(
+	        "SELECT t FROM Trip t WHERE t.organizer.id = :organizerId AND t.enabled = 1",
+	        Trip.class);
+	    query.setParameter("organizerId", otherUserId);
+	    List<Trip> trips = query.getResultList();
+	    return trips;
+	}
+
+	@Override
 	public List<Trip> findAllPlusArchive() {
-		String query = "SELECT trip FROM Trip trip";
+		String query = "SELECT trip FROM Trip trip ORDER BY start_date ASC";
 		return em.createQuery(query, Trip.class).getResultList();		
 	}
 

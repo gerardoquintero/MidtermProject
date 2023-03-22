@@ -35,14 +35,19 @@
 		<div class="col-md-8">
 			<h3>User List</h3>
 			<c:forEach var="user" items="${users}">
-				<div class="card mt-3" style="display: flex;">
+				<div class="card mt-3 gradient-custom-2 space-white" style="display: flex;">
 					<div class="card-body" style="justify-content: space-evenly;">
 						<p>${user.username}</p>
 						<div>
 							<form action="addFriend.do">
 							<input type="hidden" name="otherUserId" value="${user.id}">
-							<input type="submit" name="submit" value="Add Friend" />
+							<button type="submit" class="btn btn-dark btn-outline-danger">Follow</button>
 						</form>
+						<form action="viewFriend.do">
+							<input type="hidden" name="otherUserId" value="${user.id}">
+							<button type="submit" class="btn btn-dark btn-outline-danger">View Page</button>
+						</form>
+						
 						</div>
 					</div>
 				</div>

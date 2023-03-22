@@ -417,7 +417,9 @@ COMMIT;
 START TRANSACTION;
 USE `excursiondb`;
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `image`, `biography`, `email_address`, `first_name`, `last_name`, `address_id`) VALUES (1, 'admin', 'admin', 1, 'admin', NULL, NULL, NULL, NULL, NULL, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `image`, `biography`, `email_address`, `first_name`, `last_name`, `address_id`) VALUES (2, 'Dom', 'Dom', 1, 'user', NULL, NULL, NULL, NULL, NULL, 2);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `image`, `biography`, `email_address`, `first_name`, `last_name`, `address_id`) VALUES (2, 'Dom', 'Dom', 1, 'user', NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `image`, `biography`, `email_address`, `first_name`, `last_name`, `address_id`) VALUES (3, 'Edwin', 'Edwin', 1, 'user', NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `image`, `biography`, `email_address`, `first_name`, `last_name`, `address_id`) VALUES (4, 'Jerry', 'Jerry', 1, 'user', NULL, NULL, NULL, NULL, NULL, 1);
 
 COMMIT;
 
@@ -553,7 +555,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `excursiondb`;
-INSERT INTO `private_message` (`id`, `message`, `create_date`, `enabled`, `sender_id`, `reciever_id`) VALUES (1, 'hi bob', NULL, 1, 1, 1);
+INSERT INTO `private_message` (`id`, `message`, `create_date`, `enabled`, `sender_id`, `reciever_id`) VALUES (1, 'hi jerry', NULL, 1, 2, 4);
 
 COMMIT;
 
