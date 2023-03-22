@@ -112,9 +112,7 @@ public class UserController {
 	public String updateTripForm(Trip trip, Model model, HttpSession session) {
 		trip = tripDao.findTripById(trip.getId());
 		User loggedInUser = (User) session.getAttribute("userLogin");
-		int checkUserId = loggedInUser.getId();
-		 User confirmUser = userDao.getUserById(checkUserId);
-		if (confirmUser.isTheSameUserAs(loggedInUser)) {
+		if (loggedInUser != null) {
 			model.addAttribute("trip", trip);
 			return "userUpdatesTheirTrip";
 		}
@@ -125,9 +123,7 @@ public class UserController {
 	public String adminUpdateTrip(Trip trip, Model model, HttpSession session) {
 		Trip tripUpdate = tripDao.findTripById(trip.getId());
 		User loggedInUser = (User) session.getAttribute("userLogin");
-		int checkUserId = loggedInUser.getId();
-		 User confirmUser = userDao.getUserById(checkUserId);
-		if (confirmUser.getId()==(loggedInUser.getId())) {
+		if (loggedInUser != null) {
 			tripDao.updateTrip(trip);
 			model.addAttribute("trip", tripUpdate);
 			return "displayTrip";
