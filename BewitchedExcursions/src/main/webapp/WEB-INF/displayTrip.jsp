@@ -44,8 +44,10 @@ ${trip}
 				<h2>Reviews</h2>
 				<p>${trip.tripReviews}</p> 
 			</div>
+		<p><a href="userUpdatesTrip.do?id=${trip.id }">Update this Trip</a></p>
 		</div>
 	</div>
+	
 
 <%--  <c:if test="${userLogin.reviews.id == review.user.id}"> --%>
 		<div>

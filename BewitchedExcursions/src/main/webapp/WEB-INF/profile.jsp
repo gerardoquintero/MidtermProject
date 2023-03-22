@@ -92,14 +92,7 @@
 	</div>
 
 	<!-- Row 3 -->
-	<div class="row">
-		<div>
-			<c:if test="${userLogin.id == 1}">
-				<!--todo  -->
-				<h1><a href="admin.do">Admin Controls</a></h1>
-			</c:if>
-		</div>
-	</div>
+
 	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
