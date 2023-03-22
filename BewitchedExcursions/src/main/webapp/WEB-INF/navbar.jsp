@@ -27,6 +27,9 @@
           <li class="nav-item">
             <a class="nav-link" href="logout.do">Logout</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="message.do">send message</a>
+          </li>
           <c:choose>
           <c:when test="${userLogin.id == 1}">
           <li class="nav-item">
