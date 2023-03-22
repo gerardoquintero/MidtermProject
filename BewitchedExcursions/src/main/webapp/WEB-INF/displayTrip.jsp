@@ -72,9 +72,9 @@
 					<label for="comment">Review:</label> <input type="text"
 						id="comment" name="comment" class="form-control"></input>
 				</div>
-				<input type="hidden" name="id.userId" value="${ userLogin.id}" /> <input
+				<input type="hidden" name="id.userId" value="${ userLogin.id}"/> <input
 					type="hidden" name="id.tripId" value="${ trip.id}" /> <input
-					type="hidden" name="user.id" value="${ userLogin.id}" /> <input
+					type="hidden" name="user.id" value="${ userLogin.id}"/> <input
 					type="hidden" name="trip.id" value="${ trip.id}" />
 				<h3>Rate Trip</h3>
 				<div class="form-group">

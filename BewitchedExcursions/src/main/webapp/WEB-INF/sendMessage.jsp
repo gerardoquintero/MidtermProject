@@ -22,11 +22,11 @@
 	<form action="sendMessage.do" method="POST">
 		<div class="form-outline mb-4">
 			<label for="message">Message:</label> <input type="text"
-				name="message" class="form-control">
+				name="message" class="form-control" required>
 		</div>
 		<div class="form-outline mb-4">
 			<label for="receiver">To:</label> <input type="text" name="receiver"
-				class="form-control">
+				class="form-control" required>
 		</div>
 		<button type="submit"
 			class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">Submit
