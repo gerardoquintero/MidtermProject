@@ -48,7 +48,7 @@
 						<li>${review.user.username}:${review.comment}(Rating: ${review.rating})</li>
 					</c:forEach>
 				</ul>
-			
+			<!--  -->
 				<h2><a href="userUpdatesTrip.do?id=${trip.id }">Update this Trip</a></h2>
 			
 
