@@ -59,7 +59,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- Column 3 -->
+		<!-- Column 3 --> <!--  -->
 		<div class="col-md-6">
 			<h3>My Trips</h3>
 			<c:forEach var="trip" items="${trips}">
