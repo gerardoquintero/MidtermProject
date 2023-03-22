@@ -41,8 +41,13 @@
 						<div>
 							<form action="addFriend.do">
 							<input type="hidden" name="otherUserId" value="${user.id}">
-							<button type="submit" class="btn btn-outline-danger">Follow</button>
+							<button type="submit" class="btn btn-dark btn-outline-danger">Follow</button>
 						</form>
+						<form action="viewFriend.do">
+							<input type="hidden" name="otherUserId" value="${user.id}">
+							<button type="submit" class="btn btn-dark btn-outline-danger">View Page</button>
+						</form>
+						
 						</div>
 					</div>
 				</div>

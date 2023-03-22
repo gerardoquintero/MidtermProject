@@ -3,6 +3,7 @@ package com.skilldistillery.bewitchedexcursions.data;
 import java.util.List;
 
 import com.skilldistillery.bewitchedexcursions.entities.Trip;
+import com.skilldistillery.bewitchedexcursions.entities.User;
 
 public interface TripDAO {
 
@@ -19,5 +20,11 @@ public interface TripDAO {
 	public List<Trip> findAllPlusArchive();
 
 	public Trip unArchiveTrip(int id);
+
+
+
+	List<Trip> findAllTripsByOrganizer(int otherUserId);
+
+
 
 }
