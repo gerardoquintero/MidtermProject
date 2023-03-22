@@ -54,7 +54,7 @@ public class ReviewAndMessagingController {
 
 	@RequestMapping(path = "message.do", method = RequestMethod.GET)
 	public String sendIt(Model model, HttpSession session) {
-		return "sendMessage";
+		return "messages";
 	}
 	
 	
