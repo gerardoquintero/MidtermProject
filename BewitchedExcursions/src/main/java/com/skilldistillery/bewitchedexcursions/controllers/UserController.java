@@ -114,7 +114,7 @@ public class UserController {
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		int checkUserId = loggedInUser.getId();
 		 User confirmUser = userDao.getUserById(checkUserId);
-		if (loggedInUser.isTheSameUserAs(confirmUser)) {
+		if (confirmUser.isTheSameUserAs(loggedInUser)) {
 			model.addAttribute("trip", trip);
 			return "userUpdatesTheirTrip";
 		}
@@ -127,7 +127,7 @@ public class UserController {
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		int checkUserId = loggedInUser.getId();
 		 User confirmUser = userDao.getUserById(checkUserId);
-		if (loggedInUser.isTheSameUserAs(confirmUser)) {
+		if (confirmUser.getId()==(loggedInUser.getId())) {
 			tripDao.updateTrip(trip);
 			model.addAttribute("trip", tripUpdate);
 			return "displayTrip";
