@@ -42,6 +42,8 @@
 				<h2>End Date</h2>
 				<p>${trip.endDate}</p>
 				<h2>Reviews</h2>
+				
+				
 
 				<ul>
 					<c:forEach items="${trip.tripReviews}" var="review">
