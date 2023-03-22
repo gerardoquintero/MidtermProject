@@ -12,7 +12,7 @@
 		rel="stylesheet"
 		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 		crossorigin="anonymous">
-	<title>Update Trip</title>
+	<title>User Update Trip</title>
 
 </head>
 <body>
@@ -20,9 +20,9 @@
 	<header>
 		<%@include file="navbar.jsp"%>
 	</header>
-<c:if test="${userLogin.id == 1}">
+
 <h1>Update Trip</h1>
-	<form action="updateTripForm.do" method="POST">
+	<form action="userUpdateForm.do" method="POST">
 		<input type="hidden" name="id" value="${trip.id }"> <br>
 		<label for="name">Name</label> 
 		<input type="text" name="name" value="${trip.name}"> <br> 
@@ -36,9 +36,9 @@
 		<input type="date" name="endDate" value="${trip.endDate}"><br> 
 		<label for="image">Image URL </label> 
 		<input type="text" name="imageURL" value="${trip.imageURL}"><br> 
-		 <input type="submit" value="Update Trip" />
+		 <input type="submit" value="Update Your Trip" />
 	</form>
-</c:if>
+
 
 
 </body>
