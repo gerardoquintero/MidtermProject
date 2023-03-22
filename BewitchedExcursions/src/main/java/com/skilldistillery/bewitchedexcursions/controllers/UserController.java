@@ -46,19 +46,18 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
-	public ModelAndView createUser(User user, Model model, String aString, HttpSession session) {
+	public String createUser(User user, Model model, String aString, HttpSession session) {
+		
 		model.addAttribute("trips", tripDao.findAllTrips());
 		user = userDao.createUser(user);
 		session.setAttribute("userLogin", user);
 		Address address = new Address();
 		address.setStreetAddress(aString);
 		addressDao.createAddress(address);
-		ModelAndView mv = new ModelAndView();
 		user.setUserAddress(address);
 		model.addAttribute("user", userDao.getAllUsers());
-
-		mv.setViewName("profile");
-		return mv;
+		
+		return "profile";
 	}
 
 	@RequestMapping(path = "userLogin.do", method = RequestMethod.GET)
@@ -74,8 +73,13 @@ public class UserController {
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String loginUser(HttpSession session, User user, Model model) {
+		User loggedInUser = (User) session.getAttribute("userLogin");
+
 		model.addAttribute("trips", tripDao.findAllTrips());
 		user = userDao.login(user);
+		if(loggedInUser== null) { 
+			return"error";
+		}
 		session.setAttribute("userLogin", user);
 		LocalDateTime lt = LocalDateTime.now();
 		session.setAttribute("loginTime", lt);
@@ -85,8 +89,12 @@ public class UserController {
 
 	@RequestMapping(path = "profile.do", method = RequestMethod.GET)
 	public String profile(HttpSession session, User user, Model model) {
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser != null) {
 		model.addAttribute("trips", tripDao.findAllTrips());
 		return "profile";
+		}
+		return "error";
 
 	}
 	@RequestMapping(path = "viewFriend.do", method = RequestMethod.GET)
@@ -124,7 +132,7 @@ public class UserController {
 			model.addAttribute("trip", trip);
 			return "userUpdatesTheirTrip";
 		}
-		return "home";
+		return "error";
 	}
 
 	@RequestMapping(path = "userUpdateForm.do", method = RequestMethod.POST)

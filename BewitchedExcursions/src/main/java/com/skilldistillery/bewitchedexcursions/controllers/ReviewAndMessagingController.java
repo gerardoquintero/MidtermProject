@@ -42,7 +42,11 @@ public class ReviewAndMessagingController {
 
 	@RequestMapping(path = "sendMessage.do", method = RequestMethod.POST)
 	public String sendMessage(Model model, HttpSession session, PrivateMessage message, String receiver) {
+		
 		User user = (User)session.getAttribute("userLogin");
+		if(user== null) { 
+			return"error";
+		}
 		User recipient = userDao.searchUsers(receiver).get(0);
 		message.setSender(user);
 		message.setReciever(recipient);
@@ -54,6 +58,10 @@ public class ReviewAndMessagingController {
 
 	@RequestMapping(path = "message.do", method = RequestMethod.GET)
 	public String sendIt(Model model, HttpSession session) {
+		User currentUser = (User) session.getAttribute("userLogin");
+		if(currentUser== null) { 
+			return"error";
+		}
 		return "messages";
 	}
 	
