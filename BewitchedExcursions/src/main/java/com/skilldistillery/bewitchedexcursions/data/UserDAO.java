@@ -16,7 +16,7 @@ public interface UserDAO {
 
 	public List<User> getAllUsers();
 
-	public User updateUser(int id,User user);
+	public User updateUser(User user);
 
 	public User archiveUser(int id);
 

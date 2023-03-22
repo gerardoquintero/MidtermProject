@@ -22,7 +22,7 @@
 
 	<section class="hero">
 		<div class="container">
-			<h1>Welcome Bewitched Travelers!</h1>
+			<h1>TourBuds</h1>
 			<p>Plan your next adventure</p>
 		</div>
 	</section>
