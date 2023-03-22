@@ -37,6 +37,16 @@ public class UserController {
 
 		return "home";
 	}
+	@RequestMapping(path = "userUpdateProfile.do", method = RequestMethod.GET)
+	public String updateUserProfile(User user, Model model, HttpSession session) {
+		 user = userDao.getUserById(user.getId());
+		//User loggedInUser = (User) session.getAttribute("userLogin");
+	
+			model.addAttribute("user", user);
+			return "updateProfile";
+	
+	}
+
 
 	@RequestMapping(path = "createUserForm.do", method = RequestMethod.GET)
 	public String createUserForm(Model model, User user, HttpSession session) {

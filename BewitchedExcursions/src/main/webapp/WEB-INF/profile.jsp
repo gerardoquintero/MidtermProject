@@ -5,14 +5,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/loginAndRegister.css">
-	<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-		crossorigin="anonymous">
-	<title>User Profile</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/loginAndRegister.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+	crossorigin="anonymous">
+<title>User Profile</title>
 
 </head>
 <body>
@@ -30,7 +30,8 @@
 				<div class="input-group mb-3 mt-3">
 					<input type="text" class="form-control"
 						placeholder="Search for users" name="keyword">
-					<button class="btn btn-primary btn-block fa-lg gradient-custom-2" type="submit">Search</button>
+					<button class="btn btn-primary btn-block fa-lg gradient-custom-2"
+						type="submit">Search</button>
 				</div>
 			</form>
 		</div>
@@ -49,17 +50,19 @@
 				<div class="card-body gradient-custom-2">
 					<h5 class="card-title">${userLogin.username}</h5>
 					<table border="4px">
-					 <tr>
-					  </tr>
-					  <tr>
-					  <td><img src="https://myspace.com/common/images/user.png" height=130 width=130></td>
-					   </tr>
-					   </table>
+						<tr>
+						</tr>
+						<tr>
+							<td><img src="https://myspace.com/common/images/user.png"
+								height=130 width=130></td>
+						</tr>
+					</table>
 					<p class="card-text">Welcome to my page!</p>
 				</div>
 			</div>
 		</div>
-		<!-- Column 3 --> <!--  -->
+		<!-- Column 3 -->
+		<!--  -->
 		<div class="col-md-6">
 			<h3>My Trips</h3>
 			<c:forEach var="trip" items="${trips}">
@@ -92,13 +95,16 @@
 				</c:if>
 			</c:forEach>
 		</div>
+		<h2>
+			<a href="userUpdateProfile.do?id=${userLogin.id }">Update your profile</a>
+		</h2>
 		<!-- Column 4 -->
 		<div class="col-md-1"></div>
 	</div>
 
 	<!-- Row 3 -->
 
-	
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
 		integrity="sha384-IBTw8fR6U+h2QYzZ9qM4J8EM0Wb7+O5g0f61G2h8aJHup+OVZ+yIlX9z/N5CV5Jo"
