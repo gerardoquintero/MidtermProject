@@ -65,6 +65,7 @@ public class Trip {
 	@OneToMany(mappedBy = "trip")
 	private List<Lodging> lodging;
 
+	
 	public Trip() {
 
 	}
