@@ -39,11 +39,11 @@ public class UserController {
 	}
 	@RequestMapping(path = "userUpdateProfile.do", method = RequestMethod.GET)
 	public String updateUserProfile(User user, Model model, HttpSession session) {
-			user = userDao.getUserById(user.getId());
+//			user = userDao.getUserById(user.getId());
 			User loggedInUser = (User) session.getAttribute("userLogin");
 			if (loggedInUser != null) {
-				model.addAttribute("user", user);
-				return "updateProfile";
+				model.addAttribute("user", loggedInUser);
+				return "redirect:updateProfile.do";
 			}
 			return "error";
 	}
