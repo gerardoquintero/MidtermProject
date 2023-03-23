@@ -48,25 +48,35 @@
 			<h3>User Profile Page</h3>
 			<div class="card mt-3 text-white">
 				<div class="card-body gradient-custom-2">
-						<tr>
-							<td><img src="https://myspace.com/common/images/user.png"
-								height=130 width=130></td>
-						</tr>
-					<h5 class="card-title"><span>User Name:</span> ${userLogin.username}</h5>
-					<h5 class="card-title"><span>First Name:</span>${userLogin.firstName}</h5>
-					<h5 class="card-title"><span>Last Name:</span>${userLogin.lastName}</h5>
-					<h5 class="card-title"><span>Email:</span>${userLogin.emailAddress}</h5>
-					<h5 class="card-title"><span>Bio:</span>${userLogin.biography}</h5>
-			<h5>	<span>Friends:</span></h5>
-				<c:forEach var="friend" items="${userLogin.friends }">
-					<h5 class="card-title">${friend.username}</h5>
+					<tr>
+						<td><img src="https://myspace.com/common/images/user.png"
+							height=130 width=130></td>
+					</tr>
+					<h5 class="card-title">
+						<span>User Name:</span> ${userLogin.username}
+					</h5>
+					<h5 class="card-title">
+						<span>First Name:</span>${userLogin.firstName}</h5>
+					<h5 class="card-title">
+						<span>Last Name:</span>${userLogin.lastName}</h5>
+					<h5 class="card-title">
+						<span>Email:</span>${userLogin.emailAddress}</h5>
+					<h5 class="card-title">
+						<span>Bio:</span>${userLogin.biography}</h5>
+					<h5>
+						<span>Friends:</span>
+					</h5>
+					<c:forEach var="friend" items="${userLogin.friends }">
+						<h5 class="card-title">${friend.username}</h5>
 					</c:forEach>
+											<a href="userUpdateProfile.do?id=${userLogin.id }">Update
+												your profile</a>
 					<br>
 					<table border="4px">
 						<tr>
 						</tr>
 					</table>
-					
+
 				</div>
 			</div>
 		</div>
@@ -96,6 +106,8 @@
 										<td>${trip.startDate}</td>
 										<td>${trip.endDate}</td>
 										<td>${trip.organizer.username}</td>
+										
+										
 									</tr>
 								</tbody>
 							</table>
@@ -104,9 +116,6 @@
 				</c:if>
 			</c:forEach>
 		</div>
-		<h2>
-			<a href="userUpdateProfile.do?id=${userLogin.id }">Update your profile</a>
-		</h2>
 		<!-- Column 4 -->
 		<div class="col-md-1"></div>
 	</div>
