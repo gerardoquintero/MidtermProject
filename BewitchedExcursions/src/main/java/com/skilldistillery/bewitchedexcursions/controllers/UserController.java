@@ -52,9 +52,9 @@ public class UserController {
 	public String userUpdateProfileForm(User user, Model model, HttpSession session) {
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser != null && loggedInUser.getId() == user.getId()) {
-			user = userDao.updateUser(user);
+			loggedInUser = userDao.updateUser(user);
 			session.setAttribute("userLogin", user);
-			model.addAttribute("user", user);
+			model.addAttribute("userLogin", loggedInUser);
 			return "redirect:profile.do";
 		}
 		return "home";
