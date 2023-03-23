@@ -142,8 +142,8 @@ public class UserController {
 	public String addFriend(HttpSession session, int otherUserId, Model model) {
 		User currentUser = (User) session.getAttribute("userLogin");
 
-		userDao.addFriend(currentUser, otherUserId);
-
+		currentUser=userDao.addFriend(currentUser, otherUserId);
+		session.setAttribute("userLogin", currentUser);
 		return "profile";
 	}
 
