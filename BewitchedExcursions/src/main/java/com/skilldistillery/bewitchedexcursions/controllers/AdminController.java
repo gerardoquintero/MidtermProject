@@ -142,4 +142,15 @@ public class AdminController {
 		return "home";
 	}
 
+	@RequestMapping(path = "showOtherUser.do", method = RequestMethod.GET)
+	public String displayOtherUser(Model model, Integer userId, HttpSession session) {
+		User showUser = userDao.getUserById(userId);
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser != null) {
+			model.addAttribute("user", showUser);
+			return "otherProfile";
+		}
+		return "home";
+	}
+
 } 

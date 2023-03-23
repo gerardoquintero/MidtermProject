@@ -57,8 +57,9 @@
 					<h5 class="card-title"><span>Last Name:</span>${userLogin.lastName}</h5>
 					<h5 class="card-title"><span>Email:</span>${userLogin.emailAddress}</h5>
 					<h5 class="card-title"><span>Bio:</span>${userLogin.biography}</h5>
-				<c:forEach var="friend" items="friends">
-					<h5 class="card-title"><span>Friends:</span>${friends.username}</h5>
+			<h5>	<span>Friends:</span></h5>
+				<c:forEach var="friend" items="${userLogin.friends }">
+					<h5 class="card-title">${friend.username}</h5>
 					</c:forEach>
 					<br>
 					<table border="4px">
