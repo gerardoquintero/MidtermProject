@@ -19,31 +19,31 @@
 		<%@include file="navbar.jsp"%>
 	</header>
 	
-		<c:if test="${userLogin.id == user.id || userLogin.id = 1}">
+		
 			<h1>Update User</h1>
 			<form action="updateProfileForm.do" method="POST">
 
-				<input type="hidden" name="id" value="${user.id}">
-				<input type="text" name="firstName" value="${user.firstName}"> 
+				<input type="hidden" name="id" value="${userLogin.id}">
+				<input type="text" name="firstName" value="${userLogin.firstName}"> 
 				<label for="firstName">First Name </label> 
 				<br>
-				<input type="text" name="lastName" value="${user.lastName}"> 
+				<input type="text" name="lastName" value="${userLogin.lastName}"> 
 				<label for="lastName">Last Name </label> 
 				<br>
-				<input type="text" name="emailAddress" value="${user.emailAddress}"> 
+				<input type="text" name="emailAddress" value="${userLogin.emailAddress}"> 
 				<label for="emailAddress">Email </label> 
 				<br>
-				<input type="text" name="profileImageUrl" value="${user.profileImageUrl}"> 
+				<input type="text" name="profileImageUrl" value="${userLogin.profileImageUrl}"> 
 				<label for="profileImageUrl">Profile Picture </label> 
 				<br>
-				<textarea type="text" name="biography">${user.biography}</textarea> 
+				<textarea type="text" name="biography">${userLogin.biography}</textarea> 
 				<label for="biography">Biography </label> 
 				<br>
-				<input type="text" name="password" value="${user.password}">
+				<input type="text" name="password" value="${userLogin.password}">
 				<label for="password">Password</label>
 				<br>				
 				<button type="submit" class="btn btn-outline-danger">Update</button>
 			</form>
-		</c:if>
+		
 </body>
 </html>
