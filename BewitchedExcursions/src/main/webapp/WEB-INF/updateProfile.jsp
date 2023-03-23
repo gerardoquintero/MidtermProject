@@ -24,23 +24,23 @@
 			<form action="updateProfileForm.do" method="POST">
 
 				<input type="hidden" name="id" value="${userLogin.id}">
+				<label for="firstName">First Name </label> <br>
 				<input type="text" name="firstName" value="${userLogin.firstName}"> 
-				<label for="firstName">First Name </label> 
 				<br>
+				<label for="lastName">Last Name </label> <br>
 				<input type="text" name="lastName" value="${userLogin.lastName}"> 
-				<label for="lastName">Last Name </label> 
 				<br>
+				<label for="emailAddress">Email </label> <br>
 				<input type="text" name="emailAddress" value="${userLogin.emailAddress}"> 
-				<label for="emailAddress">Email </label> 
 				<br>
+				<label for="profileImageUrl">Profile Picture </label> <br>
 				<input type="text" name="profileImageUrl" value="${userLogin.profileImageUrl}"> 
-				<label for="profileImageUrl">Profile Picture </label> 
 				<br>
-				<textarea type="text" name="biography">${userLogin.biography}</textarea> 
-				<label for="biography">Biography </label> 
-				<br>
+				<label for="password">Password</label><br>
 				<input type="text" name="password" value="${userLogin.password}">
-				<label for="password">Password</label>
+				<br>
+				<label for="biography">Biography </label> <br>
+				<textarea rows="10" cols="40" name="biography">${userLogin.biography}</textarea> <br>
 				<br>				
 				<button type="submit" class="btn btn-outline-danger">Update</button>
 			</form>

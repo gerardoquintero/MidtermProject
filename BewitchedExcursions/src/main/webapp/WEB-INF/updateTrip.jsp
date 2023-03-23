@@ -24,17 +24,17 @@
 <h1>Update Trip</h1>
 	<form action="updateTripForm.do" method="POST">
 		<input type="hidden" name="id" value="${trip.id }"> <br>
-		<label for="name">Name</label> 
+		<label for="name">Name</label><br> 
 		<input type="text" name="name" value="${trip.name}"> <br> 
-		<label for="description">Description </label> 
-		<textarea name="description"> value="${trip.description}"</textarea><br> 
-		<label for="capacity">Number of travelers </label> 
+		<label for="description">Description </label><br> 
+		<textarea rows="10" cols="40" name="description"> ${trip.description}</textarea><br> 
+		<label for="capacity">Number of travelers </label><br> 
 		<input type="number" name="capacity"value="${trip.capacity}"><br> 
-		<label for="start_date">Start Date </label> 
+		<label for="start_date">Start Date </label> <br>
 		<input type="date"name="startDate" value="${trip.startDate}"> <br>
-		<label for="end_date">End Date </label> 
+		<label for="end_date">End Date </label><br> 
 		<input type="date" name="endDate" value="${trip.endDate}"><br> 
-		<label for="image">Image URL </label> 
+		<label for="image">Image URL </label><br> 
 		<input type="text" name="imageURL" value="${trip.imageURL}"><br> 
 		 <input type="submit" value="Update Trip" />
 	</form>

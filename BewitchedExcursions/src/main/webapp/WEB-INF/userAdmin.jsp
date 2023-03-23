@@ -59,7 +59,7 @@
 						<td>${users.enabled}</td>
 					</tr>
 					<tr>
-						<td colspan=7>	<a href="showOtherUser.do?userId=${users.id }">See Profile</a>   <a href="updateProfileByAdmin.do?id=${users.id }">Edit Profile</a></td>
+						<td colspan=7>	<a href="viewFriend.do?otherUserId=${users.id }">See Profile</a>   <a href="updateProfileByAdmin.do?id=${users.id }">Edit Profile</a></td>
 						<c:choose>
 							<c:when test="${users.enabled == true && users.id != 1}">
 								<td><a href="archiveUser.do?id=${users.id }">Archive</a></td>

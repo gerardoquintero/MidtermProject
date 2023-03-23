@@ -142,11 +142,14 @@ public class AdminController {
 	}
 
 	@RequestMapping(path = "showOtherUser.do", method = RequestMethod.GET)
-	public String displayOtherUser(Model model, Integer userId, HttpSession session) {
+	public String displayOtherUser(Model model, Integer userId, HttpSession session, Trip trip) {
+		trip = tripDao.findTripById(trip.getId());
 		User showUser = userDao.getUserById(userId);
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser != null) {
 			model.addAttribute("user", showUser);
+			model.addAttribute("trips", trip);
+//			model.addAttribute("trips", tripDao.findTripById(userId));
 			return "otherProfile";
 		}
 		return "home";
