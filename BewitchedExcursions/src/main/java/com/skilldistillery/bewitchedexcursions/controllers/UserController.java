@@ -42,19 +42,20 @@ public class UserController {
 //			user = userDao.getUserById(user.getId());
 			User loggedInUser = (User) session.getAttribute("userLogin");
 			if (loggedInUser != null) {
+				loggedInUser = userDao.getUserById(loggedInUser.getId());
 				model.addAttribute("user", loggedInUser);
-				return "redirect:updateProfile.do";
+				return "updateProfile";
 			}
 			return "error";
 	}
 	@RequestMapping(path = "updateProfileForm.do", method = RequestMethod.POST)
 	public String userUpdateProfileForm(User user, Model model, HttpSession session) {
-		User userUpdate = userDao.getUserById(user.getId());
 		User loggedInUser = (User) session.getAttribute("userLogin");
-		if (loggedInUser != null) {
-			userDao.updateUser(user);
-			model.addAttribute("user", userUpdate);
-			return "profile";
+		if (loggedInUser != null && loggedInUser.getId() == user.getId()) {
+			user = userDao.updateUser(user);
+			session.setAttribute("userLogin", user);
+			model.addAttribute("user", user);
+			return "redirect:profile.do";
 		}
 		return "home";
 	}

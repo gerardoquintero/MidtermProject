@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,7 +29,7 @@ public class User {
 	private List<Trip> trip;
 
 	@OneToMany(mappedBy = "user")
-	private List<Review> reviews; 
+	private List<Review> reviews;
 
 	@OneToMany(mappedBy = "user")
 	private List<TripMessage> messages;
@@ -43,7 +44,20 @@ public class User {
 	@JoinColumn(name = "address_id")
 	private Address userAddress;
 
- 
+	@Column(name = "first_name")
+	private String firstName;
+
+	@Column(name = "last_name")
+	private String lastName;
+
+	@Column(name = "email_address")
+	private String emailAddress;
+
+	private String biography;
+
+	@Column(name = "image")
+	private String profileImageUrl;
+
 	private String username;
 
 	private String password;
@@ -53,15 +67,55 @@ public class User {
 	private String role;
 
 	public User() {
-		
+
 	}
-	
+
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+
+	public String getBiography() {
+		return biography;
+	}
+
+	public void setBiography(String biography) {
+		this.biography = biography;
+	}
+
+	public String getProfileImageUrl() {
+		return profileImageUrl;
+	}
+
+	public void setProfileImageUrl(String profileImageUrl) {
+		this.profileImageUrl = profileImageUrl;
 	}
 
 	public List<Review> getReviews() {
@@ -174,11 +228,11 @@ public class User {
 		User other = (User) obj;
 		return id == other.id;
 	}
-	
+
 	public boolean isTheSameUserAs(Object obj) {
-		if (obj == this) 
+		if (obj == this)
 			return true;
-		if (!(obj instanceof User)) 
+		if (!(obj instanceof User))
 			return false;
 		User user = (User) obj;
 		return id == user.id;
