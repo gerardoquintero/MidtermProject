@@ -47,10 +47,21 @@
 			<h3>User Profile</h3>
 			<div class="card mt-3 text-white">
 				<div class="card-body gradient-custom-2">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text">Some quick example text to build on the
-						card title and make up the bulk of the card's content.</p>
-					<button type="button" class="btn btn-primary">Button</button>
+					<h5 class="card-title">${user.username}</h5>
+					<h5 class="card-title">${user.firstName}</h5>
+					<h5 class="card-title">${user.lastName}</h5>
+					<h5 class="card-title">${user.emailAddress}</h5>
+					<h5 class="card-title">${user.biography}</h5>
+					<br>
+					<table border="4px">
+						<tr>
+						</tr>
+						<tr>
+							<td><img src="https://myspace.com/common/images/user.png"
+								height=130 width=130></td>
+						</tr>
+					</table>
+					<p class="card-text">Welcome to my page!</p>
 				</div>
 			</div>
 		</div>

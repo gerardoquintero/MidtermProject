@@ -117,8 +117,9 @@ public class UserController {
 
 	}
 	@RequestMapping(path = "viewFriend.do", method = RequestMethod.GET)
-	public String otherProfile( int otherUserId, Model model) {
-		
+	public String otherProfile( int otherUserId, Model model, User user) {
+		user = userDao.getUserById(otherUserId);
+		model.addAttribute("user", user);
 		model.addAttribute("trips", tripDao.findAllTripsByOrganizer(otherUserId));
 		
 		return "otherProfile";
