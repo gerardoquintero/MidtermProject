@@ -47,6 +47,11 @@
 			<h3>User Profile</h3>
 			<div class="card mt-3 text-white">
 				<div class="card-body gradient-custom-2">
+						<tr>
+							<td><img src="https://myspace.com/common/images/user.png"
+								height=130 width=130></td>
+						</tr>
+					<p class="card-text">Welcome to my page!</p>
 					<h5 class="card-title">${user.username}</h5>
 					<h5 class="card-title">${user.firstName}</h5>
 					<h5 class="card-title">${user.lastName}</h5>
@@ -59,13 +64,9 @@
 					<br>
 					<table border="4px">
 						<tr>
-						</tr>
-						<tr>
-							<td><img src="https://myspace.com/common/images/user.png"
-								height=130 width=130></td>
+						  <a class="nav-link" href="message.do">Send a Private Message</a>
 						</tr>
 					</table>
-					<p class="card-text">Welcome to my page!</p>
 				</div>
 			</div>
 		</div>
