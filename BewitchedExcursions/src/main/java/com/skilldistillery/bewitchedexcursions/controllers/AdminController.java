@@ -33,6 +33,16 @@ public class AdminController {
 
 		return "home";
 	}
+	@RequestMapping(path = { "userAdmin.do" })
+	public String seeUsersAdmin(Model model, HttpSession session) {
+		model.addAttribute("users", userDao.findAllUsersPlusArchive());
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser.getId() == 1) {
+			return "userAdmin";
+		}
+		
+		return "home";
+	}
 
 	@RequestMapping(path = "updateThisTrip.do", method = RequestMethod.GET)
 	public String updateTripForm(Trip trip, Model model, HttpSession session) {
@@ -73,6 +83,60 @@ public class AdminController {
 		if (loggedInUser.getId() == 1) {
 			tripDao.unArchiveTrip(trip.getId());
 			return "redirect:admin.do";
+		}
+		return "home";
+	}
+	
+	@RequestMapping(path = "updateProfileByAdmin.do", method = RequestMethod.GET)
+	public String updateUserProfile(User user, Model model, HttpSession session) {
+			User loggedInUser = (User) session.getAttribute("userLogin");
+			if (loggedInUser != null) {
+				User updateUser = userDao.getUserById(user.getId());
+				model.addAttribute("users", updateUser);
+				return "adminUpdateProfile";
+			}
+			return "error";
+	}
+	@RequestMapping(path = "adminUpdateUserProfileForm.do", method = RequestMethod.POST)
+	public String userUpdateProfileForm(User user, Model model, HttpSession session) {
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser.getId() == 1) {
+			user = userDao.updateUser(user);
+			session.setAttribute("userLogin", user);
+			model.addAttribute("user", user);
+			return "redirect:admin.do";
+		}
+		return "home";
+	}
+	
+	@RequestMapping(path = "archiveUser.do", method = RequestMethod.GET)
+	public String adminArchiveUser(User user, Model model, HttpSession session) {
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser.getId() == 1) {
+			userDao.archiveUser(user.getId());
+			return "redirect:userAdmin.do";
+		}
+		return "home";
+	}
+
+	@RequestMapping(path = "unArchiveUser.do", method = RequestMethod.GET)
+	public String adminUnArchiveUser(User user, Model model, HttpSession session) {
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser.getId() == 1) {
+			userDao.unArchiveUser(user.getId());
+			return "redirect:userAdmin.do";
+		}
+		return "home";
+	}
+	
+	@RequestMapping(path = "showUser.do", method = RequestMethod.GET)
+	public String displayUser(Model model, User user, HttpSession session) {
+		model.addAttribute("user", userDao.getUserById(user.getId()));
+		User showUser = userDao.getUserById(user.getId());
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser != null) {
+		model.addAttribute("trip", showUser);
+		return "profile";
 		}
 		return "home";
 	}

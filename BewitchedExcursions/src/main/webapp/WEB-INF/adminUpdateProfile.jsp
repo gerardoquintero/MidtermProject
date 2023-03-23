@@ -11,7 +11,7 @@
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/loginAndRegister.css">
-<title>Update User Form</title>
+<title>Admin Update User Form</title>
 </head>
 <body class="text-center">
 
@@ -19,11 +19,12 @@
 		<%@include file="navbar.jsp"%>
 	</header>
 	
-		<c:if test="${userLogin.id == user.id || userLogin.id = 1}">
-			<h1>Update User</h1>
-			<form action="updateProfileForm.do" method="POST">
+		<c:if test="${userLogin.id = 1}">
+			<h1>Admin Update User</h1>
+			<form action="adminUpdateUserProfileForm.do" method="POST">
 
 				<input type="hidden" name="id" value="${user.id}">
+		
 				<input type="text" name="firstName" value="${user.firstName}"> 
 				<label for="firstName">First Name </label> 
 				<br>

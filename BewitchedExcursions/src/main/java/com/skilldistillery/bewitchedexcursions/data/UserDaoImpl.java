@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.bewitchedexcursions.entities.Trip;
 import com.skilldistillery.bewitchedexcursions.entities.User;
 
 @Transactional
@@ -94,6 +95,16 @@ public class UserDaoImpl implements UserDAO {
 		return user;
 
 	}
+	@Override
+	public User unArchiveUser(int id) {
+		User user = em.find(User.class, id);
+		if (em.contains(user)) {
+			user.setEnabled(true);
+			
+		}
+		return user;
+		
+	}
 	
 	@Override
 	public List<User> searchUsers(String keyword) {
@@ -120,5 +131,11 @@ public class UserDaoImpl implements UserDAO {
 		em.persist(loggedInUser);
 		
 		return loggedInUser;
+	}
+	
+	@Override
+	public List<User> findAllUsersPlusArchive() {
+		String query = "SELECT user FROM User user";
+		return em.createQuery(query, User.class).getResultList();		
 	}
 }
