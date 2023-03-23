@@ -84,9 +84,23 @@ body{
 background-color: #0093E9;
 background-image: linear-gradient(167deg, #0093E9 0%, #80D0C7 100%);
 }
-h1{
+/* h1{
 	font-size: 10rem;
 	background: linear-gradient(167deg, #0093E9 0%, #80D0C7 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+} */
+.gradient-text {
+	background-image: 
+		linear-gradient(190deg, #cb2d3e, #ef473a, pink, purple);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+.gradient-text2 {
+	background-image: 
+		linear-gradient(50deg, #403A3E, #BE5869);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
 }

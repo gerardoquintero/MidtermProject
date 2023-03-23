@@ -22,8 +22,8 @@
 
 	<section class="hero">
 		<div class="container">
-			<h1>TourBuds</h1>
-			<p>Plan your next adventure</p>
+			<h1 class="gradient-text">TourBuds</h1>
+			<p class="gradient-text">Plan your next adventure</p>
 		</div>
 	</section>
 
@@ -31,7 +31,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Featured Trips</h2>
+					<h2 class="gradient-text2">Featured Trips</h2>
 				</div>
 			</div>
 			<div class="row">

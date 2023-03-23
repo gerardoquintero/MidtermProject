@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-lg gradient-custom-2" style="background-color: #eee;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="home.do"><strong>TourBuds</strong></a>
+    <a class="gradient-text2" class="navbar-brand" href="home.do"><strong>TourBuds</strong></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNav" aria-controls="navbarNav"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -14,10 +14,10 @@
       <ul class="navbar-nav ms-auto">
         <c:if test="${userLogin == null}">
           <li class="nav-item">
-            <a class="nav-link" href="createUserForm.do">Create Account</a>
+            <a class="gradient-text2"class="nav-link" href="createUserForm.do">Create Account</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="userLogin.do">Login</a>
+            <a class="gradient-text2"class="nav-link" href="userLogin.do">Login</a>
           </li>
         </c:if>
         <c:if test="${userLogin != null}">
