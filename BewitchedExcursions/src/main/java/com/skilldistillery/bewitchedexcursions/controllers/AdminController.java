@@ -89,9 +89,9 @@ public class AdminController {
 	
 	@RequestMapping(path = "updateProfileByAdmin.do", method = RequestMethod.GET)
 	public String updateUserProfile(User user, Model model, HttpSession session) {
+		User updateUser = userDao.getUserById(user.getId());
 			User loggedInUser = (User) session.getAttribute("userLogin");
 			if (loggedInUser != null) {
-				User updateUser = userDao.getUserById(user.getId());
 				model.addAttribute("users", updateUser);
 				return "adminUpdateProfile";
 			}
@@ -99,12 +99,13 @@ public class AdminController {
 	}
 	@RequestMapping(path = "adminUpdateUserProfileForm.do", method = RequestMethod.POST)
 	public String userUpdateProfileForm(User user, Model model, HttpSession session) {
+		User updateUser = userDao.getUserById(user.getId());
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser.getId() == 1) {
 			user = userDao.updateUser(user);
-			session.setAttribute("userLogin", user);
-			model.addAttribute("user", user);
-			return "redirect:admin.do";
+			session.setAttribute("users", updateUser);
+//			model.addAttribute("user", user);
+			return "redirect:userAdmin.do";
 		}
 		return "home";
 	}
@@ -135,8 +136,8 @@ public class AdminController {
 		User showUser = userDao.getUserById(user.getId());
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser != null) {
-		model.addAttribute("trip", showUser);
-		return "profile";
+		model.addAttribute("users", showUser);
+		return "redirect:profile.do";
 		}
 		return "home";
 	}

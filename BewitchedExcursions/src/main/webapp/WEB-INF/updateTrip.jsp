@@ -27,7 +27,7 @@
 		<label for="name">Name</label> 
 		<input type="text" name="name" value="${trip.name}"> <br> 
 		<label for="description">Description </label> 
-		<input type="text" name="description" placeholder="${trip.description}" value="${trip.description}"><br> 
+		<textarea name="description"> value="${trip.description}"</textarea><br> 
 		<label for="capacity">Number of travelers </label> 
 		<input type="number" name="capacity"value="${trip.capacity}"><br> 
 		<label for="start_date">Start Date </label> 

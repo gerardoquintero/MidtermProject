@@ -11,9 +11,12 @@
 	rel="stylesheet"
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous">
-<title>Insert title here</title>
+<title>Admin User Display</title>
 </head>
 <body>
+<header>
+		<%@include file="navbar.jsp"%>
+	</header>
 	<h3>All Registered Users</h3>
 	<table class="table">
 		<thead>
@@ -36,23 +39,34 @@
 						<td>${users.firstName}</td>
 						<td>${users.lastName}</td>
 						<td>${users.emailAddress}</td>
-						<td>${users.profileImageUrl}</td>
-						<td>${users.biography}</td>
+						<c:choose>
+						<c:when test="${users.profileImageUrl != null}">
+						<td>Yes</td>
+						</c:when>
+						<c:otherwise>
+						<td>No</td>
+						</c:otherwise>
+						</c:choose>
+						<c:choose>
+						<c:when test="${users.biography != null}">
+						<td>Yes</td>
+						</c:when>
+						<c:otherwise>
+						<td>No</td>
+						</c:otherwise>
+						</c:choose>
 						<td>${users.password}</td>
 						<td>${users.enabled}</td>
 					</tr>
 					<tr>
-						<td></td>
-						<td colspan=2>Edit: ${users.username} </a></td>
-						<td><a href="showUser.do?id=${users.id }">Display</a></td>
-						<td><a href="updateProfileByAdmin.do?id=${users.id }">Update</a></td>
+						<td colspan=7>	<a href="showUser.do?id=${users.id }">See Profile</a>   <a href="updateProfileByAdmin.do?id=${users.id }">Edit Profile</a></td>
 						<c:choose>
-							<c:when test="${users.enabled == true }">
+							<c:when test="${users.enabled == true && users.id != 1}">
 								<td><a href="archiveUser.do?id=${users.id }">Archive</a></td>
 							</c:when>
-							<c:otherwise>
+							<c:when test="${users.id != 1}">
 								<td><a href="unArchiveUser.do?id=${users.id }">Unarchive</a></td>
-							</c:otherwise>
+							</c:when>
 						</c:choose>
 					</tr>
 				</c:if>
