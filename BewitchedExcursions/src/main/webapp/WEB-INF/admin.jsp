@@ -5,14 +5,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/main.css">
-	<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-		crossorigin="anonymous">
-	<title>Admin</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/main.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+	crossorigin="anonymous">
+<title>Admin</title>
 
 </head>
 <body>
@@ -24,6 +24,8 @@
 	<div class="container">
 		<h1>Admin</h1>
 
+		<h3><a href="userAdmin.do">See Users</a></h3>
+		
 		<h3>All Trips</h3>
 
 		<table class="table">
@@ -52,10 +54,10 @@
 							<td><a href="updateThisTrip.do?id=${trip.id }">Update</a></td>
 							<c:choose>
 								<c:when test="${trip.enabled == true }">
-									<td><a href="archiveTrip.do?id=${trip.id }">Archive</a></td>
+									<td><a href="archiveTrip.do?id=${trip.id }">Archive Trip</a></td>
 								</c:when>
 								<c:otherwise>
-									<td><a href="unArchiveTrip.do?id=${trip.id }">Unarchive</a></td>
+									<td><a href="unArchiveTrip.do?id=${trip.id }">Unarchive Trip</a></td>
 								</c:otherwise>
 							</c:choose>
 						</tr>
