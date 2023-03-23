@@ -49,6 +49,11 @@
 			<div class="card mt-3 text-white">
 				<div class="card-body gradient-custom-2">
 					<h5 class="card-title">${userLogin.username}</h5>
+					<h5 class="card-title">${userLogin.firstName}</h5>
+					<h5 class="card-title">${userLogin.lastName}</h5>
+					<h5 class="card-title">${userLogin.emailAddress}</h5>
+					<h5 class="card-title">${userLogin.biography}</h5>
+					<br>
 					<table border="4px">
 						<tr>
 						</tr>

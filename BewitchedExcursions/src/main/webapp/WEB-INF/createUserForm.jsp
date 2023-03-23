@@ -32,9 +32,13 @@
 									<p class="small mb-0">Welcome to our vacation trip planner website! 
 														  <strong>Let's get to know you!
 														  		  
-														  		  What's your Username Traveler? 
+														  		 What's our new buddy's First Name?
+														  		 
+														  		 What's our new buddy's Last Name?
+														  		 
+														  		  What's our new buddy's Username? 
 														  		  
-														  		  What's your Email Traveler?
+														  		  What's our new buddy's Email?
 														  		  
 														  		  Give us a secret password, we wont tell anyone..
 														  		  </strong></p>
@@ -47,20 +51,20 @@
 										<img
 											src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
 											style="width: 185px;" alt="logo">
-										<h4 class="mt-1 mb-5 pb-1">Become a Bewitched Traveler...</h4>
+										<h4 class="mt-1 mb-5 pb-1">Become a buddy...</h4>
 									</div>
 									<form class="form-signin" action="register.do" method="POST">
-										 <!-- <div class="form-outline mb-4">
+										  <div class="form-outline mb-4">
+											<label class="form-label" for="firstName">First Name</label>
 											<input type="text" id="firstName" 
 												class="form-control" name="firstName"/> 
-											<label class="form-label" for="firstName">First Name</label>
-										</div> -->
+										</div> 
 
-										<!-- <div class="form-outline mb-4">
+										 <div class="form-outline mb-4">
+											<label class="form-label" for="lastName">Last Name</label>
 											<input type="text" id="lastName"
 												class="form-control" name="lastName"/> 
-											<label class="form-label" for="lastName">Last Name</label>
-										</div> -->
+										</div> 
  
 										<div class="form-outline mb-4">
 											<label class="form-label" for="username">Username:</label>
