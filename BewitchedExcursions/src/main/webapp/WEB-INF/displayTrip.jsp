@@ -50,6 +50,8 @@
 						<li>${review.user.username}:${review.comment}(Rating:
 							${review.rating})</li>
 					</c:forEach>
+					<label for="tripRatings">Trip Bar Rating</label>
+ 					<progress id="tripRatings" value="100" max="100">
 				</ul>
 				<!--  -->
 				<!--  -->
