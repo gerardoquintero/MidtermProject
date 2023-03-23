@@ -91,7 +91,7 @@
 										<td><a href="${viewTripUrl}">${trip.name}</a></td>
 										<td>${trip.startDate}</td>
 										<td>${trip.endDate}</td>
-										<td>${trip.organizer}</td>
+										<td>${trip.organizer.username}</td>
 									</tr>
 								</tbody>
 							</table>
