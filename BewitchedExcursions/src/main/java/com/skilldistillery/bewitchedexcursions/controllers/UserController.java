@@ -59,7 +59,7 @@ public class UserController {
 		}
 		return "home";
 	}
-
+ 
 
 	@RequestMapping(path = "createUserForm.do", method = RequestMethod.GET)
 	public String createUserForm(Model model, User user, HttpSession session) {

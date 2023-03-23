@@ -2,6 +2,7 @@ package com.skilldistillery.bewitchedexcursions.data;
 
 import java.util.List;
 
+import com.skilldistillery.bewitchedexcursions.entities.Trip;
 import com.skilldistillery.bewitchedexcursions.entities.User;
 
 public interface UserDAO {
@@ -24,5 +25,9 @@ public interface UserDAO {
 
 	List<User> searchUsers(String keyword);
 	public User addFriend(User user, int id);
+
+	public User unArchiveUser(int id);
+
+	public List<User> findAllUsersPlusArchive();
 
 }
