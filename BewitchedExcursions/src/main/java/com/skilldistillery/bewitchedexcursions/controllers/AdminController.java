@@ -132,12 +132,12 @@ public class AdminController {
 	
 	@RequestMapping(path = "showUser.do", method = RequestMethod.GET)
 	public String displayUser(Model model, User user, HttpSession session) {
-		model.addAttribute("user", userDao.getUserById(user.getId()));
+		model.addAttribute("users", userDao.findAllUsersPlusArchive());
 		User showUser = userDao.getUserById(user.getId());
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser != null) {
 		model.addAttribute("users", showUser);
-		return "redirect:profile.do";
+		return "profile";
 		}
 		return "home";
 	}

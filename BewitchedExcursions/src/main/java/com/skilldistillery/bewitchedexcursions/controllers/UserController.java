@@ -144,7 +144,7 @@ public class UserController {
 
 		userDao.addFriend(currentUser, otherUserId);
 
-		return "displayUsers";
+		return "profile";
 	}
 
 	@RequestMapping(path = "userUpdatesTrip.do", method = RequestMethod.GET)
