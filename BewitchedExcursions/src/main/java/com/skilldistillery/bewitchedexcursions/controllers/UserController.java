@@ -37,17 +37,17 @@ public class UserController {
 
 		return "home";
 	}
+
 	@RequestMapping(path = "userUpdateProfile.do", method = RequestMethod.GET)
 	public String updateUserProfile(User user, Model model, HttpSession session) {
 //			user = userDao.getUserById(user.getId());
-			User loggedInUser = (User) session.getAttribute("userLogin");
-			if (loggedInUser != null) {
-				loggedInUser = userDao.getUserById(loggedInUser.getId());
-				model.addAttribute("user", loggedInUser);
-				return "updateProfile";
-			}
-			return "error";
+		User loggedInUser = (User) session.getAttribute("userLogin");
+		if (loggedInUser != null) {
+			return "updateProfile";
+		}
+		return "error";
 	}
+
 	@RequestMapping(path = "updateProfileForm.do", method = RequestMethod.POST)
 	public String userUpdateProfileForm(User user, Model model, HttpSession session) {
 		User loggedInUser = (User) session.getAttribute("userLogin");
@@ -59,7 +59,6 @@ public class UserController {
 		}
 		return "home";
 	}
- 
 
 	@RequestMapping(path = "createUserForm.do", method = RequestMethod.GET)
 	public String createUserForm(Model model, User user, HttpSession session) {
@@ -68,7 +67,7 @@ public class UserController {
 
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
 	public String createUser(User user, Model model, String aString, HttpSession session) {
-		
+
 		model.addAttribute("trips", tripDao.findAllTrips());
 		user = userDao.createUser(user);
 		session.setAttribute("userLogin", user);
@@ -77,7 +76,7 @@ public class UserController {
 		addressDao.createAddress(address);
 		user.setUserAddress(address);
 		model.addAttribute("user", userDao.getAllUsers());
-		
+
 		return "profile";
 	}
 
@@ -94,15 +93,18 @@ public class UserController {
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String loginUser(HttpSession session, User user, Model model) {
-		if(user!= null) { 
+
+		user = userDao.login(user);
+		if (user != null) {
 			model.addAttribute("trips", tripDao.findAllTrips());
-			user = userDao.login(user);
 			session.setAttribute("userLogin", user);
 			LocalDateTime lt = LocalDateTime.now();
 			session.setAttribute("loginTime", lt);
 			return "profile";
+
 		}
-		return"error";
+
+		return "error";
 
 	}
 
@@ -110,20 +112,21 @@ public class UserController {
 	public String profile(HttpSession session, User user, Model model) {
 		User loggedInUser = (User) session.getAttribute("userLogin");
 		if (loggedInUser != null) {
-		model.addAttribute("trips", tripDao.findAllTrips());
-		return "profile";
+			model.addAttribute("trips", tripDao.findAllTrips());
+			return "profile";
 		}
 		return "error";
 
 	}
+
 	@RequestMapping(path = "viewFriend.do", method = RequestMethod.GET)
-	public String otherProfile( int otherUserId, Model model, User user) {
+	public String otherProfile(int otherUserId, Model model, User user) {
 		user = userDao.getUserById(otherUserId);
 		model.addAttribute("user", user);
 		model.addAttribute("trips", tripDao.findAllTripsByOrganizer(otherUserId));
-		
+
 		return "otherProfile";
-		
+
 	}
 
 	@RequestMapping(path = "search.do", method = RequestMethod.GET)
@@ -168,4 +171,3 @@ public class UserController {
 	}
 
 }
-

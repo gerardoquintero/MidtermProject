@@ -68,7 +68,7 @@
 		<!-- Column 3 -->
 		<div class="col-md-6">
 			<h3> Trips</h3>
-			${trips }
+		
 			<c:forEach var="trip" items="${trips}">
 				
 					<div class="card mt-3 gradient-custom-2 text-white">
@@ -90,7 +90,7 @@
 										<td><a href="${viewTripUrl}">${trip.name}</a></td>
 										<td>${trip.startDate}</td>
 										<td>${trip.endDate}</td>
-										<td>${trip.organizer}</td>
+										<td>${trip.organizer.username}</td>
 									</tr>
 								</tbody>
 							</table>
