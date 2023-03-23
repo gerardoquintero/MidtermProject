@@ -53,16 +53,16 @@
 							height=130 width=130></td>
 					</tr>
 					<h5 class="card-title">
-						<span>User Name:</span> ${userLogin.username}
+						<span>User Name:&nbsp</span> ${userLogin.username}
 					</h5>
 					<h5 class="card-title">
-						<span>First Name:</span>${userLogin.firstName}</h5>
+						<span>First Name:&nbsp</span>${userLogin.firstName}</h5>
 					<h5 class="card-title">
-						<span>Last Name:</span>${userLogin.lastName}</h5>
+						<span>Last Name:&nbsp</span>${userLogin.lastName}</h5>
 					<h5 class="card-title">
-						<span>Email:</span>${userLogin.emailAddress}</h5>
+						<span>Email:&nbsp</span>${userLogin.emailAddress}</h5>
 					<h5 class="card-title">
-						<span>Bio:</span>${userLogin.biography}</h5>
+						<span>Bio:&nbsp</span>${userLogin.biography}</h5>
 					<h5>
 						<span>Friends:</span>
 					</h5>

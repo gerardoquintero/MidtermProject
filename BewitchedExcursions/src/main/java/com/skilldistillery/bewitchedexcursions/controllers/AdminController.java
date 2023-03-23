@@ -104,7 +104,6 @@ public class AdminController {
 		if (loggedInUser.getId() == 1) {
 			user = userDao.updateUser(user);
 			session.setAttribute("users", updateUser);
-//			model.addAttribute("user", user);
 			return "redirect:userAdmin.do";
 		}
 		return "home";
