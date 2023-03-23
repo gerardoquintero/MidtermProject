@@ -22,11 +22,11 @@
 	</header>
 
 	<div class="container">
-		<h1>Admin</h1>
+		<h1 class="gradient-text2">Admin</h1>
 
 		<h3><a href="userAdmin.do">See Users</a></h3>
 		
-		<h3>All Trips</h3>
+		<h3 class="gradient-text2">All Trips</h3>
 
 		<table class="table">
 			<thead>

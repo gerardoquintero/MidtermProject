@@ -99,7 +99,7 @@ background-image: linear-gradient(167deg, #0093E9 0%, #80D0C7 100%);
 }
 .gradient-text2 {
 	background-image: 
-		linear-gradient(50deg, #403A3E, #BE5869);
+		linear-gradient(50deg, #8E0E00, #1F1C18);
 	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
