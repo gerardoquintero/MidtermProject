@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.bewitchedexcursions.data.PrivateMessageDAO;
 import com.skilldistillery.bewitchedexcursions.data.ReviewDAO;
@@ -40,8 +41,13 @@ public class ReviewAndMessagingController {
 		return mv;
 	}
 
+	@RequestMapping(path = "sendMessageRedirect.do", method = RequestMethod.GET)
+	public String sendMessageRedirect(Model model, HttpSession session, PrivateMessage message, String receiver) {
+		
+		return "messages";
+	}
 	@RequestMapping(path = "sendMessage.do", method = RequestMethod.POST)
-	public String sendMessage(Model model, HttpSession session, PrivateMessage message, String receiver) {
+	public String sendMessage(Model model, HttpSession session, PrivateMessage message, String receiver, RedirectAttributes redirectAttributes) {
 		
 		User user = (User)session.getAttribute("userLogin");
 		if(user== null) { 
@@ -52,8 +58,9 @@ public class ReviewAndMessagingController {
 		message.setReciever(recipient);
 		message.setEnabled(true);
 		pm.createPrivateMessage(message);
-		model.addAttribute("messages", pm.findPrivateMessagesBetweenUsers(user.getId(), recipient.getId()));
-		return "messages";
+		redirectAttributes.addFlashAttribute("messages", pm.findPrivateMessagesBetweenUsers(user.getId(), recipient.getId()));
+//		model.addAttribute("messages", pm.findPrivateMessagesBetweenUsers(user.getId(), recipient.getId()));
+		return "redirect:sendMessageRedirect.do";
 	}
 
 	@RequestMapping(path = "message.do", method = RequestMethod.GET)
