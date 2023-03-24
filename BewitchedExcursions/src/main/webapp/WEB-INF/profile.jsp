@@ -64,7 +64,7 @@
 					<h5 class="card-title">
 						<span>Bio:&nbsp</span>${userLogin.biography}</h5>
 					<h5>
-						<span>Friends:</span>
+						<span>Buds:</span>
 					</h5>
 					<c:forEach var="friend" items="${userLogin.friends }">
 						<h5 class="card-title">${friend.username}</h5>
