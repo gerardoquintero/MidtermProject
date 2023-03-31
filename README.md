@@ -4,7 +4,7 @@ Team Members and Roles:
 
 * Edwin Flatto (Data Base Administrator) + (Navigator) + (Driver)
 * Jerry Quintero (Repository Owner) + (Navigator) + (Driver)
-* Dominic Surina (Scrud Master) + (Navigator) + (Driver)
+* Dominic Surina (Scrum Master) + (Navigator) + (Driver)
 
 ## Overview
 
